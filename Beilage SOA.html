@@ -1,0 +1,29 @@
+{#each schueler as s}
+  <div class="page grid" orientation="portrait" size="A4">
+    <Seitenlogo logo="{privat.traegerLogo}"/>
+    <Pageheader art="daten/zeugnis.svg" logo="{privat.logo}" untertitel="{privat.untertitel}"/>
+    <div class="main">
+      Seite 2/2 des Abschlusszeugnisses für {s.anrede} {s.Vorname} {s.Zusatz || ''} {s.Name}
+      <Voffset v="2"/>
+      <SoaTabelle></SoaTabelle>
+    </div>
+    <div class="footer klein schulnummer">
+      Schulnummer: {schule.SchulNr}
+    </div>
+  </div>
+{/each}
+
+<script>
+  export default {
+    components: {
+      Seitenlogo: './partials/Seitenlogo.html',
+      Pageheader: './partials/Pageheader.html',
+      Voffset: './partials/Voffset.html',
+      SoaTabelle: './partials/SOA-Tabelle.html'
+    }
+  }
+</script>
+
+<style>
+  @import 'css/main.css';
+</style>

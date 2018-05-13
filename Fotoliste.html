@@ -1,0 +1,47 @@
+{#await fotos}
+{:then fotosFertig}
+  {#each R.lodash.chunk(schueler, 25) as slice}
+    <div class="page grid" orientation="portrait" size="A4">
+      <div class="main">
+        <h5>{slice[0].Klasse}</h5>
+        Stand: {datum}
+        <div class="grid">
+          {#each slice as s}
+            <div>
+              <img src="data:image/jpg;base64,{fotosFertig[s.ID]}" alt="Foto" style="width: 120px">
+              <br>
+              {s.Name}, {s.Vorname}
+            </div>
+          {/each}
+        </div>
+      </div>
+    </div>
+  {/each}
+{/await}
+
+<style>
+  @import 'css/main.css';
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 10px;
+  }
+</style>
+
+<script>
+  const SchuelerFoto = R.models.Schuelerfoto
+
+  export default {
+    computed: {
+      fotos: async ({schueler, knexConfig}) => {
+        SchuelerFoto.knex(R.knex(knexConfig))
+        const schuelerfotos = await SchuelerFoto.query().whereIn('Schueler_ID', schueler.map(s => s.ID))
+        return schuelerfotos.reduce(
+          (f, element) => ({...f, [element.Schueler_ID]: Buffer.from(element.Foto, 'binary').toString('base64')}),
+          {})
+      }
+    },
+    data () { return { datum: new Date().toLocaleDateString('de', {day: '2-digit', month: '2-digit', year: 'numeric'}) } },
+    helpers: { R },
+  }
+</script>
