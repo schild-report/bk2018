@@ -1,5 +1,5 @@
 {#each schueler as s (s.ID)}
-  {#each s.abschnitte.filter(aktHalbjahr) as hj (hj.ID)}
+  {#each s.abschnitte.filter(aktHalbjahr()) as hj (hj.ID)}
     <div class="page grid" orientation="portrait" size="A4">
       <div class="header">
         <Seitenlogo logo="{privat.traegerLogo}"/>
@@ -202,20 +202,15 @@
 
 <script>
   import { datum, versetzungsvermerk, volljaehrigBei, bemerkungen, bg }  from './helfer'
-  const _ = R.lodash
 
-	export default {
-    components: {
-      Seitenlogo: './partials/Seitenlogo.html',
-      Pageheader: './partials/Pageheader.html',
-      Voffset: './partials/Voffset.html',
-      Fussnote: './partials/Fussnoten.html'
-    },
-    helpers: { bg, datum, versetzungsvermerk, volljaehrigBei, bemerkungen, _ },
-    computed: {
-      aktHalbjahr: ({jahr, abschnitt}) => { return a => a.Jahr === jahr && a.Abschnitt === abschnitt }
-    }
-  }
+  import Seitenlogo from './partials/Seitenlogo.html'
+  import Pageheader from './partials/Pageheader.html'
+  import Voffset from './partials/Voffset.html'
+  import Fussnote from './partials/Fussnoten.html'
+
+  export let schueler, schule, privat, jahr, abschnitt
+  const _ = R.lodash
+  const aktHalbjahr = () => (a) => a.Jahr === jahr && a.Abschnitt === abschnitt
 </script>
 
 <style>

@@ -1,5 +1,5 @@
 {#each schueler as s (s.ID)}
-  {#each s.abschnitte.filter(aktHalbjahr) as hj (hj.ID)}
+  {#each s.abschnitte.filter(aktHalbjahr()) as hj (hj.ID)}
     <div class="page grid" orientation="landscape" size="A3">
       <div class="header">
         <Seitenlogo logo="{privat.traegerLogo}"/>
@@ -209,26 +209,21 @@
 
 <script>
   import { datum, versetzungsvermerk, volljaehrigBei, bemerkungen, bg, punkte2note, noteInWorten, fremdsprache }  from './helfer'
-  const _ = R.lodash
 
-	export default {
-    components: {
-      Seitenlogo: './partials/Seitenlogo.html',
-      Pageheader: './partials/Pageheader.html',
-      Voffset: './partials/Voffset.html',
-    },
-    helpers: { bg, datum, versetzungsvermerk, volljaehrigBei, bemerkungen, _, punkte2note, noteInWorten, fremdsprache,
-      fhrFach (s, fach, id) {
-        const pid = 'P1' + id
-        if (!fach[pid]) return
-        const fach2 = s.fhr_abschluss_faecher.find(f => f.Fach_ID === fach.Fach_ID)
-        const rsid = 'RSII_' + id
-        return fach2[rsid] === '+' ? fach[pid] : `(${fach[pid]})`
-      }
-    },
-    computed: {
-      aktHalbjahr: ({jahr, abschnitt}) => { return a => a.Jahr === jahr && a.Abschnitt === abschnitt }
-    }
+  import Seitenlogo from './partials/Seitenlogo.html'
+  import Pageheader from './partials/Pageheader.html'
+  import Voffset from './partials/Voffset.html'
+
+  export let schueler, schule, privat, jahr, abschnitt
+
+  const aktHalbjahr = () => (a) => a.Jahr === jahr && a.Abschnitt === abschnitt
+  const _ = R.lodash
+  const fhrFach = (s, fach, id) => {
+    const pid = 'P1' + id
+    if (!fach[pid]) return
+    const fach2 = s.fhr_abschluss_faecher.find(f => f.Fach_ID === fach.Fach_ID)
+    const rsid = 'RSII_' + id
+    return fach2[rsid] === '+' ? fach[pid] : `(${fach[pid]})`
   }
 </script>
 

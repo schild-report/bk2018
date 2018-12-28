@@ -56,14 +56,7 @@ notenstufen={false} -->
 </div>
 
 <script>
-  export default {
-    components: { Voffset: './Voffset.html' },
-    data () {
-      return {
-        notenstufen: true,
-        verordnung: true,
-        rechtsbehelfsbelehrung: true
-      }
-    }
-  }
+  export let schule, notenstufen, verordnung, rechtsbehelfsbelehrung = true
+  export let ger, bfs = false
+  import Voffset from './Voffset.html'
 </script>

@@ -1,5 +1,5 @@
 {#each schueler as s (s.ID)}
-  {#each s.abschnitte.filter(aktHalbjahr) as hj (hj.ID)}
+  {#each s.abschnitte.filter(aktHalbjahr()) as hj (hj.ID)}
     <div class="page grid" orientation="portrait" size="A4">
       <Seitenlogo logo="{privat.traegerLogo}"/>
       <Pageheader art="daten/zeugnis.svg" logo="{privat.logo}" untertitel="{privat.untertitel}"/>
@@ -11,7 +11,7 @@
           {bg(s, 'Bereich')}
         </div>
         <Voffset v="1"/>
-        <b>{s.anrede} {s.Vorname} {_.toString(s.Zusatz)} {s.Name},</b>
+        <b>{s.anrede} {s.Vorname} {s.Zusatz || ''} {s.Name},</b>
         <br />geboren am {datum(s.Geburtsdatum)} in {s.Geburtsort},<br />
         besuchte im Schuljahr {hj.schuljahr} die Klasse {hj.Klasse}
         <Voffset v="2"/>
@@ -47,21 +47,15 @@
 
 <script>
   import { datum, versetzungsvermerk, volljaehrigBei, bemerkungen, bg }  from './helfer'
-  const _ = R.lodash
 
-	export default {
-    components: {
-      Seitenlogo: './partials/Seitenlogo.html',
-      Pageheader: './partials/Pageheader.html',
-      Noten: './partials/Noten.html',
-      Fussnote: './partials/Fussnoten.html',
-      Voffset: './partials/Voffset.html'
-    },
-    helpers: { bg, datum, versetzungsvermerk, volljaehrigBei, bemerkungen, _ },
-    computed: {
-      aktHalbjahr: ({jahr, abschnitt}) => { return a => a.Jahr === jahr && a.Abschnitt === abschnitt }
-    }
-  }
+  import Seitenlogo from './partials/Seitenlogo.html'
+  import Pageheader from './partials/Pageheader.html'
+  import Voffset from './partials/Voffset.html'
+  import Noten from './partials/Noten.html'
+  import Fussnote from './partials/Fussnoten.html'
+
+  export let schueler, schule, privat, jahr, abschnitt
+  const aktHalbjahr = () => (a) => a.Jahr === jahr && a.Abschnitt === abschnitt
 </script>
 
 <style>

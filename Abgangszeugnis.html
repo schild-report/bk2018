@@ -1,5 +1,5 @@
 {#each schueler as s (s.ID)}
-  {#each s.abschnitte.filter(aktHalbjahr) as hj (hj.ID)}
+  {#each s.abschnitte.filter(aktHalbjahr()) as hj (hj.ID)}
     <div class="page grid" orientation="portrait" size="A4">
       <Seitenlogo logo="{privat.traegerLogo}"/>
       <Pageheader art="daten/agz.svg" logo="{privat.logo}" untertitel="{privat.untertitel}"/>
@@ -59,19 +59,14 @@
 <script>
   import { datum, versetzungsvermerk, volljaehrigBei, bemerkungen, bg }  from './helfer'
 
-  export default {
-    components: {
-      Seitenlogo: './partials/Seitenlogo.html',
-      Pageheader: './partials/Pageheader.html',
-      Noten: './partials/Noten.html',
-      Fussnote: './partials/Fussnoten.html',
-      Voffset: './partials/Voffset.html'
-    },
-    helpers: { bg, datum, versetzungsvermerk, volljaehrigBei, bemerkungen },
-    computed: {
-      aktHalbjahr: ({jahr, abschnitt}) => { return a => a.Jahr === jahr && a.Abschnitt === abschnitt }
-    }
-  }
+  import Seitenlogo from './partials/Seitenlogo.html'
+  import Pageheader from './partials/Pageheader.html'
+  import Voffset from './partials/Voffset.html'
+  import Noten from './partials/Noten.html'
+  import Fussnote from './partials/Fussnoten.html'
+
+  export let schueler, schule, privat, jahr, abschnitt
+  const aktHalbjahr = () => (a) => a.Jahr === jahr && a.Abschnitt === abschnitt
 </script>
 
 <style>

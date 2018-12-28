@@ -14,14 +14,11 @@
 {/each}
 
 <script>
-  export default {
-    components: {
-      Seitenlogo: './partials/Seitenlogo.html',
-      Pageheader: './partials/Pageheader.html',
-      Voffset: './partials/Voffset.html',
-      SoaTabelle: './partials/SOA-Tabelle.html'
-    }
-  }
+  export let schueler, schule, privat
+  import Seitenlogo from './partials/Seitenlogo.html'
+  import Pageheader from './partials/Pageheader.html'
+  import Voffset from './partials/Voffset.html'
+  import SoaTabelle from './partials/SOA-Tabelle.html'
 </script>
 
 <style>
