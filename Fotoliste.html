@@ -1,14 +1,14 @@
-{#await fotos}
-{:then fotosFertig}
-  {#each R.lodash.chunk(schueler, 25) as slice}
+{#await promise}
+{:then fotos}
+  {#each _.chunk(fotos, 25) as slice}
     <div class="page grid" orientation="portrait" size="A4">
       <div class="main">
         <h5>{slice[0].Klasse}</h5>
-        Stand: {datum}
+        Stand: {datum(new Date())}
         <div class="grid">
-          {#each slice as s}
+          {#each slice as s,i}
             <div>
-              <img src="data:image/jpg;base64,{fotosFertig[s.ID]}" alt="Foto" style="width: 120px">
+              <img src="data:image/jpg;base64,{buffer(s.schuelerfoto.Foto)}" alt="Foto" style="width: 120px">
               <br>
               {s.Name}, {s.Vorname}
             </div>
@@ -19,6 +19,22 @@
   {/each}
 {/await}
 
+<script>
+  import { beforeUpdate } from 'svelte'
+  import { datum } from './helfer'
+  export let schueler, knexConfig
+  const SchuelerFoto = R.models.Schueler
+  const _ = R.lodash
+  let promise
+
+  SchuelerFoto.knex(R.knex(knexConfig))
+  const buffer = (d) => Buffer.from(d, 'binary').toString('base64')
+  // laut @rich_harris sollte *promise* auch ohne `beforeUpdate` aktualisiert werden.
+  beforeUpdate(() => {
+    promise = SchuelerFoto.query().whereIn('ID', schueler.map(s => s.ID)).eager('[schuelerfoto]')
+  })
+</script>
+
 <style>
   @import 'css/main.css';
   .grid {
@@ -27,21 +43,3 @@
     grid-gap: 10px;
   }
 </style>
-
-<script>
-  const SchuelerFoto = R.models.Schuelerfoto
-
-  export default {
-    computed: {
-      fotos: async ({schueler, knexConfig}) => {
-        SchuelerFoto.knex(R.knex(knexConfig))
-        const schuelerfotos = await SchuelerFoto.query().whereIn('Schueler_ID', schueler.map(s => s.ID))
-        return schuelerfotos.reduce(
-          (f, element) => ({...f, [element.Schueler_ID]: Buffer.from(element.Foto, 'binary').toString('base64')}),
-          {})
-      }
-    },
-    data () { return { datum: new Date().toLocaleDateString('de', {day: '2-digit', month: '2-digit', year: 'numeric'}) } },
-    helpers: { R },
-  }
-</script>
