@@ -6,9 +6,9 @@
         <h5>{slice[0].Klasse}</h5>
         Stand: {datum(new Date())}
         <div class="grid">
-          {#each slice as s,i}
+          {#each slice as s}
             <div>
-              <img src="data:image/jpg;base64,{buffer(s.schuelerfoto.Foto)}" alt="Foto" style="width: 120px">
+              <img src="data:image/jpg;base64,{s && buffer(s.schuelerfoto.Foto)}" alt="Foto" style="width: 120px">
               <br>
               {s.Name}, {s.Vorname}
             </div>
