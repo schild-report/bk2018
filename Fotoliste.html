@@ -23,11 +23,11 @@
   import { beforeUpdate } from 'svelte'
   import { datum } from './helfer'
   export let schueler, knexConfig
-  const SchuelerFoto = R.models.Schueler
-  const _ = R.lodash
+  const SchuelerFoto = R('models').Schueler
+  const _ = R('lodash')
   let promise
 
-  SchuelerFoto.knex(R.knex(knexConfig))
+  SchuelerFoto.knex(R('knex')(knexConfig))
   const buffer = (d) => Buffer.from(d, 'binary').toString('base64')
   // laut @rich_harris sollte *promise* auch ohne `beforeUpdate` aktualisiert werden.
   beforeUpdate(() => {

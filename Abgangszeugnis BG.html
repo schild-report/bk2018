@@ -1,5 +1,5 @@
 {#each schueler as s (s.ID)}
-  {#each s.abschnitte.filter(aktHalbjahr()) as hj (hj.ID)}
+  {#each aktHalbjahrFuer(s) as hj (hj.ID)}
     <div class="page grid" orientation="landscape" size="A3">
       <div class="header">
         <Seitenlogo logo="{privat.traegerLogo}"/>
@@ -36,7 +36,7 @@
               <td class="text-center">Note</td>
               <td class="text-center">Punkte</td>
             </tr>
-            {#each _.sortBy(s.abi_abschluss_faecher, f => f.FSortierung) as f}
+            {#each s.abi_abschluss_faecher.sort((a, b) => a.FSortierung < b.FSortierung ? -1 : 1) as f}
               <tr>
                 <td>{f.fach.Bezeichnung}
                   {#if f.fach.IstSprache === '+'}{fremdsprache(f, s.fachklasse.Kennung)}<sup>1</sup>{/if}
@@ -215,9 +215,9 @@
   import Voffset from './partials/Voffset.html'
 
   export let schueler, schule, privat, jahr, abschnitt
+  let aktHalbjahrFuer
+  $: aktHalbjahrFuer = (s) => [s.abschnitte.find(a => a.Jahr === jahr && a.Abschnitt === abschnitt)]
 
-  const aktHalbjahr = () => (a) => a.Jahr === jahr && a.Abschnitt === abschnitt
-  const _ = R.lodash
   const fhrFach = (s, fach, id) => {
     const pid = 'P1' + id
     if (!fach[pid]) return

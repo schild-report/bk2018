@@ -28,12 +28,12 @@
             <td class="text-center">13.1</td>
             <td class="text-center">13.2</td>
           </tr>
-          {#each _.sortBy(s.abi_abschluss_faecher, f => f.fach.Sortierung) as f}
+          {#each s.abi_abschluss_faecher.sort((a, b) => a.FSortierung < b.FSortierung ? -1 : 1) as f}
             <tr>
               <td>{f.fach.Bezeichnung}</td>
               <td class="text-center">{'I'.repeat(f.fach.Aufgabenfeld)}</td>
               <td class="text-center">{f.AbiFach || ''}</td>
-              <td class="text-center">{_.inRange(parseInt(f.AbiFach), 1, 3) || f.FachKrz === 'DM' ? '+' : ''}
+              <td class="text-center">{(parseInt(f.AbiFach) > 0 && parseInt(f.AbiFach) < 4) || f.FachKrz === 'DM' ? '+' : ''}
               <td class="text-center">{f.P12_1 || '–'}</td>
               <td class="text-center">{f.P12_2 || '–'}</td>
               <td class="text-center">{f.P13_1 || '–'}</td>
@@ -209,7 +209,6 @@
   import Fussnote from './partials/Fussnoten.html'
 
   export let schueler, schule, privat, jahr, abschnitt
-  const _ = R.lodash
   const aktHalbjahr = () => (a) => a.Jahr === jahr && a.Abschnitt === abschnitt
 </script>
 

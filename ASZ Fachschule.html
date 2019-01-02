@@ -1,5 +1,5 @@
-{#each schueler as s}
-  {#each aktHalbjahrFuer(s) as hj}
+{#each schueler as s (s.ID)}
+  {#each aktHalbjahrFuer(s) as hj (hj.ID)}
     <div class="page grid" orientation="landscape" size="A3">
       <Seitenlogo logo="{privat.traegerLogo}"/>
       <Pageheader art="daten/asz.svg" logo="{privat.logo}" untertitel="{privat.untertitel}"/>
@@ -39,7 +39,7 @@
                 <tr>
                   <td width="22%">{as.fach.Zeugnisbez}</td>
                   <td class="td-padding-extra">{findeFach(hj, as).Lernentw}</td>
-                  <td class="td-fach-note"><span>{as.NoteAbschluss}</span></td>
+                  <td class="td-fach-note"><span>{note(as.NoteAbschluss)}</span></td>
                 </tr>
               {/each}
             </table>
@@ -47,15 +47,15 @@
             <table class="table-noten" width="100%">
               <tr>
                 <td>{s.bk_abschluss_faecher.find(f => f.fach.FachKrz === 'BLgesamt').fach.Zeugnisbez}</td>
-                <td class="td-fach-note"><span>{s.bk_abschluss_faecher.find(f => f.FachKrz === 'BLgesamt').NoteAbschluss}</span></td>
+                <td class="td-fach-note"><span>{note(s.bk_abschluss_faecher.find(f => f.FachKrz === 'BLgesamt').NoteAbschluss)}</span></td>
               </tr>
               <tr>
                 <td>{s.bk_abschluss_faecher.find(f => f.fach.FachKrz === 'KO').fach.Zeugnisbez}</td>
-                <td class="td-fach-note"><span>{s.bk_abschluss_faecher.find(f => f.FachKrz === 'KO').NoteAbschluss}</span></td>
+                <td class="td-fach-note"><span>{note(s.bk_abschluss_faecher.find(f => f.FachKrz === 'KO').NoteAbschluss)}</span></td>
               </tr>
               <tr>
                 <td><b>{s.bk_abschluss_faecher.find(f => f.fach.FachKrz === 'BPgesamt').fach.Zeugnisbez}</b></td>
-                <td class="td-fach-note"><span>{s.bk_abschluss_faecher.find(f => f.FachKrz === 'BPgesamt').NoteAbschluss}</span></td>
+                <td class="td-fach-note"><span>{note(s.bk_abschluss_faecher.find(f => f.FachKrz === 'BPgesamt').NoteAbschluss)}</span></td>
               </tr>
             </table>
             <Voffset v="4"/>
@@ -133,7 +133,7 @@
 {/each}
 
 <script>
-  import { datum, volljaehrigBei, bemerkungen, bg }  from './helfer'
+  import { datum, volljaehrigBei, bemerkungen, bg, note }  from './helfer'
 
   import Seitenlogo from './partials/Seitenlogo.html'
   import Pageheader from './partials/Pageheader.html'

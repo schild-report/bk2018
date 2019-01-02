@@ -63,14 +63,13 @@ faechergruppenIds: legt fest, welche Fächergruppen gezogen werden sollen. Stand
 
 <script>
   import { gruppenIds } from './gruppenIDs'
-  import { note, fremdsprache } from '../helfer'
-  const _ = R.lodash
+  import { note, fremdsprache, groupBy } from '../helfer'
 
   export let lernfeld, ger = false
   export let faechergruppenIds = []
   export let noten, fachGliederungen, fachklasse
   const gruppenbezeichnung = gruppe => gruppenIds[gruppe]
-  const lernbereicheUndFaecher = gruppenFaecher => Object.entries(_.groupBy(gruppenFaecher, f => f.fach.Bezeichnung))
+  const lernbereicheUndFaecher = gruppenFaecher => [...groupBy(gruppenFaecher, 'fach.Bezeichnung').entries()]
   const faechergruppen = () => {
     // noten werden im jeweiligen Dokument über das *noten*-Attribut mitgegeben.
     // z.B. die Abschnittsnote oder die Noten aus *s.bk_abschluss_faecher* und co.
@@ -87,13 +86,10 @@ faechergruppenIds: legt fest, welche Fächergruppen gezogen werden sollen. Stand
       : faecher.filter(f => faechergruppenIds.find(id => f.fach.Fachgruppe_ID === id))
     // erstmal alle Fächer sortieren in der passenden Reihenfolge,
     // dann nach Fachgruppe gruppieren
-    return Object.entries(_.groupBy(_.sortBy(faecherBereinigt, f => f.fach.SortierungS2), f => f.fach.Fachgruppe_ID))
+    const sortiert = faecherBereinigt.sort((a, b) => a.fach.SortierungS2 < b.fach.SortierungS2 ? 1 : -1)
+    const gruppiert = groupBy(sortiert, 'fach.Fachgruppe_ID')
+    return [...gruppiert.entries()]
   }
-    // Berufsbezogen kommt neuerdings zuerst, dann berufsübergreifend
-    // wenn aber nur eine Note vermerkt ist, dann normal zurück
-    // const faechergruppenUmsortiert = () => faechergruppen.length > 1
-    //       ? [faechergruppen[0], faechergruppen[1]] = [faechergruppen[1], faechergruppen[0]]
-    //       : faechergruppen
 </script>
 
 <style>
