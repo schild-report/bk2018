@@ -45,18 +45,12 @@
             </table>
             <Voffset v="1"/>
             <table class="table-noten" width="100%">
+              {#each s.bk_abschluss_faecher.filter(f => ['BLgesamt', 'KO', 'BPgesamt'].some(n => n === f.fach.FachKrz)) as f}
               <tr>
-                <td>{s.bk_abschluss_faecher.find(f => f.fach.FachKrz === 'BLgesamt').fach.Zeugnisbez}</td>
-                <td class="td-fach-note"><span>{note(s.bk_abschluss_faecher.find(f => f.FachKrz === 'BLgesamt').NoteAbschluss)}</span></td>
+                <td class="{f.fach.FachKrz === 'BPgesamt' ? 'fett' : ''}">{f.fach.Zeugnisbez}</td>
+                <td class="td-fach-note"><span>{note(f.NoteAbschluss)}</span></td>
               </tr>
-              <tr>
-                <td>{s.bk_abschluss_faecher.find(f => f.fach.FachKrz === 'KO').fach.Zeugnisbez}</td>
-                <td class="td-fach-note"><span>{note(s.bk_abschluss_faecher.find(f => f.FachKrz === 'KO').NoteAbschluss)}</span></td>
-              </tr>
-              <tr>
-                <td><b>{s.bk_abschluss_faecher.find(f => f.fach.FachKrz === 'BPgesamt').fach.Zeugnisbez}</b></td>
-                <td class="td-fach-note"><span>{note(s.bk_abschluss_faecher.find(f => f.FachKrz === 'BPgesamt').NoteAbschluss)}</span></td>
-              </tr>
+              {/each}
             </table>
             <Voffset v="4"/>
             {s.anrede} {s.Vorname} {s.Zusatz || ''} {s.Name} ist berechtigt, die Berufsbezeichnung
@@ -142,7 +136,7 @@
 
   export let schueler, schule, privat, jahr, abschnitt
   let aktHalbjahrFuer
-  $: aktHalbjahrFuer = (s) => [s.abschnitte.find(a => a.Jahr === jahr && a.Abschnitt === abschnitt)]
+  $: aktHalbjahrFuer = (s) => s.abschnitte.filter(a => a.Jahr === jahr && a.Abschnitt === abschnitt)
   const findeFach = (hj, as) => hj.noten.find(n => n.fach.ID === as.fach.ID) || { Lernentw: 'undefined' }
 </script>
 
