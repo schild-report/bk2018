@@ -1,5 +1,4 @@
-{#await promise}
-{:then fotos}
+{#await promise then fotos}
   {#each _.chunk(fotos, 25) as slice}
     <div class="page grid" orientation="portrait" size="A4">
       <div class="main">
@@ -29,10 +28,7 @@
 
   SchuelerFoto.knex(R('knex')(knexConfig))
   const buffer = (d) => Buffer.from(d, 'binary').toString('base64')
-  // laut @rich_harris sollte *promise* auch ohne `beforeUpdate` aktualisiert werden.
-  beforeUpdate(() => {
-    promise = SchuelerFoto.query().whereIn('ID', schueler.map(s => s.ID)).eager('[schuelerfoto]')
-  })
+  $: promise = SchuelerFoto.query().whereIn('ID', schueler.map(s => s.ID)).eager('[schuelerfoto]')
 </script>
 
 <style>

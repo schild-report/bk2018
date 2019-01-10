@@ -32,7 +32,7 @@ faechergruppenIds: legt fest, welche Fächergruppen gezogen werden sollen. Stand
       {#if lernbereich != faecher[0].fach.Zeugnisbez}
         <tr><td colspan="2" class="{lernfeld ? '' : 'fach-bezeichnung'}">{lernbereich}</td></tr>
       {/if}
-      {#each faecher as f (f.ID)}
+      {#each faecher.reverse() as f (f.ID)}
         {#if f.fach.AufZeugnis === '+'}
           <tr>
             <td class="{lernfeld ? '' : 'fach-bezeichnung'} {lernbereich != faecher[0].fach.Zeugnisbez ? 'lernfeld-lernbereich' : ''}">
@@ -68,8 +68,6 @@ faechergruppenIds: legt fest, welche Fächergruppen gezogen werden sollen. Stand
   export let lernfeld, ger = false
   export let faechergruppenIds = []
   export let noten, fachGliederungen, fachklasse
-  const gruppenbezeichnung = gruppe => gruppenIds[gruppe]
-  const lernbereicheUndFaecher = gruppenFaecher => [...groupBy(gruppenFaecher, 'fach.Bezeichnung').entries()]
   const faechergruppen = () => {
     // noten werden im jeweiligen Dokument über das *noten*-Attribut mitgegeben.
     // z.B. die Abschnittsnote oder die Noten aus *s.bk_abschluss_faecher* und co.
@@ -88,8 +86,10 @@ faechergruppenIds: legt fest, welche Fächergruppen gezogen werden sollen. Stand
     // dann nach Fachgruppe gruppieren
     const sortiert = faecherBereinigt.sort((a, b) => a.fach.SortierungS2 < b.fach.SortierungS2 ? 1 : -1)
     const gruppiert = groupBy(sortiert, 'fach.Fachgruppe_ID')
-    return [...gruppiert.entries()]
+    return [...gruppiert.entries()].reverse()
   }
+  const gruppenbezeichnung = gruppe => gruppenIds[gruppe]
+  const lernbereicheUndFaecher = gruppenFaecher => [...groupBy(gruppenFaecher, 'fach.Bezeichnung').entries()].reverse()
 </script>
 
 <style>
