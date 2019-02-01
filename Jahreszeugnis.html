@@ -28,7 +28,7 @@
         <Noten noten={hj.noten} fachGliederungen={s.fachklasse.fach_gliederungen}></Noten>
         <hr />
         {#if !s.ASDSchulform.startsWith('E')}
-          Fehlstunden: {Number(hj.SumFehlStd) || 0}{#if Number(hj.SumFehlStdU) > 0}, davon unentschuldigt: {hj.SumFehlStdU}
+          Fehlstunden: {Number(hj.SumFehlStd) || 0}{#if Number(hj.SumFehlStd) > 0}, davon unentschuldigt: {hj.SumFehlStdU || 0}
             <Voffset v="1"/>
           {/if}
         {/if}
@@ -54,7 +54,7 @@
           <div class="col text-center klein">
           <Voffset v="3"/>
             <hr />
-            {hj.v_name_klassenlehrer}<br />{hj.klassenlehrer_in}
+            {hj.lehrer.Vorname} {hj.lehrer.Nachname}<br />{hj.klassenlehrer_in}
           </div>
         </div>
         <div class="flex-grid">

@@ -24,19 +24,19 @@ export const datum = (t) => {
     return new Date(t).toLocaleDateString('de', {day: '2-digit', month: '2-digit', year: 'numeric'})
   } catch (e) {console.log(e); return}
 }
-export const versetzungsvermerk = (s, hj, agz = null) => {
+export const versetzungsvermerk = (s=null, hj, agz = null) => {
   // gibt, wenn vorhanden den passenden Vermerk zurück
   // wenn es ein agz ist und kein Konferenzdatum feststeht
   if (agz && !hj.Konferenzdatum) return
   let vermerk = ''
-  if (hj.Abschnitt === 2 || s.Klasse.startsWith('H')) {
+  if (hj.Abschnitt === 2 || hj.Klasse.startsWith('H')) {
+    console.log(hj.VersetzungKrz)
     switch (hj.VersetzungKrz) {
-      case 'N': vermerk = `Nicht versetzt laut Konferenzbeschluss vom ${datum(hj.Konferenzdatum)}`
-      case 'V': vermerk = `Versetzt laut Konferenzbeschluss vom ${datum(hj.Konferenzdatum)}`
-      default:  vermerk = 'Kein Versetzungsvermerk hinterlegt'
+      case 'N': return `Nicht versetzt laut Konferenzbeschluss vom ${datum(hj.Konferenzdatum)}`
+      case 'V': return `Versetzt laut Konferenzbeschluss vom ${datum(hj.Konferenzdatum)}`
+      default:  return 'Kein Versetzungsvermerk hinterlegt'
     }
   }
-  return vermerk
 }
 export const bemerkungen = (hj) => hj.ZeugnisBem ? hj.ZeugnisBem.replace('\r\n', '<br/>') : 'keine'
 export const volljaehrigBei = (s, datum) => {
