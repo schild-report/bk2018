@@ -19,7 +19,9 @@
             <td rowspan="2">Fach<sup>1</sup></td>
             <td rowspan="2" width="20px">Aufg.- feld<sup>2</sup></td>
             <td rowspan="2" width="20px">Abitur- fach<sup>3</sup></td>
-            <td rowspan="2" width="20px">Fach der Berufs- abschlussprüfung</td>
+            {#if s.ASDSchulform === 'D01'}
+              <td rowspan="2" width="20px">Fach der Berufs- abschlussprüfung</td>
+            {/if}
             <td colspan="4">Leistungen im Halbjahr<sup>4, 5</sup></td>
           </tr>
           <tr>
@@ -33,7 +35,9 @@
               <td>{f.fach.Zeugnisbez}</td>
               <td class="text-center">{'I'.repeat(f.fach.Aufgabenfeld)}</td>
               <td class="text-center">{f.AbiFach || ''}</td>
-              <td class="text-center">{(parseInt(f.AbiFach) > 0 && parseInt(f.AbiFach) < 4) || f.FachKrz === 'DM' ? '+' : ''}
+              {#if s.ASDSchulform === 'D01'}
+                <td class="text-center">{(parseInt(f.AbiFach) > 0 && parseInt(f.AbiFach) < 4) || f.FachKrz === 'DM' ? '+' : ''}</td>
+              {/if}
               <td class="text-center">{f.P12_1 || '–'}</td>
               <td class="text-center">{f.P12_2 || '–'}</td>
               <td class="text-center">{f.P13_1 || '–'}</td>
