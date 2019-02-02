@@ -19,7 +19,7 @@
         <br />geboren am {datum(s.Geburtsdatum)} in {s.Geburtsort},<br />
         war vom {datum(s.BeginnBildungsgang)} bis {datum(s.Entlassdatum)} {s.schueler_in}
         des Bildungsgangs {bg(s, 'Zeugniskopf')}.
-        {s.Geschlecht === 3 ? 'Er':'Sie'} war zuletzt {s.schueler_in} in der Klasse {s.Klasse}.
+        <br>{s.Geschlecht === 3 ? 'Er':'Sie'} war zuletzt {s.schueler_in} in der Klasse {s.Klasse}.
         <Voffset v="2"/>
         Leistungen laut Konferenzbeschluss vom {datum(hj.Konferenzdatum)}:
         <Noten
@@ -30,7 +30,7 @@
         ></Noten>
         <hr />
         <Voffset v="1"/>
-        <b>{versetzungsvermerk(s,hj, true)}</b>
+        <b>{versetzungsvermerk(hj, true)}</b>
         <Voffset v="1"/>
         <b>Bemerkungen</b><br />{@html bemerkungen(hj)}
       </div>
