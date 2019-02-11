@@ -71,7 +71,11 @@
         <Voffset v="0.5"/>
         {#if s.abi_abschluss_faecher.some(f => [f.P12_1, f.P12_2, f.P13_1, f.P13_2].some(ff => parseInt(ff) < 5 && parseInt(ff) > 0))}
           Ihre Schullaufbahn weist Defizite auf, durch die die Zulassung zur
-          Abiturprüfung und zur Berufsabschlussprüfung gefährdet wird.
+          Abiturprüfung
+          {#if s.ASDSchulform === 'D01'}
+            und zur Berufsabschlussprüfung
+          {/if}
+          gefährdet wird.
         {/if}
         <Voffset v="0.5"/>
         <b>Bemerkungen:</b> {@html bemerkungen(hj)}

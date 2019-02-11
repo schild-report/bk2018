@@ -1,4 +1,5 @@
-{#await promise then fotos}
+{#await promise}Fotos kommen…
+{:then fotos}
   {#each _.chunk(fotos, 25) as slice}
     <div class="page grid" orientation="portrait" size="A4">
       <div class="main">
@@ -16,6 +17,7 @@
       </div>
     </div>
   {/each}
+{:catch error}Fehler
 {/await}
 
 <script>
@@ -24,7 +26,6 @@
   export let schueler, knexConfig
   const SchuelerFoto = R('models').Schueler
   const _ = R('lodash')
-  let promise
 
   SchuelerFoto.knex(R('knex')(knexConfig))
   const buffer = (d) => Buffer.from(d, 'binary').toString('base64')
