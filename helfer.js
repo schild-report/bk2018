@@ -11,6 +11,7 @@ const punkte = {
              0: '6' }
 const zahlwort = { 1: "eins",2: "zwei",3: "drei",4: "vier",5: "fünf",6: "sechs",7: "sieben",8: "acht",9: "neun",0: "null" }
 
+// Verzichten wir auf teure lodash-Funktionen:
 export const groupBy = (arr, id) => arr.reduce(
   (entryMap, f) => {
     const fx = id.split('.').reduce((p,c)=>p&&p[c]||null, f)
@@ -18,6 +19,10 @@ export const groupBy = (arr, id) => arr.reduce(
   },
   new Map()
 )
+export const chunk = (arr, size) => arr.reduce((chunks, el, i) => (i % size
+    ? chunks[chunks.length - 1].push(el)
+    : chunks.push([el])) && chunks, [])
+
 export const datum = (t) => {
   // gibt ein Datum im deutschen Format zurück
   try {

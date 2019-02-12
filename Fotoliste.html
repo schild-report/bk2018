@@ -1,14 +1,18 @@
 {#await promise}Fotos kommen…
 {:then fotos}
-  {#each _.chunk(fotos, 25) as slice}
+  {#each chunk(fotos, 25) as slice}
     <div class="page grid" orientation="portrait" size="A4">
       <div class="main">
-        <h5>{slice[0].Klasse}</h5>
+        <b>{slice[0].Klasse}</b>
         Stand: {datum(new Date())}
-        <div class="grid">
+        <div class="grid" style="font-size: 0.8rem">
           {#each slice as s}
             <div>
-              <img src="data:image/jpg;base64,{s && buffer(s.schuelerfoto.Foto)}" alt="Foto" style="width: 120px">
+              {#if s.schuelerfoto}
+                <img src="data:image/jpg;base64,{buffer(s.schuelerfoto.Foto)}" alt="Foto" style="width: 120px">
+              {:else}
+                Kein Foto
+              {/if}
               <br>
               {s.Name}, {s.Vorname}
             </div>
@@ -21,15 +25,13 @@
 {/await}
 
 <script>
-  import { beforeUpdate } from 'svelte'
-  import { datum } from './helfer'
+  import { datum, chunk } from './helfer'
   export let schueler, knexConfig
   const SchuelerFoto = R('models').Schueler
-  const _ = R('lodash')
 
   SchuelerFoto.knex(R('knex')(knexConfig))
   const buffer = (d) => Buffer.from(d, 'binary').toString('base64')
-  $: promise = SchuelerFoto.query().whereIn('ID', schueler.map(s => s.ID)).eager('[schuelerfoto]')
+  $: promise = SchuelerFoto.query().whereIn('ID', schueler.map(s => s.ID)).eager('[schuelerfoto]').orderBy('Name')
 </script>
 
 <style>
