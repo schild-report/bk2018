@@ -21,7 +21,7 @@ export const groupBy = (arr, id) => arr.reduce(
 export const datum = (t) => {
   // gibt ein Datum im deutschen Format zurück
   try {
-    return new Date(t).toLocaleDateString('de', {day: '2-digit', month: '2-digit', year: 'numeric'})
+    return new Date(t).toLocaleDateString('de', {day: '2-digit', month: '2-digit', year: 'numeric', timeZone: 'Europe/Berlin'})
   } catch (e) {console.log(e); return}
 }
 export const versetzungsvermerk = (hj, agz = null) => {
