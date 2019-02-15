@@ -33,13 +33,11 @@ export const versetzungsvermerk = (hj, agz = null) => {
   // gibt, wenn vorhanden den passenden Vermerk zurück
   // wenn es ein agz ist und kein Konferenzdatum feststeht
   if (agz && !hj.Konferenzdatum) return ''
-  let vermerk = ''
   if (hj.Abschnitt === 2 || hj.Klasse.startsWith('H')) {
-    console.log(hj.VersetzungKrz)
     switch (hj.VersetzungKrz) {
       case 'N': return `Nicht versetzt laut Konferenzbeschluss vom ${datum(hj.Konferenzdatum)}`
       case 'V': return `Versetzt laut Konferenzbeschluss vom ${datum(hj.Konferenzdatum)}`
-      default:  return 'Kein Versetzungsvermerk hinterlegt'
+      default:  return undefined
     }
   }
   return ''
