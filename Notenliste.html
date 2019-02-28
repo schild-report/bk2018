@@ -1,8 +1,8 @@
-{#each _.chunk(schueler, anzahl) as slice, i}
+{#each chunk(schueler, anzahl) as slice, i}
   <div class="page grid" orientation="landscape" size="A3" style="font-size: 1.1rem">
     <div class="header">
       <pre>
-        Konferenzliste <b>{klasse.Klasse}</b> &Tab; {aktAbschnitt().klassenlehrer_in}: <b>{`${aktAbschnitt().lehrer.Vorname} ${aktAbschnitt().lehrer.Nachname} (${aktAbschnitt().lehrer.Kuerzel})`}</b> &Tab; Stand: {heute()} &Tab; Konferenzdatum: {datum(aktAbschnitt().Konferenzdatum)} &Tab; Zeugnisdatum: {datum(aktAbschnitt().ZeugnisDatum)}
+        Konferenzliste <b>{klasse.Klasse || schueler[0].Klasse}</b> &Tab; {aktAbschnitt().klassenlehrer_in}: <b>{`${aktAbschnitt().lehrer.Vorname} ${aktAbschnitt().lehrer.Nachname} (${aktAbschnitt().lehrer.Kuerzel})`}</b> &Tab; Stand: {heute()} &Tab; Konferenzdatum: {datum(aktAbschnitt().Konferenzdatum)} &Tab; Zeugnisdatum: {datum(aktAbschnitt().ZeugnisDatum)}
       </pre>
     </div>
     <div class="main">
@@ -38,24 +38,21 @@
 {/each}
 
 <script>
-  import { datum }  from './helfer'
+  import { datum, chunk }  from './helfer'
 
   import Voffset from './partials/Voffset.html'
 
   export let schueler, schule, privat, jahr, abschnitt, klasse
-  const aktHalbjahr = (a) => a.Jahr === jahr && a.Abschnitt === abschnitt
+  $: aktHalbjahr = (a) => a.Jahr === jahr && a.Abschnitt === abschnitt
   const _  = R('lodash')
   const heute = () => new Date().toLocaleDateString('de', {day: '2-digit', month: '2-digit', year: 'numeric'})
   const anzahl = 25
-  let aktAbschnitt
   $: aktAbschnitt = () => schueler[0].abschnitte.slice(-1)[0]
-  let faecher
   $: faecher = () => {
     let faecher = new Set
     schueler.forEach(s => s.abschnitte.find(aktHalbjahr).noten.forEach(n => {faecher.add(n.fach.FachKrz)}))
     return faecher
   }
-  let noten
   $: noten = () => {
     let noten = {}
     faecher().forEach(f => {noten[f] = []})

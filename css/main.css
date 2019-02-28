@@ -25,7 +25,9 @@
 
 @media screen {
   .page {
-    border: 1px solid black;
+    box-sizing: border-box;
+    border: 1px solid black !important;
+    margin: 20px;
     box-shadow: 5px 5px 4px 0 silver;
   }
 }

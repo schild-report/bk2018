@@ -1,5 +1,5 @@
 {#each schueler as s (s.ID)}
-  {#each s.abschnitte.filter(aktHalbjahr()) as hj (hj.ID)}
+  {#each s.abschnitte.filter(aktHalbjahr) as hj (hj.ID)}
     <div class="page grid" orientation="portrait" size="A4">
       <Seitenlogo logo="{privat.traegerLogo}"/>
       <Pageheader art="daten/zeugnis.svg" logo="{privat.logo}" untertitel="{privat.untertitel}"/>
@@ -89,7 +89,7 @@
   import Fussnote from './partials/Fussnoten.html'
 
   export let schueler, schule, privat, jahr, abschnitt
-  const aktHalbjahr = () => (a) => a.Jahr === jahr && a.Abschnitt === abschnitt
+  $: aktHalbjahr = (a) => a.Jahr === jahr && a.Abschnitt === abschnitt
 </script>
 
 <style>
