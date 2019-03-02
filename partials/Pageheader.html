@@ -2,7 +2,8 @@
 art:  z.B. Zeugnis, Abgangszeugnis etc. Sollte auf eine vorhandene Datei zeigen
       wird unten links platziert im Header
 logo: z.B Schullogo. Wird oben recht splatziert
-untertitel: Wird unterhalb des Logos platziert. -->
+untertitel: Wird unterhalb des Logos platziert.
+hr:   Wenn eine rote Linie unter das Logo soll. Standard an -->
 <div class="header">
     {#if art}
       <img class="art" src="{art}" alt="logo_art"/>
@@ -13,8 +14,14 @@ untertitel: Wird unterhalb des Logos platziert. -->
     {#if untertitel}
       <img class="untertitel" src="{untertitel}" alt="logo_untertitel"/>
     {/if}
-  <hr class="hr-rot"/>
+    {#if hr}
+      <hr class="hr-rot"/>
+    {/if}
 </div>
+<script>
+  export let art, logo, untertitel
+  export let hr = true
+</script>
 
 <style>
   .header {

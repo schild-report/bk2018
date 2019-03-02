@@ -24,11 +24,14 @@
 }
 
 @media screen {
+  body {
+    background: lightgoldenrodyellow;
+  }
   .page {
     box-sizing: border-box;
-    border: 1px solid black !important;
+    background: rgba(255,255,255,0.9);
     margin: 20px;
-    box-shadow: 5px 5px 4px 0 silver;
+    box-shadow: 0px 0px 30px 0px #888;
   }
 }
 
@@ -36,7 +39,6 @@
   * {
     -webkit-print-color-adjust: exact;
   }
-
   .page {
     page-break-after: always;
     page-break-inside: avoid;
@@ -52,7 +54,6 @@
 html {
   font-size: 10pt;
 }
-
 .page {
   line-height: 1.5;
   font-weight: normal;
@@ -200,7 +201,8 @@ p {
 .main-grid {
   grid-area: main;
   display: grid;
-  grid-column-gap: 25mm;
+  /* grid-column-gap: 25mm; */
+  grid-column-gap: 5cm;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr auto;
   grid-template-areas: "main-left main-right" "footer-left footer-right";
@@ -208,10 +210,14 @@ p {
 
 .main-left {
   grid-area: main-left;
+  position: relative;
+  /* padding-right: 25mm; */
 }
 
 .main-right {
   grid-area: main-right;
+  position: relative;
+  /* padding-left: 25mm; */
 }
 
 .footer-grid {
