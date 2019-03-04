@@ -29,7 +29,12 @@
         </div>
         <hr />
         <Voffset v="1"/>
-        <b>{versetzungsvermerk(hj, true)}</b>
+        {#if zeigeVersetzungsvermerk}
+          <b>{versetzungsvermerk(hj)}</b>
+        {/if}
+        <button class="vbutton no-print" on:click="{() => zeigeVersetzungsvermerk = !zeigeVersetzungsvermerk}">
+          Versetzungsvermerk {zeigeVersetzungsvermerk ? 'entfernen' : 'anzeigen'}
+        </button>
         <Voffset v="1"/>
         <b>Bemerkungen</b><br />{@html bemerkungen(hj)}
       </div>
@@ -52,22 +57,6 @@
             <hr />
             {hj.lehrer.Vorname} {hj.lehrer.Nachname}<br />{hj.klassenlehrer_in}
           </div>
-        </div>
-        <div class="flex-grid">
-          {#if !s.ASDSchulform.startsWith('E')}
-            <div class="col-2"></div>
-            <div class="col-2">
-              <Voffset v="1"/>
-              Die Kenntnisnahme wird bestätigt:
-            </div>
-            <div class="col">
-              <Voffset v="3"/>
-              <hr />
-              <div class="klein text-center">
-                {volljaehrigBei(s, hj.ZeugnisDatum) ? s.schueler_in : 'Erziehungsberechtigte'}
-              </div>
-            </div>
-          {/if}
         </div>
         <div class="klein eng">
           <Voffset v="2"/>
@@ -96,6 +85,7 @@
   import Seite2Fussnote from './partials/Seite2Fussnoten.html'
 
   export let schueler, schule, privat, jahr, abschnitt
+  let zeigeVersetzungsvermerk = true
   const aktHalbjahr = () => (a) => a.Jahr === jahr && a.Abschnitt === abschnitt
 </script>
 
@@ -103,5 +93,9 @@
   @import 'css/main.css';
   .lf-noten {
     font-size: 0.9rem;
+  }
+  .vbutton {
+    background-color: red;
+    color: white;
   }
 </style>

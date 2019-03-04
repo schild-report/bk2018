@@ -30,7 +30,12 @@
         ></Noten>
         <hr />
         <Voffset v="1"/>
-        <b>{versetzungsvermerk(hj, true)}</b>
+        {#if zeigeVersetzungsvermerk}
+          <b>{versetzungsvermerk(hj)}</b>
+        {/if}
+        <button class="vbutton no-print" on:click="{() => zeigeVersetzungsvermerk = !zeigeVersetzungsvermerk}">
+          Versetzungsvermerk {zeigeVersetzungsvermerk ? 'entfernen' : 'anzeigen'}
+        </button>
         <Voffset v="1"/>
         <b>Bemerkungen</b><br />{@html bemerkungen(hj)}
       </div>
@@ -72,7 +77,7 @@
 
 
 <script>
-  import { datum, versetzungsvermerk, volljaehrigBei, bemerkungen, bg }  from './helfer'
+  import { datum, versetzungsvermerk, bemerkungen, bg }  from './helfer'
 
   import Seitenlogo from './partials/Seitenlogo.html'
   import Pageheader from './partials/Pageheader.html'
@@ -82,9 +87,14 @@
   import Fussnote from './partials/Fussnoten.html'
 
   export let schueler, schule, privat, jahr, abschnitt
+  let zeigeVersetzungsvermerk = true
   const aktHalbjahr = () => (a) => a.Jahr === jahr && a.Abschnitt === abschnitt
 </script>
 
 <style>
   @import 'css/main.css';
+  .vbutton {
+    background-color: red;
+    color: white;
+  }
 </style>
