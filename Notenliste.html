@@ -44,7 +44,6 @@
 
   export let schueler, schule, privat, jahr, abschnitt, klasse
   $: aktHalbjahr = (a) => a.Jahr === jahr && a.Abschnitt === abschnitt
-  const _  = R('lodash')
   const heute = () => new Date().toLocaleDateString('de', {day: '2-digit', month: '2-digit', year: 'numeric'})
   const anzahl = 25
   $: aktAbschnitt = () => schueler[0].abschnitte.slice(-1)[0]
