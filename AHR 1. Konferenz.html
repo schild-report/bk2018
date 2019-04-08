@@ -29,7 +29,7 @@
             <td class="text-center">einfach</td>
             <td class="text-center">zweifach</td>
           </tr>
-          {#each s.abi_abschluss_faecher.sort((a,b) => a.fach.SortierungS2-b.fach.SortierungS2) as f}
+          {#each s.abi_abschluss_faecher.sort((a,b) => a.FSortierung - b.FSortierung) as f}
             <tr>
               <td class="text-center">{f.AbiFach || ''}</td>
               <td>{f.fach.Bezeichnung}</td>
@@ -79,12 +79,12 @@
         gegenüber der Schule zu erklären.
         <Voffset v="0.5"/>
         {s.anrede} {s.Vorname} {s.Zusatz || ''} {s.Name} ist zur Abiturprüfung
-        <b>{s.abi_abschluss.Zugelassen === '+' ? '' : 'nicht'} zugelassen</b>
-        {#if s.abi_abschluss.Zugelassen === '-'}
-          Es liegen folgende Verstöße gegen die Zulassungsbedingung(en)
+        <b>{s.abi_abschluss.Zugelassen === '+' ? '' : 'nicht'} zugelassen.</b>
+        {#if s.abi_abschluss.Zugelassen !== '+'}
+          <br>Es liegen folgende Verstöße gegen die Zulassungsbedingung(en)
           nach § 15 APO-BK Anlage D vor:
           <ul>
-            {#if s.abi_abschluss.Kurse_I > 200}<li>Nichterreichen von mindestens 200 Punkten im Block I</li>{/if}
+            {#if s.abi_abschluss.Kurse_I < 200}<li>Nichterreichen von mindestens 200 Punkten im Block I</li>{/if}
             {#if s.abi_abschluss.AnzahlKurse_0 > 0}<li>Bewertung eines einzubringenden Kurses mit null Punkten</li>{/if}
             {#if (s.abi_abschluss.Kurse_I === 32 && s.abi_abschluss.Defizite_I > 6)
               || (s.abi_abschluss.Kurse_I < 38   && s.abi_abschluss.Defizite_I > 7)
