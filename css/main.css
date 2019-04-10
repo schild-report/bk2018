@@ -44,8 +44,8 @@
     page-break-inside: avoid;
     margin: 0;
   }
-  .no-print * {
-    display: none;
+  .no-print, .no-print * {
+      display: none !important;
   }
 }
 
