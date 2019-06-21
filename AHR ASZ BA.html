@@ -118,16 +118,12 @@
 [Anlage D 48](https://bass.schul-welt.de/anlagen/3129-50.pdf)
   `
   import { datum, bemerkungen, bg, note }  from './helfer'
-
   import Seitenlogo from './partials/Seitenlogo.html'
   import Pageheader from './partials/Pageheader.html'
   import Voffset from './partials/Voffset.html'
   import Noten from './partials/Noten.html'
-
   export let schueler, schule, privat, jahr, abschnitt
-
-  let aktHalbjahrFuer
-  $: aktHalbjahrFuer = (s) => s.abschnitte.filter(a => a.Jahr === jahr && a.Abschnitt === abschnitt)
+  const aktHalbjahrFuer = s => s.abschnitte.filter(a => a.Jahr === jahr && a.Abschnitt === abschnitt)
 </script>
 
 <style>

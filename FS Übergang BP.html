@@ -1,6 +1,6 @@
 {#each schueler as s (s.ID)}
-  {#each s.abschnitte.filter(aktHalbjahr()) as hj (hj.ID)}
-    <div class="page grid" orientation="portrait" size="A4">
+  {#each s.abschnitte.filter(aktHalbjahr) as hj (hj.ID)}
+    <div class="page grid" orientation="portrait" size="A4" style="font-size: 1.0rem">
       <Seitenlogo logo="{privat.traegerLogo}"/>
       <Pageheader art="daten/agz.svg" logo="{privat.logo}" untertitel="{privat.untertitel}"/>
       <div class="main">
@@ -12,17 +12,13 @@
         </span>
         <Voffset v="1"/>
         <b>{s.anrede} {s.Vorname} {s.Zusatz || ''} {s.Name},</b>
-        <br />geboren am {datum(s.Geburtsdatum)} in {s.Geburtsort},<br />
-        war vom {datum(s.BeginnBildungsgang)} bis {datum(s.Entlassdatum)} {s.studierende_r}
-        des Bildungsgangs {bg(s, 'Zeugniskopf')}.
-        <br>{s.Geschlecht === 3 ? 'Er':'Sie'} war zuletzt {s.studierende_r} in der Klasse {s.Klasse}.
+        <br />geboren am {datum(s.Geburtsdatum)} in {s.Geburtsort}, besuchte im Schuljahr {hj.schuljahr} die Klasse {hj.Klasse}
         <Voffset v="2"/>
         Leistungen laut Konferenzbeschluss vom {datum(hj.Konferenzdatum)}:
-        <div class="lf-noten">
+        <div class="lf-noten" style="font-size: 0.9rem">
           <Noten
             noten={hj.noten}
             fachGliederungen={s.fachklasse.fach_gliederungen}
-            ger
             lernfeld
             fachklasse={s.fachklasse.Kennung}
             faechergruppenIds={[10,20,30]}
@@ -30,12 +26,10 @@
         </div>
         <hr />
         <Voffset v="1"/>
-        {#if zeigeVersetzungsvermerk}
-          <b>{versetzungsvermerk(hj)}</b>
-        {/if}
-        <button class="vbutton no-print" on:click="{() => zeigeVersetzungsvermerk = !zeigeVersetzungsvermerk}">
-          Versetzungsvermerk {zeigeVersetzungsvermerk ? 'entfernen' : 'anzeigen'}
-        </button>
+        <div class="text-center">
+          <b>Die Studierende hat laut Konferenzbeschluss vom {datum(hj.Konferenzdatum)}
+          <br>die Berechtigung zum Übergang in das Berufspraktikum erworben.</b>
+        </div>
         <Voffset v="1"/>
         <b>Bemerkungen</b><br />{@html bemerkungen(hj)}
       </div>
@@ -72,7 +66,11 @@
         </div>
       </div>
     </div>
-    <Seite2Fussnote {schule} ger></Seite2Fussnote>
+    <div class="page grid" orientation="portrait" size="A4">
+      <div class="footer grau">
+        <Fussnote notenstufen={false} {schule} verordnung={true}></Fussnote>
+      </div>
+    </div>
   {/each}
 {/each}
 
@@ -83,11 +81,11 @@
   import Pageheader from './partials/Pageheader.html'
   import Voffset from './partials/Voffset.html'
   import Noten from './partials/Noten.html'
-  import Seite2Fussnote from './partials/Seite2Fussnoten.html'
+  import Fussnote from './partials/Fussnoten.html'
 
   export let schueler, schule, privat, jahr, abschnitt
   let zeigeVersetzungsvermerk = true
-  const aktHalbjahr = () => (a) => a.Jahr === jahr && a.Abschnitt === abschnitt
+  const aktHalbjahr = a => a.Jahr === jahr && a.Abschnitt === abschnitt
 </script>
 
 <style>

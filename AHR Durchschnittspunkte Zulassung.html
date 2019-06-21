@@ -34,9 +34,12 @@
   import { datum }  from './helfer'
   import Voffset from './partials/Voffset.html'
   const heute = () => new Date().toLocaleDateString('de', {day: '2-digit', month: '2-digit', year: 'numeric'})
-  $: eins = () => schueler[0].abi_abschluss_faecher.find(f => f.AbiFach === '1').FachKrz
-  $: zwei = () => schueler[0].abi_abschluss_faecher.find(f => f.AbiFach === '1').FachKrz
-  $: drei = () => [...new Set(schueler.map(s => s.abi_abschluss_faecher.find(f => f.AbiFach === '3').FachKrz))]
+  let eins, zwei, drei
+  $: {
+    eins = () => schueler[0].abi_abschluss_faecher.find(f => f.AbiFach === '1').FachKrz
+    zwei = () => schueler[0].abi_abschluss_faecher.find(f => f.AbiFach === '1').FachKrz
+    drei = () => [...new Set(schueler.map(s => s.abi_abschluss_faecher.find(f => f.AbiFach === '3').FachKrz))]
+  }
 </script>
 <style>
   @import 'css/main.css';

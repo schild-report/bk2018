@@ -60,8 +60,8 @@
             Der Abschluss ist im Deutschen und Europäischen Qualifikationsrahmen dem Niveau {s.fachklasse.DQR_Niveau} zugeordnet.
             <Voffset v="6"/>
             {schule.Ort}, den {datum(hj.ZeugnisDatum)}
+            <Voffset v="6"/>
             <div class="flex-grid">
-              <Voffset v="6"/>
               <div class="col">
                 <hr />
                 <div class="text-center klein">
@@ -135,8 +135,7 @@
   import Noten from './partials/Noten.html'
 
   export let schueler, schule, privat, jahr, abschnitt
-  let aktHalbjahrFuer
-  $: aktHalbjahrFuer = (s) => s.abschnitte.filter(a => a.Jahr === jahr && a.Abschnitt === abschnitt)
+  const aktHalbjahrFuer = (s) => s.abschnitte.filter(a => a.Jahr === jahr && a.Abschnitt === abschnitt)
   const findeFach = (hj, as) => hj.noten.find(n => n.fach.ID === as.fach.ID) || { Lernentw: 'undefined' }
 </script>
 

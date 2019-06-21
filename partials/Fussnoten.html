@@ -5,8 +5,8 @@ schule:     Hier stehen die SchulNr etc drin. Muss mitgegeben werden
 ger:        Wenn der GER für AGZ oder ASZ verwendet werden soll, mitangeben.
             true|false Standardwert ist false
 notenstufen:Wenn die Notenstufen mit angegeben werden sollen.
-            true|false Standardwert ist true
-verordnung :true|false Standartwert true
+            true|false Standardwert ist false
+verordnung :true|false Standartwert false
 bfs:        true|false Standardwert false
 rechtsbehlfsbelehrung :true|false Standartwert true
 
@@ -57,6 +57,6 @@ notenstufen={false} -->
 
 <script>
   export let schule, notenstufen, verordnung, rechtsbehelfsbelehrung = true
-  export let ger, bfs = false
+  export let ger = false, bfs = false
   import Voffset from './Voffset.html'
 </script>

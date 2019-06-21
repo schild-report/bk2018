@@ -30,7 +30,7 @@
   const SchuelerFoto = R('schild').Schueler
   SchuelerFoto.knex(R('knex')(knexConfig))
   const buffer = (d) => Buffer.from(d, 'binary').toString('base64')
-  $: promise = SchuelerFoto.query().whereIn('ID', schueler.map(s => s.ID)).eager('[schuelerfoto]').orderBy('Name')
+  const promise = SchuelerFoto.query().whereIn('ID', schueler.map(s => s.ID)).eager('[schuelerfoto]').orderBy('Name')
 </script>
 
 <style>

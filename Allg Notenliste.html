@@ -43,16 +43,16 @@
   import Voffset from './partials/Voffset.html'
 
   export let schueler, schule, privat, jahr, abschnitt, klasse
-  $: aktHalbjahr = (a) => a.Jahr === jahr && a.Abschnitt === abschnitt
+  const aktHalbjahr = (a) => a.Jahr === jahr && a.Abschnitt === abschnitt
   const heute = () => new Date().toLocaleDateString('de', {day: '2-digit', month: '2-digit', year: 'numeric'})
   const anzahl = 25
-  $: aktAbschnitt = () => schueler[0].abschnitte.slice(-1)[0]
-  $: faecher = () => {
+  const aktAbschnitt = () => schueler[0].abschnitte.slice(-1)[0]
+  const faecher = () => {
     let faecher = new Set
     schueler.forEach(s => s.abschnitte.find(aktHalbjahr).noten.forEach(n => {faecher.add(n.fach.FachKrz)}))
     return faecher
   }
-  $: noten = () => {
+  const noten = () => {
     let noten = {}
     faecher().forEach(f => {noten[f] = []})
     schueler.forEach(s => s.abschnitte.find(aktHalbjahr).noten.forEach(n => noten[n.fach.FachKrz].push(n.NotenKrz || "–")))

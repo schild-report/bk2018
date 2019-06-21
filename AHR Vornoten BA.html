@@ -42,7 +42,7 @@
 
   const anzahl = 5
   const heute = () => new Date().toLocaleDateString('de', {day: '2-digit', month: '2-digit', year: 'numeric'})
-  $: aktAbschnitt = () => schueler[0].abschnitte.slice(-1)[0]
+  const aktAbschnitt = () => schueler[0].abschnitte.slice(-1)[0]
   function faecher (s) {
     return s.abi_abschluss_faecher.filter(f => f.fach.Fachgruppe_ID !== 30).sort((a,b) => a.FSortierung - b.FSortierung)
   }

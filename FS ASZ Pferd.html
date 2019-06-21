@@ -120,8 +120,7 @@
 
   export let schueler, schule, privat, jahr, abschnitt
 
-  let aktHalbjahrFuer
-  $: aktHalbjahrFuer = (s) => s.abschnitte.filter(a => a.Jahr === jahr && a.Abschnitt === abschnitt)
+  const aktHalbjahrFuer = (s) => s.abschnitte.filter(a => a.Jahr === jahr && a.Abschnitt === abschnitt)
 </script>
 
 <style>

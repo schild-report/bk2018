@@ -1,34 +1,33 @@
 {#each schueler as s (s.ID)}
-  {#each s.abschnitte.filter(aktHalbjahr()) as hj (hj.ID)}
+  {#each s.abschnitte.filter(aktHalbjahr) as hj (hj.ID)}
     <div class="page grid" orientation="portrait" size="A4">
       <Seitenlogo logo="{privat.traegerLogo}"/>
       <Pageheader art="daten/agz.svg" logo="{privat.logo}" untertitel="{privat.untertitel}"/>
       <div class="main">
-        <div style="font-size: 15pt; line-height: 1.5em">
-          {bg(s, 'Schulform')}
-        </div>
-        <div style="font-size: 12pt; line-height: 1.2em">
+        <span style="font-size: 15pt; line-height: 1.5em">
+          {bg(s, 'Schulform')} |
+        </span>
+        <span style="font-size: 12pt; line-height: 1.2em">
           {bg(s, 'Bereich')}
-          {#if s.ASDSchulform.startsWith('B')}
-            <br />
-            Abschluss {s.Geschlecht === 3 ? bg(s, 'Berufsbezeichnung_m') : bg(s, 'Berufsbezeichnung_w')}
-          {/if}
-        </div>
+        </span>
         <Voffset v="1"/>
         <b>{s.anrede} {s.Vorname} {s.Zusatz || ''} {s.Name},</b>
         <br />geboren am {datum(s.Geburtsdatum)} in {s.Geburtsort},<br />
-        war vom {datum(s.BeginnBildungsgang)} bis {datum(s.Entlassdatum)} {s.schueler_in}
+        war vom {datum(s.BeginnBildungsgang)} bis {datum(s.Entlassdatum)} {s.studierende_r}
         des Bildungsgangs {bg(s, 'Zeugniskopf')}.
-        <br>{s.Geschlecht === 3 ? 'Er':'Sie'} war zuletzt {s.schueler_in} in der Klasse {s.Klasse}.
+        <br>{s.Geschlecht === 3 ? 'Er':'Sie'} war zuletzt {s.studierende_r} in der Klasse {s.Klasse}.
         <Voffset v="2"/>
         Leistungen laut Konferenzbeschluss vom {datum(hj.Konferenzdatum)}:
-        <Noten
-          noten={hj.noten}
-          fachGliederungen={s.fachklasse.fach_gliederungen}
-          ger
-          fachklasse={s.fachklasse.Kennung}
-          faechergruppenIds={[10,20,30]}
-        ></Noten>
+        <div class="lf-noten">
+          <Noten
+            noten={hj.noten}
+            fachGliederungen={s.fachklasse.fach_gliederungen}
+            ger
+            lernfeld
+            fachklasse={s.fachklasse.Kennung}
+            faechergruppenIds={[10,20,30]}
+          ></Noten>
+        </div>
         <hr />
         <Voffset v="1"/>
         {#if zeigeVersetzungsvermerk}
@@ -60,40 +59,42 @@
             {hj.lehrer.Vorname} {hj.lehrer.Nachname}<br />{hj.klassenlehrer_in}
           </div>
         </div>
-        <Fussnote {schule} ger rechtsbehelfsbelehrung={false} verordnung={false}></Fussnote>
+        <div class="klein eng">
+          <Voffset v="2"/>
+          <div class="schulnummer text-center">
+            Schulnummer: {schule.SchulNr}
+          </div>
+          <hr class="hr-grau" />
+          <div class="grau text-center">
+              Notenstufen gemäß § 48 SchulG: 1 = sehr gut, 2 = gut, 3 = befriedigend,
+              4 = ausreichend, 5 = mangelhaft, 6 = ungenügend
+          </div>
+        </div>
       </div>
     </div>
-    <div class="page grid" orientation="portrait" size="A4">
-      <div class="main">
-        Seite 2/2 des Abgangsszeugnisses für {s.anrede} {s.Vorname} {s.Zusatz || ''} {s.Name}
-        <Voffset v="2"/>
-        <SoaTabelle></SoaTabelle>
-      </div>
-      <div class="footer">
-        <Fussnote {schule} bfs notenstufen={false}></Fussnote>
-      </div>
-    </div>
+    <Seite2Fussnote {schule} ger></Seite2Fussnote>
   {/each}
 {/each}
 
-
 <script>
-  import { datum, versetzungsvermerk, bemerkungen, bg }  from './helfer'
+  import { datum, versetzungsvermerk, volljaehrigBei, bemerkungen, bg }  from './helfer'
 
   import Seitenlogo from './partials/Seitenlogo.html'
   import Pageheader from './partials/Pageheader.html'
   import Voffset from './partials/Voffset.html'
-  import SoaTabelle from './partials/SOA-Tabelle.html'
   import Noten from './partials/Noten.html'
-  import Fussnote from './partials/Fussnoten.html'
+  import Seite2Fussnote from './partials/Seite2Fussnoten.html'
 
   export let schueler, schule, privat, jahr, abschnitt
   let zeigeVersetzungsvermerk = true
-  const aktHalbjahr = () => (a) => a.Jahr === jahr && a.Abschnitt === abschnitt
+  const aktHalbjahr = a => a.Jahr === jahr && a.Abschnitt === abschnitt
 </script>
 
 <style>
   @import 'css/main.css';
+  .lf-noten {
+    font-size: 0.9rem;
+  }
   .vbutton {
     background-color: red;
     color: white;

@@ -158,7 +158,7 @@ __Achtung, das Ändern der Praxisnachweise gilt für alle Schüler im Dokument._
 		'den erfolgreichen Abschluss einer mindestens zweijährigen Berufsausbildung',
 		'den Nachweis einer mindestens vierjährigen einschlägigen Berufstätigkeit als XXX'
 	]
-  $: aktHalbjahrFuer = (s) => s.abschnitte.filter(a => a.Jahr === jahr && a.Abschnitt === abschnitt)
+  const aktHalbjahrFuer = (s) => s.abschnitte.filter(a => a.Jahr === jahr && a.Abschnitt === abschnitt)
 </script>
 
 <style>
