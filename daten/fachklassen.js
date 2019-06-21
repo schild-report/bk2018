@@ -31,8 +31,8 @@ const fkl = {
     Abschluss: true,
     Examen: 'Berufsabschlussprüfung',
     Zeugniskopf: 'Berufsfachschule für Gesundheit/Erziehung und Soziales',
-    Berufsbezeichnung_m: 'Staatlich geprüfter Sozialassistent, Schwerpunkt Heilerziehung',
-    Berufsbezeichnung_w: 'Staatlich geprüfte Sozialassistentin, Schwerpunkt Heilerziehung',
+    Berufsbezeichnung_m: 'Staatlich geprüfter Sozialassistent, <br>Schwerpunkt Heilerziehung',
+    Berufsbezeichnung_w: 'Staatlich geprüfte Sozialassistentin, <br>Schwerpunkt Heilerziehung',
     Fremdsprache: {
       '114': '(B1)'
     }

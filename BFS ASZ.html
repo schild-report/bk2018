@@ -50,7 +50,7 @@
             </table>
             <Voffset v="4"/>
             {s.anrede} {s.Vorname} {s.Zusatz || ''} {s.Name} hat die Berufsabschlussprüfung bestanden und ist berechtigt, die Berufsbezeichnung
-            <h5 class="text-center">{bg(s, (s.Geschlecht === 3 ? 'Berufsbezeichnung_m' : 'Berufsbezeichnung_w'))}</h5>
+            <h5 class="text-center">{@html bg(s, (s.Geschlecht === 3 ? 'Berufsbezeichnung_m' : 'Berufsbezeichnung_w'))}</h5>
             zu führen.
             <Voffset v="1"/>
             Der Abschluss ist im Deutschen und Europäischen Qualifikationsrahmen dem Niveau {s.fachklasse.DQR_Niveau} zugeordnet.
