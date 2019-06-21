@@ -54,17 +54,20 @@
             zu führen.
             <Voffset v="1"/>
             Der Abschluss ist im Deutschen und Europäischen Qualifikationsrahmen dem Niveau {s.fachklasse.DQR_Niveau} zugeordnet.
-            <Voffset v="2"/>
+            {#if s.Entlassart!=='5A'}
             <div class="text-center">
-              {s.anrede} {s.Vorname} {s.Zusatz || ''} {s.Name} hat den
-              <Voffset v="0.5"/>
-              <b>mittleren Schulabschluss (Fachoberschulreife)</b>
-              {#if s.Entlassart==='5G' || s.Entlassart==='0G'}
-                <br><b>mit Berechtigung zum Besuch der gymnasialen Oberstufe</b>
+                <Voffset v="2"/>
+                {s.anrede} {s.Vorname} {s.Zusatz || ''} {s.Name} hat den
+                <Voffset v="0.5"/>
+                <b>mittleren Schulabschluss (Fachoberschulreife)</b>
+                {#if s.Entlassart==='5G'}
+                  <br><b>mit Berechtigung zum Besuch der gymnasialen Oberstufe</b>
+                {/if}
+                <Voffset v="0.5"/>
+                erworben.
+              </div>
+              {:else}<Voffset v="3"/>
               {/if}
-              <Voffset v="0.5"/>
-              erworben.
-            </div>
             <Voffset v="6"/>
             {schule.Ort}, den {datum(hj.ZeugnisDatum)}
             <Voffset v="6"/>
