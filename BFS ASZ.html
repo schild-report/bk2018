@@ -39,15 +39,6 @@
                 </tr>
               {/each}
             </table>
-            <Voffset v="1"/>
-            <table class="table-noten" width="100%">
-              {#each s.bk_abschluss_faecher.filter(f => ['BLgesamt', 'KO', 'BPgesamt'].some(n => n === f.fach.FachKrz)) as f}
-              <tr>
-                <td class="{f.fach.FachKrz === 'BPgesamt' ? 'fett' : ''}">{f.fach.Zeugnisbez}</td>
-                <td class="td-fach-note"><span>{note(f.NoteAbschluss)}</span></td>
-              </tr>
-              {/each}
-            </table>
             <Voffset v="4"/>
             {s.anrede} {s.Vorname} {s.Zusatz || ''} {s.Name} hat die Berufsabschlussprüfung bestanden und ist berechtigt, die Berufsbezeichnung
             <h5 class="text-center">{@html bg(s, (s.Geschlecht === 3 ? 'Berufsbezeichnung_m' : 'Berufsbezeichnung_w'))}</h5>

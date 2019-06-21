@@ -31,7 +31,8 @@
           </div>
           <div class="main-right">
             {s.anrede} {s.Vorname} {s.Zusatz || ''} {s.Name} hat das staatliche
-            <h4 class="text-center">{bg(s, 'Examen')}</h4>
+            <h5 class="text-center">{bg(s, 'Examen')}</h5>
+            <Voffset v="-2"/>
             am {hj.noten.map(n => n.fach.FachKrz === 'KO' ? n.Lernentw : null).join('')} bestanden.
             <Voffset v="2"/>
             <table class="table-noten">
@@ -54,18 +55,19 @@
             </table>
             <Voffset v="4"/>
             {s.anrede} {s.Vorname} {s.Zusatz || ''} {s.Name} ist berechtigt, die Berufsbezeichnung
-            <h4 class="text-center">{bg(s, (s.Geschlecht === 3 ? 'Berufsbezeichnung_m' : 'Berufsbezeichnung_w'))}</h4>
+            <h5 class="text-center">{bg(s, (s.Geschlecht === 3 ? 'Berufsbezeichnung_m' : 'Berufsbezeichnung_w'))}</h5>
+            <Voffset v="-2"/>
             zu führen.
             <Voffset v="1"/>
             Der Abschluss ist im Deutschen und Europäischen Qualifikationsrahmen dem Niveau {s.fachklasse.DQR_Niveau} zugeordnet.
-            <Voffset v="6"/>
+            <Voffset v="5"/>
             {schule.Ort}, den {datum(hj.ZeugnisDatum)}
-            <Voffset v="6"/>
+            <Voffset v="5"/>
             <div class="flex-grid">
               <div class="col">
                 <hr />
                 <div class="text-center klein">
-                  {schule.SchulleiterVorname} {schule.SchulleiterName} Vorsitzende{schule.SchulleiterGeschlecht === 3 ? 'r':''} des allgemeinen
+                  {schule.SchulleiterVorname} {schule.SchulleiterName} – Vorsitzende{schule.SchulleiterGeschlecht === 3 ? 'r':''} des allgemeinen
                   <br />Prüfungsausschusses
                 </div>
               </div>
