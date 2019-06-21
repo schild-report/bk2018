@@ -8,7 +8,7 @@ const punkte = {
    6: '4+',  5: '4',  4: '4-',
    3: '5+',  2: '5',  1: '5-',
              0: '6' }
-const zahlwort = { 1: "eins",2: "zwei",3: "drei",4: "vier",5: "fünf",6: "sechs",7: "sieben",8: "acht",9: "neun",0: "null" }
+const zahlwort = { 1: "eins",2: "zwei",3: "drei",4: "vier",5: "fünf",6: "sechs",7: "sieben",8: "acht",9: "neun",0: "n&#8203;ull" }
 
 // Verzichten wir auf teure lodash-Funktionen:
 export const groupBy = (arr, id) => arr.reduce(
