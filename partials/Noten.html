@@ -51,7 +51,11 @@ faechergruppenIds: legt fest, welche Fächergruppen gezogen werden sollen. Stand
               {/if}
             </td>
             <!-- Entweder Abschlussnote, wenn gesetzt oder Abschnittsnote oder nix -->
-            <td class="td-fach-note"><span>{note(f.NoteAbschluss) || note(f.NotenKrz) || '–––––'}</span></td>
+            {#if f.NoteAbschluss && f.NoteAbschluss.startsWith('E') || f.NotenKrz && f.NotenKrz.startsWith('E')}
+              <td class="td-fach-note"><span class="e-note">{note(f.NoteAbschluss) || note(f.NotenKrz)}</span></td>
+            {:else}
+              <td class="td-fach-note"><span>{note(f.NoteAbschluss) || note(f.NotenKrz) || '–––––'}</span></td>
+            {/if}
           </tr>
         {/if}
       {/each}
@@ -115,21 +119,19 @@ faechergruppenIds: legt fest, welche Fächergruppen gezogen werden sollen. Stand
   display: block;
   margin: 0 auto;
 }
-/*.td-fach-note span.e-note {
+.td-fach-note span.e-note {
   background-color: white !important;
-  width: 17rem;
+  width: 17em;
   margin: 0;
-}*/
-
+  padding: 0;
+}
 .fachgruppe-margin {
   padding-top: 0.3rem;
 }
-
 .lernfeld-lernbereich {
   padding-left: 2rem;
   padding-bottom: 0;
 }
-
 .lernbereich {
   padding-left: 20mm;
 }

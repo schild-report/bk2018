@@ -1,36 +1,41 @@
-{#await promise}Fotos kommen…
-{:then fotos}
-  {#each chunk(fotos, 25) as slice}
-    <div class="page grid" orientation="portrait" size="A4">
-      <div class="main">
-        <b>{slice[0].Klasse}</b>
-        Stand: {datum(new Date())}
-        <div class="grid" style="font-size: 0.8rem">
-          {#each slice as s}
-            <div>
-              {#if s.schuelerfoto}
-                <img src="data:image/jpg;base64,{buffer(s.schuelerfoto.Foto)}" alt="Foto" style="width: 120px">
-              {:else}
-                Kein Foto
-              {/if}
-              <br>
-              {s.Name}, {s.Vorname}
-            </div>
-          {/each}
-        </div>
+{#each chunk(schueler, 25) as slice}
+  <div class="page grid" orientation="portrait" size="A4">
+    <div class="main">
+      <b>{slice[0].Klasse}</b>
+      Stand: {datum(new Date())}
+      <div class="grid" style="font-size: 0.8rem">
+        {#each slice as s}
+          <div>
+            {#if s.Foto}
+              <img src="data:image/jpg;base64,{buffer(s.Foto)}" alt="Foto" style="width: 120px">
+            {:else}
+              Kein Foto
+            {/if}
+            <br>
+            {s.Name}, {s.Vorname}
+          </div>
+        {/each}
       </div>
     </div>
-  {/each}
-{:catch error}Fehler
-{/await}
+  </div>
+{/each}
 
 <script>
   import { datum, chunk } from './helfer'
   export let schueler, knexConfig
-  const SchuelerFoto = R('schild').Schueler
-  SchuelerFoto.knex(R('knex')(knexConfig))
+  const mysql = R('mysql')
+  var connection = mysql.createConnection(knexConfig.connection)
+  connection.connect()
+  connection.query({
+    sql: 'SELECT Foto, Schueler_ID FROM `schuelerfotos` WHERE `Schueler_ID` IN (?)',
+    values: [schueler.map(s => s.ID)]},
+    (e, res) => schueler = mergeById(schueler, res))
+  const mergeById = (a1, a2) =>
+    a1.map(itm => ({
+      ...a2.find((item) => (item.Schueler_ID === itm.ID) && item),
+        ...itm
+    }))
   const buffer = (d) => Buffer.from(d, 'binary').toString('base64')
-  const promise = SchuelerFoto.query().whereIn('ID', schueler.map(s => s.ID)).eager('[schuelerfoto]').orderBy('Name')
 </script>
 
 <style>

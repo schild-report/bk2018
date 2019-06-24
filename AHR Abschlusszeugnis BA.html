@@ -26,10 +26,10 @@
           ></Noten>
           <b>Fachpraktische Prüfung</b>
           {#each hj.noten.filter(f => f.fach.FachKrz === 'KO') as f}
-            <table class="table-noten-2">
+            <table class="table-noten">
               <tr>
-                <td colspan="2" class="fach-bezeichnung-2"> {f.fach.Zeugnisbez}</td>
-                 <td class="td-fach-note-2"><span>{note(f.NotenKrz)}</span></td>
+                <td colspan="2" class="fach-bezeichnung"> {f.fach.Zeugnisbez}</td>
+                 <td class="td-fach-note"><span>{note(f.NotenKrz)}</span></td>
               </tr>
             </table>
           {/each}
@@ -129,24 +129,32 @@
 <style>
   @import 'css/main.css';
   @import 'css/a3-landscape.css';
-  .table-noten-2 {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 1rem;
-  }
-  .td-fach-note-2 {
-    padding-bottom: .2rem;
-    padding-top: .2rem;
-    width: 12rem;
-  }
-  .td-fach-note-2 span {
-    background-color: #dcdcdc;
-    text-align: center;
-    width: 10rem;
-    display: block;
-    margin: 0 auto;
-  }
-.fach-bezeichnung-2 {
+.table-noten {
+  width: 100%;
+  border: none;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+}
+.fach-bezeichnung {
   padding-left: 10mm;
+}
+.td-fach-note {
+  padding-bottom: .2rem;
+  padding-top: .2rem;
+  width: 12rem;
+}
+.td-fach-note span {
+  background-color: #dcdcdc !important;
+  text-align: center;
+  width: 10rem;
+  display: block;
+  margin: 0 auto;
+  margin-right: 20px;
+}
+.td-fach-note span.e-note {
+  background-color: white !important;
+  width: 17em;
+  margin: 0;
+  padding: 0;
 }
 </style>
