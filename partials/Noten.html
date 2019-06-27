@@ -23,6 +23,8 @@ fhrSternchen: Legt fest, ob die für die FHR relevanten Fächer ein Sternchen
           bekommen. Standardwert ist false
 gruppenbezeichnungNeu: Legt für eine GruppenID eine neue Gruppenbezeichnung fest
           Es wird ein Objekt erwartet, z.B. {40: 'Fachpraktische Prüfung'}
+berufsbezogenZuerst: Diese Einstellung legt fest, dass die gen. Fächer zuerst auf
+          dem Zeugnis als Fächergruppe erscheinen wie in der BASS vorgegeben.
 -->
 
 <table class="table-noten">
@@ -83,7 +85,7 @@ gruppenbezeichnungNeu: Legt für eine GruppenID eine neue Gruppenbezeichnung fes
   export let faechergruppenIds = []
   export let noten, fachGliederungen, fachklasse
   export let fhrSternchen, gruppenbezeichnungNeu
-  export let berufsbezogen_zuerst = true
+  export let berufsbezogenZuerst = true
 
   Object.assign(gruppenIds, gruppenbezeichnungNeu)
 
@@ -107,7 +109,7 @@ gruppenbezeichnungNeu: Legt für eine GruppenID eine neue Gruppenbezeichnung fes
     let gruppiert = groupBy(sortiert, 'fach.Fachgruppe_ID')
     // Die BK-Zeugnisse führen zuerst die berufsbezogenen Fächer auf.
     // D.h. Gruppen_ID 20 muss auf 0 gesetzt werden, damit es an den Anfang kommt
-    if (berufsbezogen_zuerst && gruppiert.get(20)) {
+    if (berufsbezogenZuerst && gruppiert.get(20)) {
       gruppiert.set(0, gruppiert.get(20))
       gruppiert.delete(20)
       gruppenIds[0] = gruppenIds[20]
