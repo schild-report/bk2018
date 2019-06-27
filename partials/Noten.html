@@ -21,6 +21,8 @@ faechergruppenIds: legt fest, welche Fächergruppen gezogen werden sollen. Stand
           nur bestimmte festgelegt werden z.B. [10, 20, 30]
 fhrSternchen: Legt fest, ob die für die FHR relevanten Fächer ein Sternchen
           bekommen. Standardwert ist false
+gruppenbezeichnungNeu: Legt für eine GruppenID eine neue Gruppenbezeichnung fest
+          Es wird ein Objekt erwartet, z.B. {40: 'Fachpraktische Prüfung'}
 -->
 
 <table class="table-noten">
@@ -40,7 +42,7 @@ fhrSternchen: Legt fest, ob die für die FHR relevanten Fächer ein Sternchen
             <td class="{lernfeld ? '' : 'fach-bezeichnung'} {lernbereich != faecher[0].fach.Zeugnisbez ? 'lernfeld-lernbereich' : ''}">
               {#if f.fach.Zeugnisbez.includes("Projekt")}
                 <!-- Funktioniert nicht mit Abschlussnoten, da diese keine Spalte `Lernentw` haben -->
-                Projekt: {f.Lernentw}
+                {f.Lernentw}
               {:else}
                 <!-- Die Zeugnisbezeichnung hat bei gesetzten fachGliederungen einen anderen Namen... -->
                 {f.fach.ZeugnisBez || f.fach.Zeugnisbez}
@@ -78,7 +80,10 @@ fhrSternchen: Legt fest, ob die für die FHR relevanten Fächer ein Sternchen
   export let ger = false
   export let faechergruppenIds = []
   export let noten, fachGliederungen, fachklasse
-  export let fhrSternchen
+  export let fhrSternchen, gruppenbezeichnungNeu
+
+  Object.assign(gruppenIds, gruppenbezeichnungNeu)
+
   const faechergruppen = () => {
     // noten werden im jeweiligen Dokument über das *noten*-Attribut mitgegeben.
     // z.B. die Abschnittsnote oder die Noten aus *s.bk_abschluss_faecher* und co.
@@ -89,7 +94,7 @@ fhrSternchen: Legt fest, ob die für die FHR relevanten Fächer ein Sternchen
     const faecher = fachGliederungen
       ? noten.map(f => {return {...f, fach: Object.assign(f.fach, fachGliederungen.find(fg => fg.Fach_ID === f.Fach_ID))}})
       : noten
-    // nun alle Fächer rauswerfen, die nich in den FaechergruppenIds zugeordnet sind, z.B. Abschlussarbeiten, Projekte etc.
+    // nun alle Fächer rauswerfen, die nicht in den FaechergruppenIds zugeordnet sind, z.B. Abschlussarbeiten, Projekte etc.
     const faecherBereinigt = faechergruppenIds.length === 0
       ? faecher
       : faecher.filter(f => faechergruppenIds.find(id => f.fach.Fachgruppe_ID === id))

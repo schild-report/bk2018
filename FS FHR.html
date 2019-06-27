@@ -1,4 +1,4 @@
-{#each schueler as s}
+{#each schueler.filter(s => s.DurchschnittsnoteFHR) as s}
   {#each s.abschnitte.filter(aktHalbjahr) as hj (hj.ID)}
     <div class="page grid" orientation="portrait" size="A4">
       <Seitenlogo logo="{privat.traegerLogo}"/>
@@ -64,7 +64,12 @@
           </div>
           <hr class="hr-grau" />
           <div class="grau">
-            <sup>1</sup>Die Fächer {s.bk_abschluss_faecher.filter(f => f.fach.GewichtungFHR > 0).map(f => f.fach.Zeugnisbez).join(', ')}
+            <sup>1</sup>Die Fächer
+            {s.bk_abschluss_faecher.filter(f => f.fach.GewichtungFHR > 0)
+              .sort((a,b) => a.FSortierung > b.FSortierung ? 1 : -1)
+              .map(f => f.fach.Zeugnisbez)
+              .join(', ')
+              .replace(/, \ sowie/g, ' sowie')}
             gehen in die Berechnung der Durchnittsnote für die Fachhochschulreife ein.
             <Voffset v=".5"/>
             Rechtsbehelfsbelehrung: Gegen dieses Zeugnis kann innerhalb eines Monats

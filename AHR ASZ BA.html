@@ -20,19 +20,11 @@
           <Voffset v=".5"/>
           <Noten
             noten={hj.noten}
-            faechergruppenIds={[10, 20, 30]}
+            faechergruppenIds={[10, 20, 30, 40]}
             fachGliederungen={s.fachklasse.fach_gliederungen}
             fachklasse={s.fachklasse.Kennung}
+            gruppenbezeichnungNeu={gruppenbezeichnungNeu}
           ></Noten>
-          <b>Fachpraktische Prüfung</b>
-          {#each hj.noten.filter(f => f.fach.FachKrz === 'KO') as f}
-            <table class="table-noten">
-              <tr>
-                <td colspan="2" class="fach-bezeichnung"> {f.fach.Zeugnisbez}</td>
-                 <td class="td-fach-note"><span>{note(f.NotenKrz)}</span></td>
-              </tr>
-            </table>
-          {/each}
           <hr />
           <b>Bemerkungen</b>
           <br />{@html bemerkungen(hj)}
@@ -123,6 +115,7 @@
   import Voffset from './partials/Voffset.html'
   import Noten from './partials/Noten.html'
   export let schueler, schule, privat, jahr, abschnitt
+  let gruppenbezeichnungNeu = {40: 'Fachpraktische Prüfung'}
   const aktHalbjahrFuer = s => s.abschnitte.filter(a => a.Jahr === jahr && a.Abschnitt === abschnitt)
 </script>
 
