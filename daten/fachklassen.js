@@ -150,6 +150,8 @@ const fkl = {
     Zeugniskopf: 'Fachschule des Sozialwesens in der Fachrichtung Heilpädagogik',
     Fehlstunden: false,
     Examen: 'Fachschulexamen',
+    Berufsbezeichnung_w: 'Staatlich anerkannte Heilpädagogin',
+    Berufsbezeichnung_m: 'Staatlich anerkannter Heilpädagoge',
     Fremdsprache: {
       '252': '(B2)'
     }
@@ -163,6 +165,8 @@ const fkl = {
     Zeugniskopf: 'Fachschule des Sozialwesens, Aufbaubildungsgang<br />heilpädagogische Förderung mit dem Pferd',
     Fehlstunden: false,
     Examen: 'Fachschulexamen',
+    Berufsbezeichnung_m: 'Fachkraft für die heilpädagogische Förderung mit dem Pferd',
+    Berufsbezeichnung_w: 'Fachkraft für die heilpädagogische Förderung mit dem Pferd',
     Fremdsprache: {
       '252': '(B2)'
     }
