@@ -36,7 +36,7 @@ gruppenbezeichnungNeu: Legt für eine GruppenID eine neue Gruppenbezeichnung fes
       {#if lernbereich != faecher[0].fach.Zeugnisbez}
         <tr><td colspan="2" class="{lernfeld ? '' : 'fach-bezeichnung'}">{lernbereich}</td></tr>
       {/if}
-      {#each faecher.reverse() as f (f.ID)}
+      {#each faecher as f (f.ID)}
         {#if f.fach.AufZeugnis === '+'}
           <tr>
             <td class="{lernfeld ? '' : 'fach-bezeichnung'} {lernbereich != faecher[0].fach.Zeugnisbez ? 'lernfeld-lernbereich' : ''}">
@@ -52,6 +52,8 @@ gruppenbezeichnungNeu: Legt für eine GruppenID eine neue Gruppenbezeichnung fes
                 {#if ger && f.fach.IstSprache === '+'}
                   {fremdsprache(f, fachklasse)}<sup>1</sup>
                 {/if}
+                <!-- Die für die FHR Durchschnittsnote einbezogenen Noten bekommen in
+                den FS-Zeugnissen ein Sternchen -->
                 {#if fhrSternchen && f.fach.GewichtungFHR > 0}
                   <sup>*</sup>
                 {/if}
@@ -81,6 +83,7 @@ gruppenbezeichnungNeu: Legt für eine GruppenID eine neue Gruppenbezeichnung fes
   export let faechergruppenIds = []
   export let noten, fachGliederungen, fachklasse
   export let fhrSternchen, gruppenbezeichnungNeu
+  export let berufsbezogen_zuerst = true
 
   Object.assign(gruppenIds, gruppenbezeichnungNeu)
 
@@ -101,8 +104,15 @@ gruppenbezeichnungNeu: Legt für eine GruppenID eine neue Gruppenbezeichnung fes
     // erstmal alle Fächer sortieren in der passenden Reihenfolge,
     // dann nach Fachgruppe gruppieren
     const sortiert = faecherBereinigt.sort((a, b) => a.fach.SortierungS2 < b.fach.SortierungS2 ? 1 : -1)
-    const gruppiert = groupBy(sortiert, 'fach.Fachgruppe_ID')
-    return [...gruppiert.entries()].reverse()
+    let gruppiert = groupBy(sortiert, 'fach.Fachgruppe_ID')
+    // Die BK-Zeugnisse führen zuerst die berufsbezogenen Fächer auf.
+    // D.h. Gruppen_ID 20 muss auf 0 gesetzt werden, damit es an den Anfang kommt
+    if (berufsbezogen_zuerst && gruppiert.get(20)) {
+      gruppiert.set(0, gruppiert.get(20))
+      gruppiert.delete(20)
+      gruppenIds[0] = gruppenIds[20]
+    }
+    return [...gruppiert.entries()].sort((a,b) => a[0] > b[0])
   }
   const gruppenbezeichnung = gruppe => gruppenIds[gruppe]
   const lernbereicheUndFaecher = gruppenFaecher => [...groupBy(gruppenFaecher, 'fach.Bezeichnung').entries()].reverse()
