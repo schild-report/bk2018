@@ -23,6 +23,7 @@
                 ger
                 lernfeld
                 fachklasse={s.fachklasse.Kennung}
+                fhrSternchen={s.DurchschnittsnoteFHR ? true: false}
               ></Noten>
             </div>
             <hr />
@@ -94,7 +95,7 @@
         <div class="footer-grid">
           <div class="footer-left">
             Notenstufen gemäß § 48 SchulG: 1 = sehr gut, 2 = gut, 3 = befriedigend, 4 = ausreichend, 5 = mangelhaft, 6 = ungenügend
-            <p></p>
+            <Voffset v="0.5"/>
             <sup>1</sup>Der Unterricht in den modernen Fremdsprachen hat auf der
             nach dem Fach in Klammern angegebenen Niveaustufe des
             „Europäischen Referenzrahmens für Sprachen: Lernen, Lehren,
@@ -102,6 +103,11 @@
             das niedrigere in vollem Umfang, das höhere in Anteilen erreicht. Bei
             mindestens ausreichenden Leistungen wird der sprachliche
             Kompetenzerwerb auf diesem Niveau bescheinigt.
+            <Voffset v="0.5"/>
+            {#if s.DurchschnittsnoteFHR}
+              <sup>*</sup>Die Noten der gekennzeichneten Fächer gehen in die
+              Berechnung der Durchnittsnote für die Fachochschulreife ein.
+            {/if}
           </div>
           <div class="footer-right">
             Dem Zeugnis liegen zugrunde:

@@ -19,6 +19,8 @@ fachklasse: muss mitgegeben werden, wenn aus der Fachklassen.json Datei der Stan
 faechergruppenIds: legt fest, welche Fächergruppen gezogen werden sollen. Standartwert ist
           ein leerer Array, d.h. alle Fächergruppen werden gezogen. Ansonsten können
           nur bestimmte festgelegt werden z.B. [10, 20, 30]
+fhrSternchen: Legt fest, ob die für die FHR relevanten Fächer ein Sternchen
+          bekommen. Standardwert ist false
 -->
 
 <table class="table-noten">
@@ -48,6 +50,9 @@ faechergruppenIds: legt fest, welche Fächergruppen gezogen werden sollen. Stand
                 {#if ger && f.fach.IstSprache === '+'}
                   {fremdsprache(f, fachklasse)}<sup>1</sup>
                 {/if}
+                {#if fhrSternchen && f.fach.GewichtungFHR > 0}
+                  <sup>*</sup>
+                {/if}
               {/if}
             </td>
             <!-- Entweder Abschlussnote, wenn gesetzt oder Abschnittsnote oder nix -->
@@ -73,6 +78,7 @@ faechergruppenIds: legt fest, welche Fächergruppen gezogen werden sollen. Stand
   export let ger = false
   export let faechergruppenIds = []
   export let noten, fachGliederungen, fachklasse
+  export let fhrSternchen
   const faechergruppen = () => {
     // noten werden im jeweiligen Dokument über das *noten*-Attribut mitgegeben.
     // z.B. die Abschnittsnote oder die Noten aus *s.bk_abschluss_faecher* und co.
