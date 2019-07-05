@@ -34,6 +34,14 @@
         <Voffset v="1"/>
         <b>{versetzungsvermerk(hj)}</b>
         <Voffset v="1"/>
+        {#if s.ASDSchulform.startsWith('C') && hj.VersetzungKrz==='V'}
+          Der Unterricht in der Klasse 12 kann nur aufgenommen werden, wenn
+          zu Beginn des 12. Schuljahres der Nachweis über die erfolgreiche
+          Ableistung des Praktikantenjahres gemäß
+          Praktikum-Ausbildungsordnung, RdErl. v. 11.12.2006 (BASS 13 – 31
+          Nr. 1) vorgelegt wird.
+          <Voffset v="1"/>
+        {/if}
         <b>Bemerkungen</b><br />{@html bemerkungen(hj)}
       </div>
       <div class="footer">
