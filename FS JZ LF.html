@@ -8,7 +8,6 @@
           {bg(s, 'Schulform')}
         </div>
         <div style="font-size: 12pt; line-height: 1.2em">
-          {bg(s, 'Bereich')}
           <br />{s.Geschlecht === 3 ? s.fachklasse.Bezeichnung : s.fachklasse.Beschreibung_W}
           {#if s.ASDSchulform.startsWith('B')}
             <br />
