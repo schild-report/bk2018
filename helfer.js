@@ -26,7 +26,7 @@ export const datum = (t) => {
   // gibt ein Datum im deutschen Format zurück
   try {
     return new Date(t).toLocaleDateString('de', {day: '2-digit', month: '2-digit', year: 'numeric', timeZone: 'Europe/Berlin'})
-  } catch (e) {console.log(e); return}
+  } catch (e) {console.log(e); return 'undefined - Datumsfehler'}
 }
 export const versetzungsvermerk = (hj, agz = null) => {
   // gibt, wenn vorhanden den passenden Vermerk zurück
@@ -59,7 +59,7 @@ export const schulform = (s) => {
 export const bg = (s, k) => s.fachklasse && s.fachklasse.Kennung && fkl[s.fachklasse.Kennung] ? fkl[s.fachklasse.Kennung][k] : ''
 export const note = (note) => noten[parseInt(note)] || enoten[note]
 export const punkte2note = (p) => punkte[parseInt(p)]
-export const noteInWorten = (n) => n.split('').map(n => n === ',' ? '/' : zahlwort[parseInt(n)]).join(' ')
+export const noteInWorten = (n) => n && n.split('').map(n => n === ',' ? '/' : zahlwort[parseInt(n)]).join(' ')
 export const fremdsprache = (fach, fachklasse) => {
   try {
     return fach.Lernentw || fkl[fachklasse]['Fremdsprache'][fach.Fach_ID]
