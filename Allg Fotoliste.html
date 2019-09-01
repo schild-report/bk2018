@@ -26,7 +26,7 @@
   const mysql = R('mysql')
   var connection = mysql.createConnection(knexConfig.connection)
   connection.connect()
-  connection.query({
+  $: connection.query({
     sql: 'SELECT Foto, Schueler_ID FROM `schuelerfotos` WHERE `Schueler_ID` IN (?)',
     values: [schueler.map(s => s.ID)]},
     (e, res) => schueler = mergeById(schueler, res))
