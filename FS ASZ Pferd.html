@@ -29,7 +29,7 @@
         </div>
         <div class="main-right">
           <Voffset v="2"/>
-          {s.anrede} {s.Vorname} {s.Zusatz || ''} {s.Name} erbrachte  in der Abschlussprüfung folgende Leistung:
+          {s.anrede} {s.Vorname} {s.Zusatz || ''} {s.Name} erbrachte in der Abschlussprüfung folgende Leistung:
           <Voffset v="2"/>
           <table class="table-noten" width="100%">
             {#each hj.noten.filter(f => f.fach.FachKrz === "PROJ-PF") as f}
@@ -58,8 +58,8 @@
             <div class="col">
               <hr />
               <div class="text-center klein">
-                {schule.SchulleiterVorname} {schule.SchulleiterName} Vorsitzende{schule.SchulleiterGeschlecht === 3 ? 'r':''} des allgemeinen
-                <br />Prüfungsausschusses
+                {schule.SchulleiterVorname} {schule.SchulleiterName}
+                <br>Vorsitzende{schule.SchulleiterGeschlecht === 3 ? 'r':''} des allg. Prüfungsausschusses
               </div>
               <Voffset v="6"/>
               <hr />
