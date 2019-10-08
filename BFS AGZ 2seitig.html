@@ -38,6 +38,30 @@
           Versetzungsvermerk {zeigeVersetzungsvermerk ? 'entfernen' : 'anzeigen'}
         </button>
         <Voffset v="1"/>
+        {#if zeigeAbschlussVermerk}
+          {#if s.Entlassart!=='5A'}
+            <div class="text-center">
+              <Voffset v="2"/>
+              {s.anrede} {s.Vorname} {s.Zusatz || ''} {s.Name} hat den
+              <Voffset v="0.5"/>
+              <b>mittleren Schulabschluss (Fachoberschulreife)</b>
+              {#if s.Entlassart==='5G'}
+                <br><b>mit Berechtigung zum Besuch der gymnasialen Oberstufe</b>
+              {/if}
+              <Voffset v="0.5"/>
+              erworben.
+            </div>
+          {:else}<Voffset v="3"/>
+          {/if}
+        {/if}
+        <button class="vbutton no-print" on:click="{() => zeigeAbschlussVermerk = !zeigeAbschlussVermerk}">
+          Abschlusssvermerk {zeigeAbschlussVermerk ? 'entfernen' : 'anzeigen'}
+        </button>
+        <Voffset v="1"/>
+        Der Abschluss ist im Deutschen und Europäischen Qualifikationsrahmen dem Niveau {s.Entlassart.startsWith('5') ? 3 : 2} zugeordnet.
+        <Voffset v="1"/>
+        {s.Geschlecht === 3 ? "Der Schüler": "Die Schülerin"} hat ein bildungsgangbegleitendes Praktikum im Umfang von 16 Wochen absolviert.
+        <Voffset v="1"/>
         <b>Bemerkungen</b><br />{@html bemerkungen(hj)}
       </div>
       <div class="footer">
@@ -89,6 +113,10 @@
 
   export let schueler, schule, privat, jahr, abschnitt
   let zeigeVersetzungsvermerk = true
+  let zeigeAbschlussVermerk = false
+  const abschlussVermerk = _ => {
+
+  }
   const aktHalbjahr = a => a.Jahr === jahr && a.Abschnitt === abschnitt
 </script>
 
