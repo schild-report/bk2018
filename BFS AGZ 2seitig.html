@@ -18,7 +18,8 @@
         <b>{s.anrede} {s.Vorname} {s.Zusatz || ''} {s.Name},</b>
         <br />geboren am {datum(s.Geburtsdatum)} in {s.Geburtsort},<br />
         war vom {datum(s.BeginnBildungsgang)} bis {datum(s.Entlassdatum)} {s.schueler_in}
-        des Bildungsgangs {bg(s, 'Zeugniskopf')}.
+        des Bildungsgangs
+        <br>{bg(s, 'Zeugniskopf')}.
         <br>{s.Geschlecht === 3 ? 'Er':'Sie'} war zuletzt {s.schueler_in} in der Klasse {s.Klasse}.
         <Voffset v="2"/>
         Leistungen laut Konferenzbeschluss vom {datum(hj.Konferenzdatum)}:
@@ -58,7 +59,7 @@
           Abschlusssvermerk {zeigeAbschlussVermerk ? 'entfernen' : 'anzeigen'}
         </button>
         <Voffset v="1"/>
-        Der Abschluss ist im Deutschen und Europäischen Qualifikationsrahmen dem Niveau {s.Entlassart.startsWith('5') ? 3 : 2} zugeordnet.
+        Der Abschluss ist im Deutschen und Europäischen Qualifikationsrahmen dem Niveau 3 zugeordnet.
         <Voffset v="1"/>
         {s.Geschlecht === 3 ? "Der Schüler": "Die Schülerin"} hat ein bildungsgangbegleitendes Praktikum im Umfang von 16 Wochen absolviert.
         <Voffset v="1"/>
