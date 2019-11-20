@@ -162,7 +162,7 @@ const fkl = {
     Lernbereich: 'Methoden in der Heilpädagogik und den Bereichen',
     Lernfeld_Lernbereich: 'Vertiefung in den Bildungsbereichen',
     Lernfeld_Lernbereich_LF: 'Lernfelder',
-    Zeugniskopf: 'Fachschule des Sozialwesens, Aufbaubildungsgang<br />heilpädagogische Förderung mit dem Pferd',
+    Zeugniskopf: 'Fachschule des Sozialwesens,<br>Aufbaubildungsgang heilpädagogische Förderung mit dem Pferd',
     Fehlstunden: false,
     Examen: 'Fachschulexamen',
     Berufsbezeichnung_m: 'Fachkraft für die heilpädagogische Förderung mit dem Pferd',
