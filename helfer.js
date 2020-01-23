@@ -59,6 +59,7 @@ export const schulform = (s) => {
 export const bg = (s, k) => s.fachklasse && s.fachklasse.Kennung && fkl[s.fachklasse.Kennung] ? fkl[s.fachklasse.Kennung][k] : ''
 export const note = (note) => noten[parseInt(note)] || enoten[note]
 export const punkte2note = (p) => punkte[parseInt(p)]
+export const note2punkte = (n) => Object.keys(punkte).find(k=>punkte[k]===n);
 export const noteInWorten = (n) => n && n.split('').map(n => n === ',' ? '/' : zahlwort[parseInt(n)]).join(' ')
 export const fremdsprache = (fach, fachklasse) => {
   try {

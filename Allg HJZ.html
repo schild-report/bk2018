@@ -11,7 +11,7 @@
           {bg(s, 'Bereich')}
           {#if s.ASDSchulform.startsWith('B')}
             <br />
-            Abschluss {s.Geschlecht === 3 ? bg(s, 'Berufsbezeichnung_m') : bg(s, 'Berufsbezeichnung_w')}
+            Abschluss {@html s.Geschlecht === 3 ? bg(s, 'Berufsbezeichnung_m') : bg(s, 'Berufsbezeichnung_w')}
           {/if}
         </div>
         <Voffset v="1"/>

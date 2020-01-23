@@ -118,7 +118,7 @@ berufsbezogenZuerst: Diese Einstellung legt fest, dass die gen. Fächer zuerst a
       gruppiert.delete(20)
       gruppenIds[0] = gruppenIds[20]
     }
-    return [...gruppiert.entries()].sort((a,b) => a[0] > b[0])
+    return [...gruppiert.entries()].sort((a,b) => a[0] - b[0])
   }
   const gruppenbezeichnung = gruppe => gruppenIds[gruppe]
   const lernbereicheUndFaecher = gruppenFaecher => [...groupBy(gruppenFaecher, 'fach.Bezeichnung').entries()].reverse()
