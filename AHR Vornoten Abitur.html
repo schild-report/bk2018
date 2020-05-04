@@ -2,7 +2,7 @@
   <div class="page grid" orientation="landscape" size="A3">
     <div class="header">
       <pre>
-        Konferenzliste APA BK Berufsabschluss <b>{klasse.Klasse || schueler[0].Klasse}</b> &Tab; {aktAbschnitt().klassenlehrer_in}: <b>{`${aktAbschnitt().lehrer.Vorname} ${aktAbschnitt().lehrer.Nachname} (${aktAbschnitt().lehrer.Kuerzel})`}</b> &Tab; Stand: {heute()}
+        Konferenzliste APA BK Abitur <b>{klasse.Klasse || schueler[0].Klasse}</b> &Tab; {aktAbschnitt().klassenlehrer_in}: <b>{`${aktAbschnitt().lehrer.Vorname} ${aktAbschnitt().lehrer.Nachname} (${aktAbschnitt().lehrer.Kuerzel})`}</b> &Tab; Stand: {heute()}
       </pre>
     </div>
     <div class="main">
@@ -14,18 +14,24 @@
               {#each zeilen(faecher(s)) as row}
                 <tr>
                   {#each row as cell}
-                    <td>{cell}</td>
+                    <td class:red={parseInt(cell) < 5 && parseInt(cell) >= 0}>{cell}</td>
                   {/each}
                 </tr>
               {/each}
+              <tr><td>✎ → </td>
+              {#each s.abi_abschluss_faecher as i}
+              <td></td>
+              {/each}
+              </tr>
             </table>
           </div>
           <div class="bemerkungen">
             Bermerkungen:
             {#each '12345' as i}
               <hr>
-              <Voffset v=2 />
+              <Voffset v='1.5' />
             {/each}
+            Zugelassen: {s.abi_abschluss.Zulassung === '+' ? "Ja":"Nein"}
           </div>
         </div>
         <Voffset v=1 />
@@ -44,19 +50,16 @@
   const heute = () => new Date().toLocaleDateString('de', {day: '2-digit', month: '2-digit', year: 'numeric'})
   const aktAbschnitt = () => schueler[0].abschnitte.slice(-1)[0]
   function faecher (s) {
-    return s.abi_abschluss_faecher.filter(f => f.fach.Fachgruppe_ID !== 30).sort((a,b) => a.FSortierung - b.FSortierung)
+    return s.abi_abschluss_faecher.sort((a,b) => a.FSortierung - b.FSortierung)
   }
   function zeilen (faecher) {
-    const arr = [[''], ['13.1'], ['13.2'], ['VN'], ['SP'], ['BA']]
+    const arr = [[''], ['12.1'], ['12.2'], ['13.1'], ['13.2']]
     faecher.forEach(f => {
-      const anzahlNoten = [f.P13_1, f.P13_2].filter(n => parseInt(n) > 0).length
-      const vornote = Math.round((parseFloat(f.P13_1 || 0.0) + parseFloat(f.P13_2 || 0.0)) / anzahlNoten)
       arr[0].push(f.FachKrz)
-      arr[1].push(punkte2note(f.P13_1) || '')
-      arr[2].push(punkte2note(f.P13_2) || '')
-      arr[3].push(parseInt(punkte2note(vornote)) || '–')
-      arr[4].push('123'.includes(f.AbiFach) ? (punkte2note(parseInt(f.AbiPruefErgebnis)) || '') : '')
-      arr[5].push(parseInt(punkte2note('123'.includes(f.AbiFach) ? (Math.round((vornote + parseInt(f.AbiPruefErgebnis))/2)) : vornote)))
+      arr[1].push(f.P12_1 || '')
+      arr[2].push(f.P12_2 || '')
+      arr[3].push(f.P13_1 || '')
+      arr[4].push(f.P13_2 || '')
     })
     return arr
   }
@@ -83,4 +86,5 @@
   .bemerkungen {
     flex: 35%;
   }
+  .red { background-color: tomato; }
 </style>
