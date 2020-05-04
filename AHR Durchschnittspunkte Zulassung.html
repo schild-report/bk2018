@@ -16,8 +16,8 @@
       {#each schueler as s}
         <tr>
           <td>{s.Name}, {s.Vorname[0]}.</td>
-          <td class="text-center">{s.abi_abschluss_faecher.find(f => f.AbiFach === '1').Durchschnitt.toFixed(2)}</td>
-          <td class="text-center">{s.abi_abschluss_faecher.find(f => f.AbiFach === '2').Durchschnitt.toFixed(2)}</td>
+          <td class="text-center">{try {s.abi_abschluss_faecher.find(f => f.AbiFach === '1').Durchschnitt.toFixed(2)} catch (e) { null }}</td>
+          <td class="text-center">{try {s.abi_abschluss_faecher.find(f => f.AbiFach === '2').Durchschnitt.toFixed(2)} catch (e) { null }}</td>
           {#each drei() as fach}
             {#each s.abi_abschluss_faecher.filter(f => f.AbiFach === '3') as s_fach}
               <td class="text-center">{s_fach.FachKrz === fach ? s_fach.Durchschnitt.toFixed(2) : ''}</td>
