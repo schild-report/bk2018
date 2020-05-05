@@ -37,7 +37,7 @@
   let eins, zwei, drei
   $: {
     eins = () => schueler[0].abi_abschluss_faecher.find(f => f.AbiFach === '1').FachKrz
-    zwei = () => schueler[0].abi_abschluss_faecher.find(f => f.AbiFach === '1').FachKrz
+    zwei = () => schueler[0].abi_abschluss_faecher.find(f => f.AbiFach === '2').FachKrz
     drei = () => [...new Set(schueler.map(s => s.abi_abschluss_faecher.find(f => f.AbiFach === '3').FachKrz))]
   }
   const fixed = n => n ? n.toFixed(2) : null
