@@ -37,7 +37,7 @@
               <td class="text-center">{f.R12_2 === '-' ? `(${f.P12_2 || '–'})` : f.P12_2}</td>
               <td class="text-center">{f.R13_1 === '-' ? `(${f.P13_1 || '–'})` : f.P13_1}</td>
               <td class="text-center">{f.R13_2 === '-' ? `(${f.P13_2 || '–'})` : f.P13_2}</td>
-              <td class="text-center">{f.KursartAllg === "GK" ? f.Zulassung : '**'}</td>
+              <td class="text-center">{f.KursartAllg === "GK" ? f.Zulassung || '**' : '**'}</td>
               <td class="text-center">{f.KursartAllg === "LK" ? f.Zulassung/2 : '**'}</td>
               <td class="text-center">{f.KursartAllg === "LK" ? f.Zulassung : '**'}</td>
               <td class="text-center">{f.Durchschnitt ? f.Durchschnitt.toFixed(2) : '**'}</td>
