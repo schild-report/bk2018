@@ -56,7 +56,8 @@
       arr[2].push(punkte2note(f.P13_2) || '')
       arr[3].push(parseInt(punkte2note(vornote)) || '–')
       arr[4].push('123'.includes(f.AbiFach) ? (punkte2note(parseInt(f.AbiPruefErgebnis)) || '') : '')
-      arr[5].push(parseInt(punkte2note('123'.includes(f.AbiFach) ? (Math.round((vornote + parseInt(f.AbiPruefErgebnis))/2)) : vornote)))
+      if ('123'.includes(f.AbiFach) && !f.AbiPruefErgebnis) arr[5].push('…')
+      else arr[5].push(parseInt(punkte2note('123'.includes(f.AbiFach) ? (Math.round((vornote + parseInt(f.AbiPruefErgebnis))/2)) : vornote)))
     })
     return arr
   }
