@@ -8,6 +8,7 @@
   import Pageheader from "./partials/Pageheader.html";
   import Voffset from "./partials/Voffset.html";
   import Fussnote from "./partials/Fussnoten.html";
+import { log } from "console";
 
   export let schueler, schule, privat, jahr, abschnitt;
   const aktHalbjahr = a => a.Jahr === jahr && a.Abschnitt === abschnitt;
@@ -127,7 +128,7 @@
         Reihenfolge dieser Prüfungen festlegen.
         <Voffset v="1" />
         Abgabe der Meldung zu mündlichen Prüfungen bis zum
-        <b>18.06.2019, 10:00 Uhr</b>
+        <b>16.06.2019, 10:00 Uhr</b>
         im Sekretariat.
         <Voffset v="1" />
         <div class="flex-grid">
