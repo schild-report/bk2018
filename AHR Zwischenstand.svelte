@@ -35,7 +35,7 @@ import { log } from "console";
     position: absolute;
     margin-left: -1em;
   }
-.hr-schere {
+hr {
   position: relative;
   border-top: 1px dotted black;
   overflow: visible;
@@ -97,9 +97,9 @@ import { log } from "console";
               </td>
               <td class="text-center">{f.AbiPruefErgebnis}</td>
               <td class="text-center">{f.Zwischenstand}</td>
-              <td class="text-center">{f.MdlPflichtPruefung === "+" ? "✕" : ""}</td>
-              <td class="text-center">{f.MdlBestPruefung === "+" ? "✕" : ""}</td>
-              <td class="text-center">{f.MdlFreiwPruefung === "+" ? "✕" : ""}</td>
+              <td class="text-center">{f.MdlPflichtPruefung === "+" ? "X" : ""}</td>
+              <td class="text-center">{f.MdlBestPruefung === "+" ? "X" : ""}</td>
+              <td class="text-center">{f.MdlFreiwPruefung === "+" ? "X" : ""}</td>
             </tr>
           {/each}
           <tr>
@@ -143,7 +143,8 @@ import { log } from "console";
         </div>
       </div>
       <div class="footer">
-        <hr class="hr-schere">
+        <hr>
+        <!-- <hr class="hr-schere"> -->
         <br />
         {s.anrede}
         <b>
