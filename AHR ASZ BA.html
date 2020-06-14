@@ -20,7 +20,7 @@
           <Voffset v=".5"/>
           <Noten
             noten={hj.noten}
-            faechergruppenIds={[10, 20, 30, 40]}
+            faechergruppenIds={[10, 20, 30, 1600]}
             fachGliederungen={s.fachklasse.fach_gliederungen}
             fachklasse={s.fachklasse.Kennung}
             gruppenbezeichnungNeu={gruppenbezeichnungNeu}
@@ -35,22 +35,23 @@
           Berufsabschlussprüfung für Erzieherinnen und Erzieher<br>
           am {hj.noten.find(f => f.fach.FachKrz === 'KO').Lernentw}
           bestanden und ist berechtigt, die Berufsbezeichnung
-          <h4 class="text-center">{s.Geschlecht === 3 ? 'Staatlich anerkannter Erzieher' : 'Staatlich anerkannte Erzieherin'}</h4>
+          <Voffset v="1"/>
+          <h6 class="text-center">{s.Geschlecht === 3 ? 'Staatlich anerkannter Erzieher' : 'Staatlich anerkannte Erzieherin'}</h6>
           zu führen.
           <Voffset v="1"/>
           Der Abschluss ist im Deutschen und Europäischen Qualifikationsrahmen dem Niveau {s.fachklasse.DQR_Niveau} zugeordnet.
           <Voffset v="9"/>
           <div class="flex-grid">
-            <Voffset v="6"/>
             <div class="col">
+              <Voffset v="-1"/>
               {schule.Ort}, den {datum(hj.ZeugnisDatum)}
-              <Voffset v="6"/>
+              <Voffset v="7"/>
               <div class="text-center klein">Siegel</div>
             </div>
             <div class="col">
               <hr />
               <div class="text-center klein">
-                {schule.SchulleiterVorname} {schule.SchulleiterName} Vorsitzende{schule.SchulleiterGeschlecht === 3 ? 'r':''} des allgemeinen
+                {schule.SchulleiterVorname} {schule.SchulleiterName} – Vorsitzende{schule.SchulleiterGeschlecht === 3 ? 'r':''} des allgemeinen
                 <br />Prüfungsausschusses
               </div>
               <Voffset v="6"/>
@@ -59,6 +60,7 @@
                 {schule.SchulleiterVorname} {schule.SchulleiterName} <br />{schule.schulleiter_in}
               </div>
             </div>
+            <div class="col"></div>
           </div>
         </div>
       </div>
@@ -66,6 +68,7 @@
         <div class="header">
           Schulnummer: {schule.SchulNr}
           <hr />
+          <Voffset v="1"/>
         </div>
         <div class="footer-left">
           Notenstufen gemäß § 48 SchulG: 1 = sehr gut, 2 = gut, 3 = befriedigend, 4 = ausreichend, 5 = mangelhaft, 6 = ungenügend
@@ -108,6 +111,7 @@
 <script>
   export const kommentar = `
 [Anlage D 48](https://bass.schul-welt.de/anlagen/3129-50.pdf)
+Die *Fächer* BL und BP Gesamt sind in einer anderen Fächergruppe als das Kolloqium und werden auf dem Zeugnis ignoriert.
   `
   import { datum, bemerkungen, bg, note }  from './helfer'
   import Seitenlogo from './partials/Seitenlogo.html'
@@ -115,7 +119,7 @@
   import Voffset from './partials/Voffset.html'
   import Noten from './partials/Noten.html'
   export let schueler, schule, privat, jahr, abschnitt
-  let gruppenbezeichnungNeu = {40: 'Fachpraktische Prüfung'}
+  let gruppenbezeichnungNeu = {1600: 'Fachpraktische Prüfung'}
   const aktHalbjahrFuer = s => s.abschnitte.filter(a => a.Jahr === jahr && a.Abschnitt === abschnitt)
 </script>
 
