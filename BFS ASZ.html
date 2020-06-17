@@ -25,6 +25,12 @@
               ></Noten>
             </div>
             <hr />
+            <Voffset v="1"/>
+            {s.anrede} {s.Vorname} {s.Zusatz || ''} {s.Name} hat ein
+            bildungsgangbegleitendes Praktikum in Einrichtungen für Kinder
+            und Jugendliche sowie alte, kranke und behinderte Menschen im
+            Umfang von 16 Wochen absolviert.
+            <Voffset v="1"/>
             <b>Bemerkungen</b>
             <br />{@html bemerkungen(hj)}
           </div>
@@ -41,7 +47,7 @@
             </table>
             <Voffset v="4"/>
             {s.anrede} {s.Vorname} {s.Zusatz || ''} {s.Name} hat die Berufsabschlussprüfung bestanden und ist berechtigt, die Berufsbezeichnung
-            <h5 class="text-center">{@html bg(s, (s.Geschlecht === 3 ? 'Berufsbezeichnung_m' : 'Berufsbezeichnung_w'))}</h5>
+            <h6 class="text-center">{@html bg(s, (s.Geschlecht === 3 ? 'Berufsbezeichnung_m' : 'Berufsbezeichnung_w'))}</h6>
             zu führen.
             <Voffset v="1"/>
             Der Abschluss ist im Deutschen und Europäischen Qualifikationsrahmen dem Niveau {s.fachklasse.DQR_Niveau} zugeordnet.
@@ -91,6 +97,7 @@
           Schulnummer: {schule.SchulNr}
         </div>
         <hr class="hr-grau" />
+        <Voffset v="1"/>
         <div class="footer-grid">
           <div class="footer-left">
             Notenstufen gemäß § 48 SchulG: 1 = sehr gut, 2 = gut, 3 = befriedigend, 4 = ausreichend, 5 = mangelhaft, 6 = ungenügend
@@ -132,6 +139,7 @@
   export const kommentar = `
 [Anlage B6](https://bass.schul-welt.de/3129.htm#AnlageB6)
 [VV](https://bass.schul-welt.de/3129.htm#pgfId-3908229)
+**Praktikumsdauer Corona-bedingt beachten!**
   `
   import { datum, volljaehrigBei, bemerkungen, bg, note }  from './helfer'
 

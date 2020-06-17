@@ -76,19 +76,19 @@
             Baden-Württemberg, Berlin, Brandenburg, Bremen, Hamburg, Hessen,
             Mecklenburg-Vorpommern, Niedersachsen, Rheinland-Pfalz, Saarland,
             Sachsen-Anhalt, Schleswig-Holstein und Thüringen.
+            <Voffset v="2"/>
+            <table class="table-noten">
+              <tr>
+                <td>Durchschnittsnote:</td>
+                <td class="td-fach-note"><span>{s.fhr_abschluss && s.fhr_abschluss.Note}</span></td>
+                <td>in&nbsp;Worten:</td>
+                <td class="td-fach-note"><span>{@html s.fhr_abschluss && s.fhr_abschluss.Note && noteInWorten(s.fhr_abschluss.Note)}</span></td>
+              </tr>
+            </table>
           {/if}
           <button class="vbutton no-print" on:click="{() => zeige_FHR = !zeige_FHR}">
             FHR abgeschlossen: {zeige_FHR ? 'Ja' : 'Nein'}
           </button>
-          <Voffset v="2"/>
-          <table class="table-noten">
-            <tr>
-              <td>Durchschnittsnote:</td>
-              <td class="td-fach-note"><span>{s.fhr_abschluss && s.fhr_abschluss.Note}</span></td>
-              <td>in&nbsp;Worten:</td>
-              <td class="td-fach-note"><span>{@html s.fhr_abschluss && s.fhr_abschluss.Note && noteInWorten(s.fhr_abschluss.Note)}</span></td>
-            </tr>
-          </table>
         </div>
         <div class="footer-right">
           <div class="flex-grid">
