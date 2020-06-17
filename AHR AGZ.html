@@ -15,7 +15,7 @@
           <br>{s.Geschlecht === 3 ? 'Er':'Sie'} war zuletzt {s.schueler_in} im {hj.Abschnitt}. Halbjahr der Jahrgangstufe {hj.Jahrgang+10}.
           <Voffset v="0.5"/>
           In der Konferenz am {datum(hj.Konferenzdatum)} sind folgende Leistungen festgestellt worden:
-          <table class="table table-bordered table-eng">
+          <table class="table table-bordered ">
             <tr>
               <td>Fach</td>
               <td>Aufg.-<br>feld<sup>2</sup></td>
@@ -118,6 +118,7 @@
         <div class="header">
           Schulnummer: {schule.SchulNr}
           <hr />
+          <Voffset v="1"/>
         </div>
         <div class="footer-left">
           <sup>1</sup>Der Unterricht in den modernen Fremdsprachen hat auf der nach dem Fach in
@@ -247,10 +248,12 @@
   @import 'css/main.css';
   @import 'css/a3-landscape.css';
   .table-bordered {
-    border-collapse: collapse; }
-  .table-bordered tr td {
+    border-collapse: collapse;
+  }
+  .table-bordered td {
     border: thin solid #ddd;
-    line-height: 1.3rem }
+    line-height: 1.5rem;
+  }
   .table-eng {
     margin-bottom: 0;
   }
