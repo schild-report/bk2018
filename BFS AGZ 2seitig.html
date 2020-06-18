@@ -54,14 +54,14 @@
             </div>
           {:else}<Voffset v="3"/>
           {/if}
+          <Voffset v="1"/>
+          Der Abschluss ist im Deutschen und Europäischen Qualifikationsrahmen dem Niveau 3 zugeordnet.
+          <Voffset v="1"/>
+          {s.Geschlecht === 3 ? "Der Schüler": "Die Schülerin"} hat ein bildungsgangbegleitendes Praktikum im Umfang von 16 Wochen absolviert.
         {/if}
         <button class="vbutton no-print" on:click="{() => zeigeAbschlussVermerk = !zeigeAbschlussVermerk}">
           Abschlusssvermerk {zeigeAbschlussVermerk ? 'entfernen' : 'anzeigen'}
         </button>
-        <Voffset v="1"/>
-        Der Abschluss ist im Deutschen und Europäischen Qualifikationsrahmen dem Niveau 3 zugeordnet.
-        <Voffset v="1"/>
-        {s.Geschlecht === 3 ? "Der Schüler": "Die Schülerin"} hat ein bildungsgangbegleitendes Praktikum im Umfang von 16 Wochen absolviert.
         <Voffset v="1"/>
         <b>Bemerkungen</b><br />{@html bemerkungen(hj)}
       </div>
