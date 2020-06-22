@@ -47,7 +47,7 @@
             </table>
             <Voffset v="1"/>
             <table class="table-noten" width="100%">
-              {#each s.bk_abschluss_faecher.filter(f => ['BLgesamt', 'KO', 'BPgesamt'].some(n => n === f.fach.FachKrz)) as f}
+              {#each s.bk_abschluss_faecher.filter(f => ['BLgesamt', 'KO', 'BPgesamt'].some(n => n === f.fach.FachKrz)).sort((a, b) => a.FSortierung < b.FSortierung ? -1 : 1) as f}
                 <tr>
                   <td class="{f.fach.FachKrz === 'BPgesamt' ? 'fett' : ''}">{f.fach.Zeugnisbez}</td>
                   <td class="td-fach-note"><span>{note(f.NoteAbschluss)}</span></td>
