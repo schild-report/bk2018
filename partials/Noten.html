@@ -28,7 +28,7 @@ berufsbezogenZuerst: Diese Einstellung legt fest, dass die gen. Fächer zuerst a
 -->
 
 <table class="table-noten">
-  {#each faechergruppen() as [gruppen_id, gruppenFaecher]}
+  {#each faechergruppen as [gruppen_id, gruppenFaecher]}
     <tr>
       <td class="fachgruppe-margin">
         <b>{gruppenbezeichnung(gruppen_id)}</b>
@@ -91,9 +91,14 @@ berufsbezogenZuerst: Diese Einstellung legt fest, dass die gen. Fächer zuerst a
   export let fhrSternchen, gruppenbezeichnungNeu
   export let berufsbezogenZuerst = true
 
+  let faechergruppen
+
+  // Berechne die Noten neu, wenn sich die Notenquelle ändert
+  $: noten && faechergruppen_calc()
+
   Object.assign(gruppenIds, gruppenbezeichnungNeu)
 
-  const faechergruppen = () => {
+  const faechergruppen_calc = () => {
     // noten werden im jeweiligen Dokument über das *noten*-Attribut mitgegeben.
     // z.B. die Abschnittsnote oder die Noten aus *s.bk_abschluss_faecher* und co.
     // Nutzer über Konsole auf Änderungen in den Fächern hinweisen
@@ -118,7 +123,7 @@ berufsbezogenZuerst: Diese Einstellung legt fest, dass die gen. Fächer zuerst a
       gruppiert.delete(20)
       gruppenIds[0] = gruppenIds[20]
     }
-    return [...gruppiert.entries()].sort((a,b) => a[0] - b[0])
+    faechergruppen = [...gruppiert.entries()].sort((a,b) => a[0] - b[0])
   }
   const gruppenbezeichnung = gruppe => gruppenIds[gruppe]
   const lernbereicheUndFaecher = gruppenFaecher => [...groupBy(gruppenFaecher, 'fach.Bezeichnung').entries()].reverse()
@@ -158,8 +163,5 @@ berufsbezogenZuerst: Diese Einstellung legt fest, dass die gen. Fächer zuerst a
 .lernfeld-lernbereich {
   padding-left: 2rem;
   padding-bottom: 0;
-}
-.lernbereich {
-  padding-left: 20mm;
 }
 </style>

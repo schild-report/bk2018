@@ -22,8 +22,11 @@
         <br />{s.Geschlecht === 3 ? 'Er':'Sie'} war zuletzt {s.schueler_in} in der Klasse {s.Klasse}.
         <Voffset v="2"/>
         Leistungen laut Konferenzbeschluss vom {datum(hj.Konferenzdatum)}:
+        <button class="vbutton no-print" on:click="{() => zeigeBKAbschlussNoten = !zeigeBKAbschlussNoten}">
+          BK-Abschluss wird {zeigeBKAbschlussNoten ? '' : 'nicht'} verwendet
+        </button>
         <Noten
-          noten={hj.noten}
+          noten={zeigeBKAbschlussNoten ? s.bk_abschluss_faecher : hj.noten}
           fachGliederungen={s.fachklasse.fach_gliederungen}
           ger
           fachklasse={s.fachklasse.Kennung}
@@ -101,6 +104,7 @@
 
   export let schueler, schule, privat, jahr, abschnitt
   let zeigeVersetzungsvermerk = true
+  let zeigeBKAbschlussNoten = false
   const aktHalbjahr = a => a.Jahr === jahr && a.Abschnitt === abschnitt
   let zeige_FHR
   const fhrFach = (s, fach, id) => {
