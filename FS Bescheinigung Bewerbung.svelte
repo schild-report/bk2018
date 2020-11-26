@@ -44,7 +44,7 @@
           <hr />
           <div class="text-center klein">
             {schule.SchulleiterVorname} {schule.SchulleiterName}
-            <br />Vorsitzender des allgemeinen Prüfungsausschusses
+            <br />Vorsitzende des allgemeinen Prüfungsausschusses
           </div>
           </div>
       </div>

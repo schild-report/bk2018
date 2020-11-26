@@ -136,7 +136,7 @@ hr {
             <hr />
             {schule.SchulleiterVorname} {schule.SchulleiterName}
             <br />
-            Vorsitzender des allgemeinen Prüfungsausschusses
+            Vorsitzende des allgemeinen Prüfungsausschusses
           </div>
         </div>
       </div>

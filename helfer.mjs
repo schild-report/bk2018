@@ -1,4 +1,4 @@
-import fkl from './daten/fachklassen'
+import fkl from './daten/fachklassen.mjs'
 const noten = [null, 'sehr gut', 'gut', 'befriedigend', 'ausreichend', 'mangelhaft', 'ungenügend']
 const enoten = { 'E1': 'mit besonderem Erfolg teilgenommen', 'E2': 'mit Erfolg teilgenommen', 'E3': 'teilgenommen' }
 const punkte = {

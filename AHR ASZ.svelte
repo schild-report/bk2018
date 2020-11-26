@@ -56,7 +56,7 @@
                 <Voffset v="3"/>
                 <hr />
                 {schule.SchulleiterVorname} {schule.SchulleiterName} <br />
-                Vorsitzender des allgemeinen Prüfungsausschusses
+                Vorsitzende des allgemeinen Prüfungsausschusses
               </div>
               <div class="col"></div>
               <div class="col-2 text-center klein">

@@ -104,7 +104,7 @@
             <Voffset v="3"/>
             <hr />
             {schule.SchulleiterVorname} {schule.SchulleiterName}
-            <br />Vorsitzender des allgemeinen Prüfungsausschusses
+            <br />Vorsitzende des allgemeinen Prüfungsausschusses
           </div>
         </div>
       </div>
@@ -117,7 +117,7 @@
 
 [Bass § 15](https://bass.schul-welt.de/3129.htm#pgfId-3911082)
   `
-  import { datum }  from './helfer'
+  import { datum }  from './helfer.mjs'
 
   import Seitenlogo from './partials/Seitenlogo.svelte'
   import Pageheader from './partials/Pageheader.svelte'
