@@ -1,0 +1,10 @@
+<div class="page grid" orientation="portrait" size="A4">
+  <div class="footer grau">
+    <Fussnote notenstufen={false} {schule} {ger}></Fussnote>
+  </div>
+</div>
+
+<script>
+export let schule, ger, notenstufen
+import Fussnote from './Fussnoten.svelte'
+</script>
