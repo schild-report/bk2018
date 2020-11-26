@@ -4,9 +4,9 @@
   `;
   import { datum } from "./helfer";
 
-  import Seitenlogo from "./partials/Seitenlogo.html";
-  import Pageheader from "./partials/Pageheader.html";
-  import Voffset from "./partials/Voffset.html";
+  import Seitenlogo from "./partials/Seitenlogo.svelte";
+  import Pageheader from "./partials/Pageheader.svelte";
+  import Voffset from "./partials/Voffset.svelte";
 
   export let schueler, schule, privat, jahr, abschnitt;
   const aktHalbjahr = a => a.Jahr === jahr && a.Abschnitt === abschnitt;
