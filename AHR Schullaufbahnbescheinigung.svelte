@@ -212,7 +212,7 @@
 [Anlage D 33a](https://bass.schul-welt.de/3129.htm#AnlageD33a)
 [VV](https://bass.schul-welt.de/3129.htm#pgfId-3910124)
   `
-  import { datum, versetzungsvermerk, volljaehrigBei, bemerkungen, bg }  from './helfer'
+  import { datum, volljaehrigBei, bemerkungen, bg }  from './helfer'
 
   import Seitenlogo from './partials/Seitenlogo.svelte'
   import Pageheader from './partials/Pageheader.svelte'

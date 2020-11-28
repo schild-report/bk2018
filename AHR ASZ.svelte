@@ -369,7 +369,6 @@ Fachklasse Ebene2 eingegeben.
   import Seitenlogo from './partials/Seitenlogo.svelte'
   import Pageheader from './partials/Pageheader.svelte'
   import Voffset from './partials/Voffset.svelte'
-  import Fussnote from './partials/Fussnoten.svelte'
 
   export let schueler, schule, privat, jahr, abschnitt
   const aktHalbjahr = (a) => a.Jahr === jahr && a.Abschnitt === abschnitt
@@ -383,10 +382,6 @@ Fachklasse Ebene2 eingegeben.
     bottom: -126px;
     left: -90px;
   }
-  /* div {
-    box-sizing: border-box;
-    border: thin solid #ddd;
-  } */
   .table-bordered {
     border-collapse: collapse;
   }

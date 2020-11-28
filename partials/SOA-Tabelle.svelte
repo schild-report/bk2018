@@ -45,7 +45,5 @@
   .table-bordered tr {
     border-bottom: thin solid #333;
   }
-  .schulnummer {
-    text-align: right;
-  }
 </style>
+<script></script>

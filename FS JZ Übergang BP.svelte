@@ -75,7 +75,7 @@
 {/each}
 
 <script>
-  import { datum, versetzungsvermerk, volljaehrigBei, bemerkungen, bg }  from './helfer'
+  import { datum, bemerkungen, bg }  from './helfer'
 
   import Seitenlogo from './partials/Seitenlogo.svelte'
   import Pageheader from './partials/Pageheader.svelte'
@@ -84,7 +84,6 @@
   import Fussnote from './partials/Fussnoten.svelte'
 
   export let schueler, schule, privat, jahr, abschnitt
-  let zeigeVersetzungsvermerk = true
   const aktHalbjahr = a => a.Jahr === jahr && a.Abschnitt === abschnitt
 </script>
 
@@ -92,9 +91,5 @@
   @import 'css/main.css';
   .lf-noten {
     font-size: 0.9rem;
-  }
-  .vbutton {
-    background-color: red;
-    color: white;
   }
 </style>

@@ -141,7 +141,7 @@
 [VV](https://bass.schul-welt.de/3129.htm#pgfId-3908229)
 **Praktikumsdauer Corona-bedingt beachten!**
   `
-  import { datum, volljaehrigBei, bemerkungen, bg, note }  from './helfer'
+  import { datum, bemerkungen, bg, note }  from './helfer'
 
   import Seitenlogo from './partials/Seitenlogo.svelte'
   import Pageheader from './partials/Pageheader.svelte'

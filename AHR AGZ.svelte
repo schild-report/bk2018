@@ -225,7 +225,7 @@
 - [AGZ D35](https://bass.schul-welt.de/3129.htm#AnlageD35)
 - [Kurse abgeschlossen? Bemerkung](https://bass.schul-welt.de/3129.htm#pgfId-3910135)
   `
-  import { datum, versetzungsvermerk, volljaehrigBei, bemerkungen, bg, punkte2note, noteInWorten, fremdsprache }  from './helfer'
+  import { datum, bemerkungen, bg, punkte2note, noteInWorten, fremdsprache }  from './helfer'
 
   import Seitenlogo from './partials/Seitenlogo.svelte'
   import Pageheader from './partials/Pageheader.svelte'

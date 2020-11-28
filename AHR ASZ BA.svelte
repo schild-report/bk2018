@@ -113,7 +113,7 @@
 [Anlage D 48](https://bass.schul-welt.de/anlagen/3129-50.pdf)
 Die *Fächer* BL und BP Gesamt sind in einer anderen Fächergruppe als das Kolloqium und werden auf dem Zeugnis ignoriert.
   `
-  import { datum, bemerkungen, bg, note }  from './helfer'
+  import { datum, bemerkungen }  from './helfer'
   import Seitenlogo from './partials/Seitenlogo.svelte'
   import Pageheader from './partials/Pageheader.svelte'
   import Voffset from './partials/Voffset.svelte'

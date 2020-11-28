@@ -52,10 +52,9 @@
 {/each}
 
 <script>
-  import { datum, chunk }  from './helfer'
+  import { chunk }  from './helfer'
   import Voffset from './partials/Voffset.svelte'
-  export let schueler, schule, privat, jahr, abschnitt, klasse
-  const aktHalbjahr = (a) => a.Jahr === jahr && a.Abschnitt === abschnitt
+  export let schueler, klasse
   const heute = () => new Date().toLocaleDateString('de', {day: '2-digit', month: '2-digit', year: 'numeric'})
   const anzahl = 25
 </script>
@@ -75,8 +74,5 @@
     line-height: 1.3rem;
     padding: 3px;
     text-align: center;
-  }
-  .table-eng {
-    margin-bottom: 0;
   }
 </style>

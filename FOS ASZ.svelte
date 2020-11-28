@@ -144,7 +144,7 @@ export const kommentar = `
 
 __Achtung, das Ändern der Praxisnachweise gilt für alle Schüler im Dokument.__
 `
-  import { datum, bemerkungen, bg, note, noteInWorten }  from './helfer'
+  import { datum, bemerkungen, bg, noteInWorten }  from './helfer'
 
   import Seitenlogo from './partials/Seitenlogo.svelte'
   import Pageheader from './partials/Pageheader.svelte'

@@ -115,9 +115,6 @@
   export let schueler, schule, privat, jahr, abschnitt
   let zeigeVersetzungsvermerk = true
   let zeigeAbschlussVermerk = false
-  const abschlussVermerk = _ => {
-
-  }
   const aktHalbjahr = a => a.Jahr === jahr && a.Abschnitt === abschnitt
 </script>
 

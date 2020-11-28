@@ -1,7 +1,7 @@
 {
   "name": "bk2018",
   "version": "1.0.0",
-  "description": "Diese Reports werden durchgehend ergänzt und verbessert. Da sie auf bestimmte Daten zugreifen, die es nur am BK gibt, kann es mit Datenbanken anderer Schultypen dazu kommen, dass die Reports nicht angezeigt werden. Dazu bitte in der Konsole nachschauen und prüfen, welche Felder evtl entfernt werden müssen.",
+  "description": "",
   "main": "index.js",
   "dependencies": {},
   "devDependencies": {},
@@ -10,8 +10,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "ssh://git@git.hmt.im:10022/hmt/bk2018.git"
+    "url": ""
   },
   "author": "",
-  "license": "ISC"
+  "license": "MIT"
 }

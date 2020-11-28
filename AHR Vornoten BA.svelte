@@ -36,9 +36,9 @@
 {/each}
 
 <script>
-  import { datum, chunk, punkte2note }  from './helfer'
+  import { chunk, punkte2note }  from './helfer'
   import Voffset from './partials/Voffset.svelte'
-  export let schueler, schule, privat, jahr, abschnitt, klasse
+  export let schueler, klasse
 
   const anzahl = 5
   const heute = () => new Date().toLocaleDateString('de', {day: '2-digit', month: '2-digit', year: 'numeric'})

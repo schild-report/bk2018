@@ -141,8 +141,7 @@ hr {
         </div>
       </div>
       <div class="footer">
-        <hr>
-        <!-- <hr class="hr-schere"> -->
+        <hr class="hr-schere">
         <br />
         {s.anrede}
         <b>

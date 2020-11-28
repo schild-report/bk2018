@@ -97,7 +97,7 @@
 {/each}
 
 <script>
-  import { datum, versetzungsvermerk, volljaehrigBei, bemerkungen, bg }  from './helfer'
+  import { datum, versetzungsvermerk, bemerkungen, bg }  from './helfer'
 
   import Seitenlogo from './partials/Seitenlogo.svelte'
   import Pageheader from './partials/Pageheader.svelte'
@@ -109,13 +109,6 @@
   let zeigeVersetzungsvermerk = true
   const aktHalbjahr = a => a.Jahr === jahr && a.Abschnitt === abschnitt
   let zeige_FHR
-  const fhrFach = (s, fach, id) => {
-    const pid = 'P1' + id
-    if (!fach[pid]) return
-    const fach2 = s.fhr_abschluss_faecher.find(f => f.Fach_ID === fach.Fach_ID)
-    const rsid = 'RSII_' + id
-    return fach2[rsid] === '+' ? fach[pid] : `(${fach[pid]})`
-  }
 </script>
 
 <style>

@@ -111,7 +111,7 @@
 {/each}
 
 <script>
-export let kommentar = `
+export const kommentar = `
 [E5 PDF](https://bass.schul-welt.de/anlagen/3129-60.pdf)
 [E5 html]()
 `

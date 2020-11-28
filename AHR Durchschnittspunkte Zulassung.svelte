@@ -31,7 +31,6 @@
 
 <script>
   export let schueler, klasse
-  import { datum }  from './helfer'
   import Voffset from './partials/Voffset.svelte'
   const heute = () => new Date().toLocaleDateString('de', {day: '2-digit', month: '2-digit', year: 'numeric'})
   let eins, zwei, drei
@@ -56,8 +55,5 @@
     border: thin solid #ddd;
     line-height: 1.3rem;
     padding: 3px;
-  }
-  .table-eng {
-    margin-bottom: 0;
   }
 </style>

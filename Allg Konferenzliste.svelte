@@ -48,7 +48,7 @@
 
   import Voffset from './partials/Voffset.svelte'
 
-  export let schueler, schule, privat, jahr, abschnitt, klasse
+  export let schueler, jahr, abschnitt, klasse
   const aktHalbjahr = (a) => a.Jahr === jahr && a.Abschnitt === abschnitt
   const heute = () => new Date().toLocaleDateString('de', {day: '2-digit', month: '2-digit', year: 'numeric'})
   const anzahl = 25

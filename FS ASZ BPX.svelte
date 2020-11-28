@@ -101,7 +101,7 @@
 {/each}
 
 <script>
-  export let kommentar = `
+  export const kommentar = `
 [E5 PDF](https://bass.schul-welt.de/anlagen/3129-60.pdf)
 [E5 html]()
 `
@@ -110,9 +110,7 @@
   import Seitenlogo from './partials/Seitenlogo.svelte'
   import Pageheader from './partials/Pageheader.svelte'
   import Voffset from './partials/Voffset.svelte'
-  import Fussnote from './partials/Fussnoten.svelte'
   const aktHalbjahr = (a) => a.Jahr === jahr && a.Abschnitt === abschnitt
-  const findeFach = (hj, as) => hj.noten.find(n => n.fach.ID === as.fach.ID) || { Lernentw: 'undefined' }
 </script>
 
 <style>

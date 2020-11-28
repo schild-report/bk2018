@@ -44,7 +44,7 @@
 {/each}
 
 <script>
-  import { datum, versetzungsvermerk, volljaehrigBei, bemerkungen, bg }  from './helfer'
+  import { datum, bemerkungen, bg }  from './helfer'
 
   import Seitenlogo from './partials/Seitenlogo.svelte'
   import Pageheader from './partials/Pageheader.svelte'
