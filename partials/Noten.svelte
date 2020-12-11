@@ -82,7 +82,7 @@ berufsbezogenZuerst: Diese Einstellung legt fest, dass die gen. Fächer zuerst a
 
 <script>
   import { gruppenIds } from './gruppenIDs'
-  import { note, fremdsprache, groupBy } from './helfer'
+  import { note, fremdsprache, groupBy } from '../helfer'
 
   export let lernfeld
   export let ger = false

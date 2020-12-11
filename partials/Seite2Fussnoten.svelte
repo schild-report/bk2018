@@ -5,6 +5,6 @@
 </div>
 
 <script>
-export let schule, ger, notenstufen
+export let schule, ger
 import Fussnote from './Fussnoten.svelte'
 </script>
