@@ -66,7 +66,7 @@ berufsbezogenZuerst: Diese Einstellung legt fest, dass die gen. Fächer zuerst a
             Außer es ist eine Sprache, dann wird es wohl ein 'teilgenommen' sein,
             das auf eine Fremdsprachenprüfung hinweist und nicht mit den anderen
             Fächern im Diff-Bereich steht. Optisch besser. -->
-            {#if (f.fach.IstSprache==='-') && ((f.NoteAbschluss && f.NoteAbschluss.startsWith('E')) || (f.NotenKrz && f.NotenKrz.startsWith('E')))}
+            {#if (f.fach.IstSprache==='-') && (f.NoteAbschluss?.toUpperCase().startsWith('E') || f.NotenKrz?.toUpperCase().startsWith('E'))}
               <td class="td-fach-note"><span class="e-note">{note(f.NoteAbschluss) || note(f.NotenKrz)}</span></td>
             {:else}
               <td class="td-fach-note"><span>{note(f.NoteAbschluss) || note(f.NotenKrz) || '–––––'}</span></td>
