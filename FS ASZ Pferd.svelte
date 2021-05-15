@@ -43,7 +43,8 @@
           <Voffset v="1"/>
           <Voffset v="4"/>
           {s.anrede} {s.Vorname} {s.Zusatz || ''} {s.Name} ist berechtigt, die Berufsbezeichnung
-          <h4 class="text-center">{@html s.berufsbezeichnung_mw}</h4>
+          <h4 class="text-center">{@html s.berufsbezeichnung_mw}
+          <br><div style="font-size: 80%">(Bachelor Professional im Sozialwesen)</div></h4>
           zu führen.
           <Voffset v="1"/>
           Der Abschluss ist im Deutschen und Europäischen Qualifikationsrahmen dem Niveau {s.fachklasse.DQR_Niveau} zugeordnet.
