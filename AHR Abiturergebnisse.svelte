@@ -10,11 +10,11 @@
       <table class="table-bordered" width="100%">
         <tr>
           <th width="30px">Nr</th>
-          <th  style="text-align: left;">Name</th>
-          <th colspan="2" width="50px">1. Fach (LK1)</th>
-          <th colspan="2" width="50px">2. Fach (LK2)</th>
-          <th colspan="2" width="50px">3. Fach (GK)</th>
-          <th colspan="2" width="50px">4. Fach (mdl)</th>
+          <th style="text-align: left;">Name</th>
+          <th colspan="2" width="50px" class="eb">1. Fach (LK1)</th>
+          <th colspan="2" width="50px" class="eb">2. Fach (LK2)</th>
+          <th colspan="2" width="50px" class="eb">3. Fach (GK)</th>
+          <th colspan="2" width="50px" class="eb">4. Fach (mdl)</th>
           <th width="50px">Abitur- note</th>
           <th width="70px">Summe Block I</th>
           <th width="70px">vorl. Gesamt- summe</th>
@@ -27,9 +27,9 @@
           <tr>
             <td><b>{i*anzahl+ii+1}</b></td>
             <td style="text-align: left;"><b>{s.Name}, {s.Vorname}</b></td>
-            {#each s.abi_abschluss_faecher.filter(f => ['1', '2', '3', '4'].includes(f.AbiFach)).sort(f => f.AbiFach) as f}
+            {#each s.abi_abschluss_faecher.filter(f => ['1', '2', '3', '4'].includes(f.AbiFach)).sort((a, b) => a.AbiFach - b.AbiFach) as f}
               <td>{f.FachKrz}</td>
-              <td>{f.AbiPruefErgebnis || "–"}</td>
+              <td class="eb">{f.AbiPruefErgebnis || "–"}</td>
             {/each}
               <td>{s.abi_abschluss.Note || "–"}</td>
               <td>{s.abi_abschluss.Punktsumme_I || "–"}</td>
@@ -70,4 +70,5 @@
     padding: 3px;
     text-align: center;
   }
+  .eb { border-right: solid !important;}
 </style>
