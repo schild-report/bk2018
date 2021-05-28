@@ -79,7 +79,7 @@ hr {
             <td class="text-center">Punkte Durchschnitt</td>
             <td class="text-center">Punkte Prüfung</td>
             <td class="text-center">Zwischenstand der Punktewertung</td>
-            <td class="text-center">Mündliche Bestehens- prüfung</td>
+            <td class="text-center">Mündliche Bestehensprüfung</td>
             <td class="text-center">Mündliche Prüfung freiwillig</td>
           </tr>
           {#each s.abi_abschluss_faecher
@@ -104,12 +104,11 @@ hr {
           <tr>
             <td colspan="4">Gesamtpunktzahl aus Block I</td>
             <td class="text-center">{s.abi_abschluss.Punktsumme_I}</td>
-            <td class="text-center">Notensprung bei</td>
+            <td class="text-center" rowspan="2">Notensprung bei<br>{s.abi_abschluss.Notensprung || "–"}</td>
           </tr>
           <tr>
             <td colspan="4">Vorläufige Punktzahl der Gesamtqualifikation</td>
             <td class="text-center">{s.abi_abschluss.GesamtPunktzahl}</td>
-            <td class="text-center">{s.abi_abschluss.Notensprung}</td>
           </tr>
           <tr>
             <td colspan="4">Vorläufige Durchschnittsnote</td>
