@@ -112,7 +112,7 @@ hr {
           </tr>
           <tr>
             <td colspan="4">Vorläufige Durchschnittsnote</td>
-            <td class="text-center">{s.abi_abschluss.Note}</td>
+            <td class="text-center">{s.abi_abschluss.Note}{s.abi_abschluss.Note?.includes(',') ? '':',0'}</td>
           </tr>
         </table>
         <Voffset v="1" />
