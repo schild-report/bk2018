@@ -25,11 +25,13 @@
               ></Noten>
             </div>
             <hr />
-            <Voffset v="1"/>
-            {s.anrede} {s.Vorname} {s.Zusatz || ''} {s.Name} hat ein
-            bildungsgangbegleitendes Praktikum in Einrichtungen für Kinder
-            und Jugendliche sowie alte, kranke und behinderte Menschen im
-            Umfang von 16 Wochen absolviert.
+            {#if s.fachklasse.Kennung === '93-103-00'}
+              <Voffset v="1"/>
+              {s.anrede} {s.Vorname} {s.Zusatz || ''} {s.Name} hat ein
+              bildungsgangbegleitendes Praktikum in Einrichtungen für Kinder
+              und Jugendliche sowie alte, kranke und behinderte Menschen im
+              Umfang von 16 Wochen absolviert.
+            {/if}
             <Voffset v="1"/>
             <b>Bemerkungen</b>
             <br />{@html bemerkungen(hj)}
