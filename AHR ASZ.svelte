@@ -389,9 +389,9 @@ Fachklasse Ebene2 eingegeben.
             <Voffset v="1" />
             <div class="flex-grid">
               <div class="col-2">Durchschnittsnote:</div>
-              <div class="col text-center"><h5>{s.abi_abschluss.Note}</h5></div>
-              <div class="col">
-                In Worten: {@html noteInWorten(s.abi_abschluss.Note)}
+              <div class="col text-center"><h5>{s.abi_abschluss.Note}{s.abi_abschluss.Note?.includes(',') ? '':',0'}</h5></div>
+              <div class="col" style="padding-top: .7em">
+                In Worten: {@html noteInWorten(s.abi_abschluss.Note)}{@html s.abi_abschluss.Note?.includes(',') ? '':' / n&#8291;ull'}
               </div>
             </div>
             <Voffset v="1" />
