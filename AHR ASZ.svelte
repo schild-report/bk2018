@@ -127,7 +127,7 @@ Fachklasse Ebene2 eingegeben.
                 geboren am {datum(s.Geburtsdatum)} in {s.Geburtsort},
               </div>
               <div>
-                wohnhaft in {s.OrtAbk},
+                wohnhaft in {s.OrtAbk}, {s.KonfDruck === '+' ? `${s.ReligionAbk},`:''}
               </div>
               <div>hat sich der Abiturprüfung im Bildungsgang</div>
               <div>{bg(s, "Bereich")}</div>
