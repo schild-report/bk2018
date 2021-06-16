@@ -75,8 +75,7 @@
                 <hr />
                 <div class="text-center klein">
                   {schule.SchulleiterVorname} {schule.SchulleiterName}
-                  – Vorsitzende{schule.SchulleiterGeschlecht === 3 ? 'r':''} des allgemeinen
-                  <br />Prüfungsausschusses
+                  – Vorsitzende{schule.SchulleiterGeschlecht === 3 ? 'r':''} des allgemeinen Prüfungsausschusses
                 </div>
               </div>
               <div class="col klein">
