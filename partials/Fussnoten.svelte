@@ -8,7 +8,9 @@ notenstufen:Wenn die Notenstufen mit angegeben werden sollen.
             true|false Standardwert ist false
 verordnung :true|false Standartwert false
 bfs:        true|false Standardwert false
-rechtsbehlfsbelehrung :true|false Standartwert true
+rechtsbehlfsbelehrung :true|false Standardwert true
+
+Ein defauld-Slot für weitere Fußnoten ist vorhanden
 
 Beachte, true|false nicht als String setzen, sondern als statement:
 notenstufen={false} -->
@@ -61,6 +63,7 @@ notenstufen={false} -->
       das Verschulden einer/eines Bevollmächtigten versäumt wird, wird dieses
       Verschulden der Widerspruchsführerin/dem Widerspruchsführer zugerechnet.
     {/if}
+    <slot/>
   </div>
 </div>
 
