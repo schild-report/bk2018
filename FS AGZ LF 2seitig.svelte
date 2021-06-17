@@ -72,7 +72,11 @@
         </div>
       </div>
     </div>
-    <Seite2Fussnote {schule} ger></Seite2Fussnote>
+    <div class="page grid" orientation="portrait" size="A4">
+      <div class="footer grau">
+        <Fussnote notenstufen={false} {schule}/>
+      </div>
+    </div>
   {/each}
 {/each}
 
@@ -83,7 +87,7 @@
   import Pageheader from './partials/Pageheader.svelte'
   import Voffset from './partials/Voffset.svelte'
   import Noten from './partials/Noten.svelte'
-  import Seite2Fussnote from './partials/Seite2Fussnoten.svelte'
+  import Fussnote from './partials/Fussnoten.svelte'
   export const kommentar = `
 [Vorlage PDF](https://bass.schul-welt.de/anlagen/3129-61.pdf)
 
