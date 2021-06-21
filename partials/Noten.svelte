@@ -42,7 +42,7 @@ berufsbezogenZuerst: Diese Einstellung legt fest, dass die gen. Fächer zuerst a
         {#if f.fach.AufZeugnis === '+'}
           <tr>
             <td class="{lernfeld ? '' : 'fach-bezeichnung'} {lernbereich != faecher[0].fach.Zeugnisbez ? 'lernfeld-lernbereich' : ''}">
-              {#if f.fach.Zeugnisbez.includes("Projekt")}
+              {#if f.fach.Zeugnisbez.startsWith("Projekt")}
                 <!-- Funktioniert nicht mit Abschlussnoten, da diese keine Spalte `Lernentw` haben -->
                 {f.Lernentw}
               {:else}
