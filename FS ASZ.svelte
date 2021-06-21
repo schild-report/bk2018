@@ -69,8 +69,8 @@
               <div class="col">
                 <hr />
                 <div class="text-center klein">
-                  {schule.SchulleiterVorname} {schule.SchulleiterName} – Vorsitzende{schule.SchulleiterGeschlecht === 3 ? 'r':''} des allgemeinen
-                  <br />Prüfungsausschusses
+                  {schule.SchulleiterVorname} {schule.SchulleiterName}
+                  <br>Vorsitzende{schule.SchulleiterGeschlecht === 3 ? 'r':''} des allgemeinen Prüfungsausschusses
                 </div>
               </div>
               <div class="col klein">
@@ -81,7 +81,8 @@
               <div class="col klein">
                 <hr />
                 <div class="text-center">
-                  {schule.SchulleiterVorname} {schule.SchulleiterName} <br />{schule.schulleiter_in}
+                  {schule.SchulleiterVorname} {schule.SchulleiterName}
+                  <br />{schule.schulleiter_in}
                 </div>
               </div>
             </div>

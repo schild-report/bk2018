@@ -74,9 +74,8 @@ Fachklasse Ebene2 eingegeben.
               <div class="col-2 text-center klein">
                 <Voffset v="3" />
                 <hr />
-                {schule.SchulleiterVorname}
-                {schule.SchulleiterName} <br />
-                Vorsitzende des allgemeinen Prüfungsausschusses
+                {schule.SchulleiterVorname} {schule.SchulleiterName}
+                <br>Vorsitzende{schule.SchulleiterGeschlecht === 3 ? 'r':''} des allgemeinen Prüfungsausschusses
               </div>
               <div class="col" />
               <div class="col-2 text-center klein">

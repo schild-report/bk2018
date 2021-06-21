@@ -60,7 +60,7 @@
               <hr />
               <div class="text-center klein">
                 {schule.SchulleiterVorname} {schule.SchulleiterName}
-                <br>Vorsitzende{schule.SchulleiterGeschlecht === 3 ? 'r':''} des allg. Prüfungsausschusses
+                <br>Vorsitzende{schule.SchulleiterGeschlecht === 3 ? 'r':''} des allgemeinen Prüfungsausschusses
               </div>
               <Voffset v="6"/>
               <hr />

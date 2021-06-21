@@ -52,7 +52,8 @@
           <div class="col text-center klein">
           <Voffset v="3"/>
             <hr />
-            {schule.SchulleiterVorname} {schule.SchulleiterName} <br />{schule.schulleiter_in}
+            {schule.SchulleiterVorname} {schule.SchulleiterName}
+            <br />{schule.schulleiter_in}
           </div>
           <div class="col text-center klein">
           <Voffset v="3"/>

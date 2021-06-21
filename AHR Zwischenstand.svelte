@@ -131,8 +131,7 @@ hr {
             <Voffset v="3" />
             <hr />
             {schule.SchulleiterVorname} {schule.SchulleiterName}
-            <br />
-            Vorsitzende des allgemeinen Prüfungsausschusses
+            <br>Vorsitzende{schule.SchulleiterGeschlecht === 3 ? 'r':''} des allgemeinen Prüfungsausschusses
           </div>
         </div>
       </div>
