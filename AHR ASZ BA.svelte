@@ -40,9 +40,6 @@
           zu führen.
           <Voffset v="1"/>
           Der Abschluss ist im Deutschen und Europäischen Qualifikationsrahmen dem Niveau {s.fachklasse.DQR_Niveau} zugeordnet.
-          {#if s.abi_abschluss.PruefungBestanden !== '+'}
-            <div class="text-center" style="background: yellow">Prüfung nicht bestanden</div>
-          {/if}
           <Voffset v="9"/>
           <div class="flex-grid">
             <div class="col">
