@@ -10,7 +10,7 @@
   font-style: normal;
   font-weight: bold;
 }
-@font-face {
+/* @font-face {
   font-family: 'TeX Gyre Heros';
   src: url("../daten/texgyreheros-italic-webfont.woff") format("woff");
   font-style: italic;
@@ -20,7 +20,7 @@
   src: url("../daten/texgyreheros-bolditalic-webfont.woff") format("woff");
   font-style: italic;
   font-weight: bold;
-}
+} */
 
 @media screen {
   body {
@@ -70,16 +70,11 @@ body {
   display: block;
 }
 
-/*
-Da *named pages*, also z.B. @page a3landscape noch nicht von Chrome
-unterstützt werden, gilt vorerst die Standard-Einstellung von A4 Portrait.
-Um andere Formate zu erzeugen, muss die Größe in den svelte-Koponenten
-als setup-Einstellung hinterlegt werden. Oder man verwendet ein besonderes CSS
-mit der anderen Einstellung.
-Dazu bitte ein @import 'nicht_a4_portrait.css' verwenden. Svelte ignoriert sonst
-die in den <style> tags hinterlegten @... Anweisungen.
-Link: https://www.w3.org/TR/css3-page/#using-named-pages
-*/
+/* Dieses Stylesheet funktioniert nur mit Chrom*-Browsern ab M85, die named pages aktiviert haben. */
+
+@page {
+  margin: 0;
+}
 
 .page[size="A4"][orientation="portrait"] {
   page: a4portrait;
@@ -87,7 +82,6 @@ Link: https://www.w3.org/TR/css3-page/#using-named-pages
   height: 296.8mm;
 }
 @page a4portrait {
-  margin: 0;
   size: A4 portrait;
 }
 
@@ -97,7 +91,6 @@ Link: https://www.w3.org/TR/css3-page/#using-named-pages
   height: 209mm;
 }
 @page a4landscape {
-  margin: 0;
   size: A4 landscape;
 }
 
@@ -107,7 +100,6 @@ Link: https://www.w3.org/TR/css3-page/#using-named-pages
   height: 420mm;
 }
 @page a3portrait {
-  margin: 0;
   size: A3 portrait;
 }
 
@@ -117,7 +109,6 @@ Link: https://www.w3.org/TR/css3-page/#using-named-pages
   height: 296.8mm;
 }
 @page a3landscape {
-  margin: 0;
   size: A3 landscape;
 }
 
@@ -127,7 +118,6 @@ Link: https://www.w3.org/TR/css3-page/#using-named-pages
   height: 210mm;
 }
 @page a5portrait {
-  margin: 0;
   size: A5 portrait;
 }
 
@@ -137,7 +127,6 @@ Link: https://www.w3.org/TR/css3-page/#using-named-pages
   height: 148mm;
 }
 @page a5landscape {
-  margin: 0;
   size: A5 landscape;
 }
 
