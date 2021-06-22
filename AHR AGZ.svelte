@@ -111,7 +111,7 @@
               {hj.lehrer.Vorname} {hj.lehrer.Nachname}<br />{hj.klassenlehrer_in}
             </div>
           </div>
-          <Voffset v="6"/>
+          <Voffset v="3"/>
         </div>
       </div>
       <div class="footer-grid klein eng">
