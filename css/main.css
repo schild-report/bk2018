@@ -1,5 +1,4 @@
 @charset "UTF-8";
-@import url(normalize.css);
 @font-face {
   font-family: 'TeX Gyre Heros';
   src: url("../daten/texgyreheros-regular-webfont.woff") format("woff");
@@ -45,7 +44,7 @@
     margin: 0;
   }
   .no-print, .no-print * {
-      display: none !important;
+    display: none !important;
   }
 }
 
@@ -55,13 +54,22 @@
 }
 
 html {
+  box-sizing: border-box;
   font-size: 10pt;
+}
+*,
+::after,
+::before {
+  box-sizing: inherit;
+}
+body {
+  margin: 0;
 }
 .page {
   line-height: 1.5;
   font-weight: normal;
   font-family: "Tex Gyre Heros";
-  color: #333;
+  color: #191919;
   position: relative;
   padding: 10mm 25mm 10mm 25mm;
   display: block;
@@ -257,12 +265,12 @@ p {
 hr {
   border: 0;
   border-top: 1px solid #eee;
-  border-color: #000;
+  border-color: #191919;
   height: 1px;
   margin: 3px 0;
 }
 .hr-grau {
-  border-color: #646464 !important;
+  border-color: #333 !important;
 }
 
 .fett {
@@ -278,7 +286,7 @@ hr {
 }
 
 .grau * {
-  color: #646464 !important;
+  color: #333 !important;
 }
 
 ul.dashes {
@@ -294,12 +302,4 @@ ul.dashes li:before {
 
 .schulnummer {
   text-align: left;
-}
-
-.wasserzeichen {
-  position: absolute;
-  opacity: 0.5;
-  z-index: 99;
-  color: red;
-  font-size: 96pt;
 }
