@@ -54,7 +54,7 @@
                 </tr>
               {/each}
             </table>
-            <Voffset v="4"/>
+            <Voffset v="3"/>
             {s.anrede} {s.Vorname} {s.Zusatz || ''} {s.Name} ist berechtigt, die Berufsbezeichnung
             <h5 class="text-center">{bg(s, (s.Geschlecht === 3 ? 'Berufsbezeichnung_m' : 'Berufsbezeichnung_w'))}
             <br><div style="font-size: 80%">(Bachelor Professional im Sozialwesen)</div></h5>
@@ -62,9 +62,9 @@
             zu führen.
             <Voffset v="1"/>
             Der Abschluss ist im Deutschen und Europäischen Qualifikationsrahmen dem Niveau {s.fachklasse.DQR_Niveau} zugeordnet.
-            <Voffset v="5"/>
+            <Voffset v="4"/>
             {schule.Ort}, den {datum(hj.ZeugnisDatum)}
-            <Voffset v="5"/>
+            <Voffset v="4"/>
             <div class="flex-grid">
               <div class="col">
                 <hr />
