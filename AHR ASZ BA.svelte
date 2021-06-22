@@ -33,13 +33,16 @@
           <Voffset v="2"/>
           {s.anrede} {s.Vorname} {s.Zusatz || ''} {s.Name} hat die staatliche
           Berufsabschlussprüfung für Erzieherinnen und Erzieher<br>
-          am {hj.noten.find(f => f.fach.FachKrz === 'KO').Lernentw}
+          am {hj.noten.find(f => f.fach.FachKrz === 'KO')?.Lernentw}
           bestanden und ist berechtigt, die Berufsbezeichnung
           <Voffset v="1"/>
           <h6 class="text-center">{s.Geschlecht === 3 ? 'Staatlich anerkannter Erzieher' : 'Staatlich anerkannte Erzieherin'}</h6>
           zu führen.
           <Voffset v="1"/>
           Der Abschluss ist im Deutschen und Europäischen Qualifikationsrahmen dem Niveau {s.fachklasse.DQR_Niveau} zugeordnet.
+          {#if s.abi_abschluss.PruefungBestanden !== '+'}
+            <div class="text-center" style="background: yellow">Prüfung nicht bestanden</div>
+          {/if}
           <Voffset v="9"/>
           <div class="flex-grid">
             <div class="col">
