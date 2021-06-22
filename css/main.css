@@ -48,11 +48,6 @@
   }
 }
 
-@page {
-  margin: 0;
-  size: auto;
-}
-
 html {
   box-sizing: border-box;
   font-size: 10pt;
@@ -87,64 +82,64 @@ Link: https://www.w3.org/TR/css3-page/#using-named-pages
 */
 
 .page[size="A4"][orientation="portrait"] {
-  /* page: a4portrait; */
+  page: a4portrait;
   width: 210mm;
   height: 296.8mm;
 }
-/* @page a4portrait {
+@page a4portrait {
   margin: 0;
   size: A4 portrait;
-} */
+}
 
 .page[size="A4"][orientation="landscape"] {
-  /* page: a4landscape; */
+  page: a4landscape;
   width: 296.8mm;
   height: 209mm;
 }
-/* @page a4landscape {
+@page a4landscape {
   margin: 0;
   size: A4 landscape;
-} */
+}
 
 .page[size="A3"][orientation="portrait"] {
-  /* page: a3portrait; */
+  page: a3portrait;
   width: 296.8mm;
   height: 420mm;
 }
-/* @page a3portrait {
+@page a3portrait {
   margin: 0;
   size: A3 portrait;
-} */
+}
 
 .page[size="A3"][orientation="landscape"] {
-  /* page: a3landscape; */
+  page: a3landscape;
   width: 420mm;
   height: 296.8mm;
 }
-/* @page a3landscape {
+@page a3landscape {
   margin: 0;
   size: A3 landscape;
-} */
+}
 
 .page[size="A5"][orientation="portrait"] {
-  /* page: a5portrait; */
+  page: a5portrait;
   width: 148mm;
   height: 210mm;
 }
-/* @page a5portrait {
+@page a5portrait {
   margin: 0;
   size: A5 portrait;
-} */
+}
 
 .page[size="A5"][orientation="landscape"] {
-  /* page: a5landscape; */
+  page: a5landscape;
   width: 210mm;
   height: 148mm;
 }
-/* @page a5landscape {
+@page a5landscape {
   margin: 0;
   size: A5 landscape;
-} */
+}
 
 /* Typography */
 h1, h2, h3, h4, h5, h6 {

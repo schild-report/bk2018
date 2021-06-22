@@ -59,7 +59,6 @@
 
 <style>
   @import 'css/main.css';
-  @import 'css/a3-landscape.css';
   table {
     border-collapse: collapse;
     width:auto;

@@ -65,7 +65,6 @@
 
 <style>
   @import 'css/main.css';
-  @import 'css/a3-landscape.css';
   table {
     width: 98%;
     border-collapse: collapse;

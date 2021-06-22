@@ -56,7 +56,6 @@
 
 <style>
   @import 'css/main.css';
-  @import 'css/a4-landscape.css';
 
   .table-bordered {
     border-collapse: collapse;

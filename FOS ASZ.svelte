@@ -164,7 +164,6 @@ __Achtung, das Ändern der Praxisnachweise gilt für alle Schüler im Dokument._
 
 <style>
   @import 'css/main.css';
-  @import 'css/a3-landscape.css';
   .td-fach-note span {
     background-color: #dcdcdc !important;
     text-align: center;

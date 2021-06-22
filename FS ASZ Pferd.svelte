@@ -130,7 +130,6 @@ export const kommentar = `
 
 <style>
   @import 'css/main.css';
-  @import 'css/a3-landscape.css';
   .table-noten {
     width: 100%;
     border-collapse: collapse;

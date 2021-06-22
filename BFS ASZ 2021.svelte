@@ -158,7 +158,6 @@
 
 <style>
   @import 'css/main.css';
-  @import 'css/a3-landscape.css';
   .td-padding-extra {
     padding: 2mm 0 2mm 0;
   }
