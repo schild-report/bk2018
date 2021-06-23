@@ -2,7 +2,7 @@
   <div class="page grid" orientation="landscape" size="A3">
     <div class="header">
       <pre>
-        Konferenzliste APA BK Berufsabschluss <b>{klasse.Klasse || schueler[0].Klasse}</b> &Tab; {aktAbschnitt().klassenlehrer_in}: <b>{`${aktAbschnitt().lehrer?.Vorname} ${aktAbschnitt().lehrer?.Nachname} (${aktAbschnitt().lehrer.Kuerzel})`}</b> &Tab; Stand: {heute()}
+        Konferenzliste APA BK Berufsabschluss <b>{klasse.Klasse || schueler[0].Klasse}</b> &Tab; {aktAbschnitt().klassenlehrer_in}: <b>{`${aktAbschnitt().lehrer?.Vorname} ${aktAbschnitt().lehrer?.Nachname} (${aktAbschnitt().lehrer?.Kuerzel})`}</b> &Tab; Stand: {heute()}
       </pre>
     </div>
     <div class="main">
