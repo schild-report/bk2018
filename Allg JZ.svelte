@@ -49,7 +49,7 @@
           <div class="col-2">
             {schule.Ort}, den {datum(hj.ZeugnisDatum)}
           </div>
-          <div class="col text-center klein">
+          <div class="col-2 text-center klein">
           <Voffset v="3"/>
             <hr />
             {schule.SchulleiterVorname} {schule.SchulleiterName}
@@ -59,7 +59,7 @@
           <Voffset v="3"/>
             Siegel
           </div>
-          <div class="col text-center klein">
+          <div class="col-2 text-center klein">
           <Voffset v="3"/>
             <hr />
             {hj.lehrer?.Vorname} {hj.lehrer?.Nachname}<br />{hj.klassenlehrer_in}
@@ -68,11 +68,11 @@
         <div class="flex-grid">
           {#if !s.ASDSchulform.startsWith('E')}
             <div class="col-2"></div>
-            <div class="col-2">
+            <div style="flex: 3" class="text-center">
               <Voffset v="1"/>
               Die Kenntnisnahme wird bestätigt:
             </div>
-            <div class="col">
+            <div class="col-2">
               <Voffset v="3"/>
               <hr />
               <div class="klein text-center">
