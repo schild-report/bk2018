@@ -105,7 +105,7 @@
             <div class="col text-center klein">
               <Voffset v="3"/>
               <hr />
-              {hj.lehrer.Vorname} {hj.lehrer.Nachname}<br />{hj.klassenlehrer_in}
+              {hj.lehrer?.Vorname} {hj.lehrer?.Nachname}<br />{hj.klassenlehrer_in}
             </div>
           </div>
           <Voffset v="2"/>

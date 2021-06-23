@@ -2,7 +2,7 @@
   <div class="page grid" orientation="landscape" size="A3" style="font-size: 1.1rem">
     <div class="header">
       <pre>
-        Konferenzliste <b>{klasse.Klasse || schueler[0].Klasse}</b> &Tab; {aktAbschnitt().klassenlehrer_in}: <b>{`${aktAbschnitt().lehrer.Vorname} ${aktAbschnitt().lehrer.Nachname} (${aktAbschnitt().lehrer.Kuerzel})`}</b> &Tab; Stand: {heute()} &Tab; Konferenzdatum: {datum(aktAbschnitt().Konferenzdatum)} &Tab; Zeugnisdatum: {datum(aktAbschnitt().ZeugnisDatum)}
+        Konferenzliste <b>{klasse.Klasse || schueler[0].Klasse}</b> &Tab; {aktAbschnitt().klassenlehrer_in}: <b>{`${aktAbschnitt().lehrer?.Vorname} ${aktAbschnitt().lehrer?.Nachname} (${aktAbschnitt().lehrer.Kuerzel})`}</b> &Tab; Stand: {heute()} &Tab; Konferenzdatum: {datum(aktAbschnitt().Konferenzdatum)} &Tab; Zeugnisdatum: {datum(aktAbschnitt().ZeugnisDatum)}
       </pre>
     </div>
     <div class="main">
