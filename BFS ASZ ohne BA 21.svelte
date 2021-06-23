@@ -47,7 +47,7 @@
               {s.anrede} {s.Vorname} {s.Zusatz || ''} {s.Name} hat den
               <Voffset v="0.5"/>
               <b>mittleren Schulabschluss (Fachoberschulreife)</b>
-              {#if s.Entlassart==='5G'}
+              {#if s.Entlassart==='0G'}
                 <br><b>mit Berechtigung zum Besuch der gymnasialen Oberstufe</b>
               {/if}
               <Voffset v="0.5"/>
