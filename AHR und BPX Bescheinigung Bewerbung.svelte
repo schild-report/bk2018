@@ -9,35 +9,35 @@
       <b>{s.anrede} {s.Vorname} {s.Zusatz || ''} {s.Name}</b>
       <br />geboren am {datum(s.Geburtsdatum)} in {s.Geburtsort},
       <br>ist seit dem {datum(s.BeginnBildungsgang)} bis zur Aushändigung des Zeugnisses Schüler{s.Geschlecht===3 ? '':'in'} des Bildungsgangs
-      <b>Erzieherin/AHR, Erzieher/AHR</b>
+      <b>{bg(s, 'Zeugniskopf')}</b>
       <Voffset v="2"/>
-      Der allgemeine Prüfungsausschuss stellte in seiner Abschlusskonferenz am {datum(hj.Konferenzdatum)} fest:
+      Der allgemeine Prüfungsausschuss stellte in seiner Abschlusskonferenz am {hj.noten.find(n=>n.fach.FachKrz==='KO')?.Lernentw} fest:
       <Voffset v="1"/>
-      {s.anrede} {s.Vorname} {s.Zusatz || ''} {s.Name} hat die staatliche <b>Berufsabschlussprüfung</b> am {hj.noten.find(n=>n.fach.FachKrz==='KO').Lernentw} bestanden.
+      {s.anrede} {s.Vorname} {s.Zusatz || ''} {s.Name} hat die staatliche <b>Berufsabschlussprüfung</b> am {hj.noten.find(n=>n.fach.FachKrz==='KO')?.Lernentw} bestanden.
       <Voffset v="1"/>
       <table width="80%">
         <tr>
           <td>Berufspraktische Leistungen</td>
-          <td class="td-fach-note"><span>{note(hj.noten.find(n => n.fach.FachKrz === 'BLgesamt').NotenKrz)}</span></td>
+          <td class="td-fach-note"><span>{note(hj.noten.find(n => n.fach.FachKrz === 'BLgesamt')?.NotenKrz)}</span></td>
         </tr>
         <tr>
           <td>Kolloquium</td>
-          <td class="td-fach-note"><span>{note(hj.noten.find(n => n.fach.FachKrz === 'KO').NotenKrz)}</span></td>
+          <td class="td-fach-note"><span>{note(hj.noten.find(n => n.fach.FachKrz === 'KO')?.NotenKrz)}</span></td>
         </tr>
         <tr>
           <td><b>Gesamtnote Berufspraxis</b></td>
-          <td class="td-fach-note"><b><span>{note(hj.noten.find(n => n.fach.FachKrz === 'BPgesamt').NotenKrz)}</span></b></td>
+          <td class="td-fach-note"><b><span>{note(hj.noten.find(n => n.fach.FachKrz === 'BPgesamt')?.NotenKrz)}</span></b></td>
         </tr>
       </table>
       <Voffset v="1"/>
-      {s.anrede} {s.Vorname} {s.Zusatz || ''} {s.Name} ist mit Abschluss des Berufspraktikums am {datum(hj.ZeugnisDatum)} berechtigt, die Berufsbezeichnung
+      {s.anrede} {s.Vorname} {s.Zusatz || ''} {s.Name} ist mit Abschluss des Berufspraktikums am {hj.noten.find(n=>n.fach.FachKrz==='KO')?.Lernentw} berechtigt, die Berufsbezeichnung
       <b>{bg(s, (s.Geschlecht === 3 ? 'Berufsbezeichnung_m' : 'Berufsbezeichnung_w'))}</b> zu führen.
       <Voffset v="1"/>
       Der Abschluss ist im Deutschen und Europäischen Qualifikationsrahmen dem Niveau {s.fachklasse.DQR_Niveau} zugeordnet.
       <Voffset v="9"/>
       <div class="flex-grid">
         <div class="col">
-          {schule.Ort}, den {datum(hj.Konferenzdatum)}
+          {schule.Ort}, den {datum(hj.ZeugnisDatum)}
         </div>
         <div class="col">
           <Voffset v="3"/>
