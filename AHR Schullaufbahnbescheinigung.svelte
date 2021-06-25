@@ -52,16 +52,16 @@
           <tr>
             <td width="7%"><b>12.1:</b></td>
             <td width="40%">{s.abi_abschluss_faecher.filter(f => parseInt(f.P12_1) < 5 && parseInt(f.P12_1) > 0).map(f => f.fach.Bezeichnung).join(', ') || '- keine -'}</td>
-            {#if hj.Jahrgang === 4 || hj.Jahrgang === 2 && hj.Abschnitt === 2}
+            {#if hj.ASDJahrgang === "03" || hj.ASDJahrgang === "02" && hj.Abschnitt === 2}
               <td width="7%"><b>12.2:</b></td>
               <td width="40%">{s.abi_abschluss_faecher.filter(f => parseInt(f.P12_2) < 5 && parseInt(f.P12_2) > 0).map(f => f.fach.Bezeichnung).join(', ') || '- keine -'}</td>
             {/if}
           </tr>
-          {#if hj.Jahrgang === 4}
+          {#if hj.ASDJahrgang === "03"}
             <tr>
               <td><b>13.1:</b></td>
               <td width="40%">{s.abi_abschluss_faecher.filter(f => parseInt(f.P13_1) < 5 && parseInt(f.P13_1) > 0).map(f => f.fach.Bezeichnung).join(', ') || '- keine -'}</td>
-              {#if hj.Jahrgang === 3 && hj.Abschnitt === 2}
+              {#if hj.ASDJahrgang === "03" && hj.Abschnitt === 2}
                 <td width="7%"><b>13.2:</b></td>
                 <td width="40%">{s.abi_abschluss_faecher.filter(f => parseInt(f.P13_2) < 5 && parseInt(f.P13_2) > 0).map(f => f.fach.Bezeichnung).join(', ') || '- keine -'}</td>
               {/if}
