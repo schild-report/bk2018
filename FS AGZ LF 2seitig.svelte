@@ -32,9 +32,17 @@
         <Voffset v="1"/>
         {#if zeigeVersetzungsvermerk}
           <b>{versetzungsvermerk(hj)}</b>
+        {:else if zeigeBP}
+          <div class="text-center">
+            <b>{s.Geschlecht === 3 ? "Der Studierende":"Die Studierende"} hat laut Konferenzbeschluss vom {datum(hj.Konferenzdatum)}
+            <br>die Berechtigung zum Übergang in das Berufspraktikum erworben.</b>
+          </div>
         {/if}
         <button class="vbutton no-print" on:click="{() => zeigeVersetzungsvermerk = !zeigeVersetzungsvermerk}">
           Versetzungsvermerk {zeigeVersetzungsvermerk ? 'entfernen' : 'anzeigen'}
+        </button>
+        <button class="vbutton no-print" on:click="{() => zeigeBP = !zeigeBP}">
+          Übergang BP {zeigeBP ? 'entfernen' : 'anzeigen'}
         </button>
         <Voffset v="1"/>
         <b>Bemerkungen</b><br />{@html bemerkungen(hj)}
@@ -97,6 +105,7 @@
 
   export let schueler, schule, privat, jahr, abschnitt
   let zeigeVersetzungsvermerk = true
+  let zeigeBP = false
   const aktHalbjahr = a => a.Jahr === jahr && a.Abschnitt === abschnitt
 </script>
 
