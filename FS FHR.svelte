@@ -59,9 +59,8 @@
       <div class="footer klein">
         <div class="klein eng">
           <Voffset v="2"/>
-          <div class="schulnummer">
-            Schulnummer: {schule.SchulNr}
-          </div>
+          <span style="float: right">Seite 3/3</span>
+          <span style='float left'>Schulnummer: {schule.SchulNr}</span>
           <hr class="hr-grau" />
           <div class="grau">
             <sup>1</sup>Die Fächer
