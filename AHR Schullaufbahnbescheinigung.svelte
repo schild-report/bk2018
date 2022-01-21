@@ -1,6 +1,6 @@
 {#each schueler as s (s.ID)}
   {#each s.abschnitte.filter(aktHalbjahr) as hj (hj.ID)}
-    <div class="page grid" orientation="portrait" size="A4" style="font-size: 1.0rem">
+    <div class="page grid" orientation="portrait" size="A4" style="font-size: .9rem">
       <div class="header">
         <Seitenlogo logo="{privat.traegerLogo}"/>
         <Pageheader logo="{privat.logo}" untertitel="{privat.untertitel}"/>
@@ -98,7 +98,7 @@
           <div class="col text-center klein">
             <Voffset v="3"/>
             <hr />
-            {hj.lehrer?.Vorname} {hj.lehrer?.Nachname}<br />{hj.klassenlehrer_in}
+            {hj.lehrer?.Titel ? hj.lehrer.Titel+" " : ''}{hj.lehrer?.Vorname} {hj.lehrer?.Nachname}<br />{hj.klassenlehrer_in}
           </div>
         </div>
         <div class="flex-grid">

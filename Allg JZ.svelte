@@ -62,7 +62,7 @@
           <div class="col-2 text-center klein">
           <Voffset v="3"/>
             <hr />
-            {hj.lehrer?.Vorname} {hj.lehrer?.Nachname}<br />{hj.klassenlehrer_in}
+            {hj.lehrer?.Titel ? hj.lehrer.Titel+" " : ''}{hj.lehrer?.Vorname} {hj.lehrer?.Nachname}<br />{hj.klassenlehrer_in}
           </div>
         </div>
         <div class="flex-grid">

@@ -34,7 +34,7 @@
         <div class="col">
           <hr />
           <div class="text-center klein">
-            {hj.lehrer?.Vorname} {hj.lehrer?.Nachname}<br />{hj.klassenlehrer_in}
+            {hj.lehrer?.Titel ? hj.lehrer.Titel+" " : ''}{hj.lehrer?.Vorname} {hj.lehrer?.Nachname}<br />{hj.klassenlehrer_in}
           </div>
           <Voffset v="6"/>
           <hr />
