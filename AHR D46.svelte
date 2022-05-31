@@ -66,21 +66,21 @@
             <td>{bkfach(s, "LK1").fach.Zeugnisbez}</td>
             <td class="text-center">{bkfach(s, "LK1").Vornote}</td>
             <td class="text-center">{bkfach(s, "LK1").NoteSchriftlich}</td>
-            <td class="text-center">{bkfach(s, "LK1").NoteMuendlich}</td>
+            <td class="text-center">{bkfach(s, "LK1").NoteMuendlich || ""}</td>
             <td class="text-center">{bkfach(s, "LK1").NoteAbschluss}</td>
           </tr>
           <tr>
             <td>{bkfach(s, "LK2").fach.Zeugnisbez}</td>
             <td class="text-center">{bkfach(s, "LK2").Vornote}</td>
             <td class="text-center">{bkfach(s, "LK2").NoteSchriftlich}</td>
-            <td class="text-center">{bkfach(s, "LK2").NoteMuendlich}</td>
+            <td class="text-center">{bkfach(s, "LK2").NoteMuendlich || ""}</td>
             <td class="text-center">{bkfach(s, "LK2").NoteAbschluss}</td>
           </tr>
           <tr>
             <td>{bkfach(s, "AB3").fach.Zeugnisbez}</td>
             <td class="text-center">{bkfach(s, "AB3").Vornote}</td>
             <td class="text-center">{bkfach(s, "AB3").NoteSchriftlich}</td>
-            <td class="text-center">{bkfach(s, "AB3").NoteMuendlich}</td>
+            <td class="text-center">{bkfach(s, "AB3").NoteMuendlich || ""}</td>
             <td class="text-center">{bkfach(s, "AB3").NoteAbschluss}</td>
           </tr>
         </table>
