@@ -118,35 +118,26 @@
         <div class="klein eng">
           Schulnummer: {schule.SchulNr}
           <hr />
-          <table>
+          <table width="100%">
             <tr>
-              <td><sup>1</sup> </td>
-              <td colspan="5">In der Reihenfolge der erlassenen Stundentafel</td>
+              <td ><sup>1</sup>In der Reihenfolge der erlassenen Stundentafel</td>
+              <td><sup>3</sup>1 = erstes Leistungsfach</td>
+              <td><sup>5</sup>E1 = Mit besonderem Erfolg teilgenommen</td>
             </tr>
             <tr>
-              <td rowspan="4" valign="top"><sup>2</sup> </td>
-              <td>I</td>
-              <td width="70%">= sprachlich literarisches Aufgabenfeld</td>
-              <td align="right" rowspan="4" valign="top"><sup>3</sup> </td>
-              <td>1</td>
-              <td>= erstes Leistungsfach</td>
+              <td><sup>2</sup>I = sprachlich literarisches Aufgabenfeld</td>
+              <td style="padding-left: .6em">2 = zweites Leistungsfach</td>
+              <td style="padding-left: .6em">E2 = Mit Erfolg teilgenommen</td>
             </tr>
             <tr>
-              <td>II</td>
-              <td>= gesellschaftswissenschaftliches Aufgabenfeld</td>
-              <td>2</td>
-              <td>= zweites Leistungsfach</td>
+              <td style="padding-left: .6em">II= gesellschaftswissenschaftliches Aufgabenfeld</td>
+              <td style="padding-left: .6em">3= drittes Abiturfach</td>
+              <td style="padding-left: .6em">E3 = Teilgenommen</td>
             </tr>
             <tr>
-              <td>III</td>
-              <td>= mathematisch-naturwissenschaftlich-technisches Aufgabenfeld</td>
-              <td>3</td>
-              <td>= drittes Abiturfach</td>
-            </tr>
-            <tr>
-              <td colspan="2"></td>
-              <td>4</td>
-              <td>= viertes Abiturfach</td>
+              <td style="padding-left: .6em">III= mathematisch-naturwissenschaftlich-technisches Aufgabenfeld</td>
+              <td style="padding-left: .6em">4= viertes Abiturfach</td>
+              <td></td>
             </tr>
           </table>
           <sup>4</sup> Für die Umsetzung von Noten in Punkte gilt:
@@ -182,18 +173,6 @@
                 </td>
               {/each}
               <td class="text-center">00</td>
-            </tr>
-          </table>
-          <Voffset v=".5"/>
-          <table>
-            <tr>
-              <td width="1%"><sup>5</sup> </td>
-              <td width="3%">E1</td>
-              <td width="40%">= Mit besonderem Erfolg teilgenommen</td>
-              <td width="3%">E2</td>
-              <td width="30%">= Mit Erfolg teilgenommen</td>
-              <td width="3%">E3</td>
-              <td width="15%">= Teilgenommen</td>
             </tr>
           </table>
         </div>

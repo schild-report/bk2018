@@ -67,11 +67,10 @@ hr {
         <table class="table table-bordered table-eng" style="font-size: 0.8rem">
           <tr>
             <td rowspan="2" colspan="5" />
-            <td colspan="2" class="text-center">APO-BK, Anlage D</td>
+            <td class="text-center">APO-BK, Anlage D</td>
           </tr>
           <tr>
             <td class="text-center">§ 21.3</td>
-            <td class="text-center">§ 21.4</td>
           </tr>
           <tr>
             <td class="text-center" width="40px">Abitur- fach</td>
@@ -80,7 +79,6 @@ hr {
             <td class="text-center">Punkte Prüfung</td>
             <td class="text-center">Zwischenstand der Punktewertung</td>
             <td class="text-center">Mündliche Bestehensprüfung</td>
-            <td class="text-center">Mündliche Prüfung freiwillig</td>
           </tr>
           {#each s.abi_abschluss_faecher
             .filter(a => a.AbiFach)
@@ -94,7 +92,6 @@ hr {
               <td class="text-center">{f.AbiPruefErgebnis}</td>
               <td class="text-center">{f.Zwischenstand}</td>
               <td class="text-center">{f.MdlBestPruefung === "+" ? "X" : ""}</td>
-              <td class="text-center">{f.MdlFreiwPruefung === "+" ? "X" : ""}</td>
             </tr>
           {/each}
           <tr>
@@ -122,7 +119,7 @@ hr {
         Reihenfolge dieser Prüfungen festlegen.
         <Voffset v="1" />
         Abgabe der Meldung zu mündlichen Prüfungen bis zum
-        <b>2.6.2021, 15:00 Uhr</b>
+        <b>8.6.2022, 12:00 Uhr</b>
         im Sekretariat.
         <Voffset v="1" />
         <div class="flex-grid">
