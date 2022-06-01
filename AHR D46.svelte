@@ -180,12 +180,16 @@
         </table>
         <Voffset v="1" />
         5. Sie werden nach §§ 41a und 41f Anlage D APO-BK (SGV. NRW. 223/BASS 13-33
-        Nr. 1.1) zum 1 Ersten Teil der Berufsabschlussprüfung zugelassen, da die
+        Nr. 1.1) zum
+        <Voffset v="0.5" />
+				<b>Ersten Teil der Berufsabschlussprüfung zugelassen,</b> da die
         Möglichkeit des Bestehens des Ersten Teils der Berufsabschlussprüfung besteht.
         <br />Sie können der Schulleiterin spätestens am zweiten Werktag nach
         dieser Bekanntgabe der Zulassung zum Ersten Teil der
         Berufsabschlussprüfung bis zu zwei Fächer schriftlich benennen, in denen
-        sie mündlich geprüft werden möchten. Die Meldung ist möglich
+        sie mündlich geprüft werden möchten.
+        <Voffset v="0.5" />
+				Die Meldung ist möglich
         <br />5.1. für die Einbringung der Note der mündlichen Prüfung in der
         Abiturprüfung im vierten Abiturfach nach Nummer 2 und bis zu einem Fach
         nach Nummer 3 oder gegebenenfalls Nummer 4,
