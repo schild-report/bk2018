@@ -119,11 +119,11 @@ hr {
         Reihenfolge dieser Prüfungen festlegen.
         <Voffset v="1" />
         Abgabe der Meldung zu mündlichen Prüfungen bis zum
-        <b>8.6.2022, 12:00 Uhr</b>
-        im Sekretariat.
+        <b>08.06.2022, 12:00 Uhr</b>
+        im Sekretariat (APO BK, Anlage D, VV zu §21.4).
         <Voffset v="1" />
         <div class="flex-grid">
-          <div class="col">{schule.Ort}, den {datum(hj.Konferenzdatum)}</div>
+          <div class="col">{schule.Ort}, den {"07.06.2022"||datum(hj.Konferenzdatum)}</div>
           <div class="col text-center klein">
             <Voffset v="3" />
             <hr />
@@ -141,17 +141,13 @@ hr {
         </b>
         <ul class="boxes">
           <li>
-            Hiermit beantrage ich eine mündliche Prüfung in dem Fach/den Fächern
-            in der folgenden Reihenfolge:
+            Hiermit beantrage ich eine freiwillige mündliche Prüfung (APO BK, Anlage D, § 21.4).
           </li>
           <li>
-            Hiermit nehme ich meine angesetzten Prüfungen zur Kenntnis und lege
-            (bei mehreren Prüfungen) die Reihenfolge meiner Abweichungs-
-            und/oder Bestehensprüfung fest:
+            Hiermit nehme ich meine angesetzte/n Bestehensprüfung/en zur Kenntnis.<br>(Zutreffendes bitte ankreuzen)
           </li>
+          Nennung des Fach, bei mehreren Fächern auch Festlegung der Reihenfolge (APO BK, Anlage D, § 21.5), in dem/denen eine Prüfung angesetzt ist bzw. freiwillig stattfinden soll:
         </ul>
-        <Voffset v="0.5" />
-        (Zutreffendes bitte ankreuzen)
         <Voffset v="1" />
         <div class="flex-grid">
           <div class="col">

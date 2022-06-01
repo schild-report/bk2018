@@ -49,7 +49,7 @@
         <Voffset v="1" />
         1. Fächer, die im Rahmen des schriftlichen Abiturverfahrens geprüft wurden.
         In diesen Fächern ist im Rahmen der Ersten Teilprüfung keine gesonderte mündliche
-        Prüfung möglich:<sup>3</sup>
+        Prüfung möglich<sup>3</sup>:
         <Voffset v="0.5" />
         <table class="table table-bordered table-eng">
           <tr>
@@ -143,9 +143,9 @@
       <div class="main">
         <Voffset v="2" />
         3. Weitere Fächer, die in die Zulassungsentscheidung für die Erste Teilprüfung
-        einbezogen und im Rahmen der Ersten Teilprüfung mündlich geprüft werden können:<sup
+        einbezogen und im Rahmen der Ersten Teilprüfung mündlich geprüft werden können<sup
           >6</sup
-        >
+        >:
         <Voffset v="0.5" />
         <table class="table table-bordered table-eng" style="width: 50%;">
           <tr>
@@ -163,7 +163,7 @@
         4. Weitere Fächer, die nicht in die Zulassungsentscheidung für die Erste
         Teilprüfung einbezogen werden. Fächer, die gegebenenfalls im Rahmen der Ersten
         Teilprüfung mündlich geprüft werden können, sind gekennzeichnet<sup
-          >2,3</sup
+          >6,7</sup
         >:
         <Voffset v="0.5" />
         <table class="table table-bordered table-eng" style="width: 50%;">
