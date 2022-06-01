@@ -104,7 +104,7 @@
           <tr>
             <td>{bkfach(s, "AB4").fach.Zeugnisbez}</td>
             <td class="text-center">{bkfach(s, "AB4").Vornote}</td>
-            <td class="text-center">({bkfach(s, "AB4").NoteMuendlich})</td>
+            <td class="text-center">({bkfach(s, "AB4").NoteSchriftlich})</td>
             <td class="text-center">({bkfach(s, "AB4").NoteAbschluss})</td>
           </tr>
         </table>
