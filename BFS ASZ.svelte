@@ -30,7 +30,7 @@
               {s.anrede} {s.Vorname} {s.Zusatz || ''} {s.Name} hat ein
               bildungsgangbegleitendes Praktikum in Einrichtungen für Kinder
               und Jugendliche sowie alte, kranke und behinderte Menschen im
-              Umfang von 16 Wochen absolviert. Dieses wurde mit der Note {note(s.bk_abschluss_faecher.find(f => f.fach.FachKrz.startsWith('P')).NoteAbschluss)}
+              Umfang von 16 Wochen absolviert.
               bewertet.
             {/if}
             <Voffset v="1"/>
