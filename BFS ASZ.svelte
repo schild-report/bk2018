@@ -31,7 +31,6 @@
               bildungsgangbegleitendes Praktikum in Einrichtungen für Kinder
               und Jugendliche sowie alte, kranke und behinderte Menschen im
               Umfang von 16 Wochen absolviert.
-              bewertet.
             {/if}
             <Voffset v="1"/>
             <b>Bemerkungen</b>
