@@ -38,7 +38,7 @@
         <br />
         Sehr geehrte{s.Geschlecht === 4 ? "" : "r"}
         {s.anrede} <b>{s.Vorname} {s.Zusatz || ""} {s.Name}</b>, in seiner
-        Sitzung am {datum(hj.ZeugnisDatum)} hat der allgemeine Prüfungsausschuss die Leistungen<sup>1,2</sup>
+        Sitzung am 11.06.2022 hat der allgemeine Prüfungsausschuss die Leistungen<sup>1,2</sup>
         in den Fächern gemäß der Nummern 1 bis 4 festgestellt und über das Bestehen der Ersten Teilprüfung der Berufsabschlussprüfung gemäß Nummer 5 entschieden.
         <Voffset v="1" />
         1. Fächer, die im Rahmen des schriftlichen Abiturverfahrens geprüft wurden. In diesen Fächern war keine gesonderte mündliche Prüfung im Rahmen der Ersten Teilprüfung möglich<sup>3</sup>:
@@ -90,7 +90,7 @@
           <tr>
             <td>{bkfach(s, "AB4").fach.Zeugnisbez}</td>
             <td class="text-center">{bkfach(s, "AB4").Vornote}</td>
-            <td class="text-center">{bkfach(s, "AB4").NoteSchriftlich}</td>
+            <td class="text-center">({bkfach(s, "AB4").NoteMuendlich})</td>
             <td class="text-center">{bkfach(s, "AB4").NoteAbschluss}</td>
           </tr>
         </table>
@@ -151,9 +151,9 @@
           {#each s.bk_abschluss_faecher.filter((f) => (f.Kursart.startsWith("ZK") && !f.Vornote.startsWith("E")) || (f.Kursart.startsWith("GK") && f.fach.IstSprache === "+")) as f}
             <tr>
               <td>{f.fach.Zeugnisbez}</td>
-              <td class="text-center">{f.Vornote}</td>
+              <td class="text-center">({f.Vornote})</td>
               <td class="text-center">{f.NoteMuendlich || ""}</td>
-              <td class="text-center">{f.NoteAbschluss}</td>
+              <td class="text-center">({f.NoteAbschluss})</td>
             </tr>
           {/each}
         </table>
