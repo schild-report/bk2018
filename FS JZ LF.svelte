@@ -20,7 +20,9 @@
         {/if}
         <Voffset v="2"/>
         Leistungen laut Konferenzbeschluss vom {datum(hj.Konferenzdatum)}:
-        <Noten lernfeld noten={hj.noten} fachGliederungen={s.fachklasse.fach_gliederungen}></Noten>
+        <div class="lf-noten">
+          <Noten lernfeld noten={hj.noten} fachGliederungen={s.fachklasse.fach_gliederungen}></Noten>
+        </div>
         <hr />
         <Voffset v="1"/>
         <b>{versetzungsvermerk(hj)}</b>
@@ -71,4 +73,7 @@
 
 <style>
   @import 'css/main.css';
+  .lf-noten {
+    font-size: 0.9rem;
+  }
 </style>
