@@ -135,6 +135,7 @@
         </div>
       </div>
     </div>
+    {#if note(s.bk_abschluss_faecher.find(f => f.fach.FachKrz === 'MFHR'))}
     <div class="page grid" orientation="portrait" size="A4">
       <Seitenlogo logo="{privat.traegerLogo}"/>
       <Pageheader logo="{privat.logo}" untertitel="{privat.untertitel}"/>
@@ -216,6 +217,7 @@
         </div>
       </div>
     </div>
+    {/if}
   {/each}
 {/each}
 
