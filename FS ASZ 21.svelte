@@ -37,11 +37,11 @@
             am {hj.noten.map(n => n.fach.FachKrz === 'KO' ? n.Lernentw : null).join('')} bestanden.
             <Voffset v="2"/>
             <table class="table-noten">
-              {#each s.bk_abschluss_faecher.filter(f => f.fach.FachKrz.startsWith('AS')).sort((a,b) => a.FSortierung > b.FSortierung ? 1:-1) as as}
+              {#each hj.noten.filter(f => f.fach.FachKrz.startsWith('AS')).sort((a,b) => a.FSortierung > b.FSortierung ? 1:-1) as as}
                 <tr>
                   <td width="22%">{as.fach.Zeugnisbez}</td>
                   <td class="td-padding-extra">{findeFach(s.abschnitte[3], as).Lernentw}</td>
-                  <td class="td-fach-note"><span>{note(as.NoteAbschluss)}</span></td>
+                  <td class="td-fach-note"><span>{note(as.NotenKrz)}</span></td>
                 </tr>
               {/each}
             </table>
