@@ -42,8 +42,7 @@
           <Voffset v="1"/>
           <Voffset v="4"/>
           {s.anrede} {s.Vorname} {s.Zusatz || ''} {s.Name} ist berechtigt, die Berufsbezeichnung
-          <h4 class="text-center">{@html s.berufsbezeichnung_mw}
-          <br><div style="font-size: 80%">(Bachelor Professional im Sozialwesen)</div></h4>
+          <h5 class="text-center">{@html s.berufsbezeichnung_mw}</h5>
           zu führen.
           <Voffset v="1"/>
           Der Abschluss ist im Deutschen und Europäischen Qualifikationsrahmen dem Niveau {s.fachklasse.DQR_Niveau} zugeordnet.
@@ -100,7 +99,7 @@
           Rechtsbehelfsbelehrung:<br>
           Gegen dieses Zeugnis kann innerhalb eines Monats
           nach Bekanntgabe des Zeugnisses Widerspruch eingelegt werden. Der Widerspruch
-          ist beim {schule.Bezeichnung2}, {schule.Strasse}, {schule.PLZ} {schule.Ort},
+          ist beim {schule.Bezeichnung1}, {schule.Strasse}, {schule.PLZ} {schule.Ort},
           schriftlich oder zur Niederschrift zu erheben. <br />Falls die Frist durch
           das Verschulden einer/eines Bevollmächtigten versäumt wird, wird dies
           Verschulden der Widerspruchsführerin/dem Widerspruchsführer zugerechnet.
