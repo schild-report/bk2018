@@ -4,7 +4,7 @@
       <Seitenlogo logo="{privat.traegerLogo}"/>
       <Pageheader art="daten/zeugnis.svg" logo="{privat.logo}" untertitel="{privat.untertitel}"/>
       <div class="main">
-        <div style="font-size: 15pt; line-height: 1.5em">
+        <div style="font-size: 13.5pt; line-height: 1.5em">
           {bg(s, 'Schulform')}
         </div>
         <div style="font-size: 12pt; line-height: 1.2em">

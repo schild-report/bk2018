@@ -5,32 +5,58 @@ logo: z.B Schullogo. Wird oben recht splatziert
 untertitel: Wird unterhalb des Logos platziert.
 hr:   Wenn eine rote Linie unter das Logo soll. Standard an -->
 <div class="header">
-    {#if art}
-      <img class="art" src="{art}" alt="logo_art"/>
+    {#if traeger && art && untertitel}
+      <div style="height: 157px">
+        <div class="traeger">
+          <img class="" style="margin-bottom: 7mm; display: block;" src="{traeger}" alt="logo"/>
+          <img class="" style="margin-bottom: 1mm; block;" src="{logo}" alt="logo"/>
+          <img class="" style="display: block;" src="{untertitel}" alt="logo_untertitel"/>
+        </div>
+        {#if art}
+          <img class="art" src="{art}" alt="logo_art"/>
+        {/if}
+      </div>
     {/if}
-    {#if logo}
-      <img class="logo" src="{logo}" alt="logo"/>
+    {#if logo && !traeger && untertitel}
+      <div style="height: 75px">
+        <div class="traeger">
+          <img class="" style="margin-bottom: 1mm; block;" src="{logo}" alt="logo"/>
+          <img class="" style="display: block;" src="{untertitel}" alt="logo_untertitel"/>
+        </div>
+        {#if art}
+          <img class="art" src="{art}" alt="logo_art"/>
+        {/if}
+      </div>
     {/if}
-    {#if untertitel}
-      <img class="untertitel" src="{untertitel}" alt="logo_untertitel"/>
+    {#if logo && !untertitel}
+      <div class="traeger">
+        <img class="" style="margin-bottom: 1mm; block;" src="{logo}" alt="logo"/>
+      </div>
     {/if}
     {#if hr}
       <hr class="hr-rot"/>
     {/if}
 </div>
 <script>
-  export let art, logo, untertitel
-  export let hr = true
+  export let art
+  export let logo
+  export let untertitel
+  export let traeger
+  export let hr = false
 </script>
 
 <style>
   .header {
     position: relative;
-    height: 115px;
+    margin-bottom: 1rem;
   }
   .art {
     position: absolute;
-    bottom: 12px;
+    bottom: 0px;
+  }
+  .traeger {
+    position: absolute;
+    right: 0px;
   }
   .logo {
     position: absolute;

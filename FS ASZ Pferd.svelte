@@ -2,8 +2,7 @@
   {#each aktHalbjahrFuer(s) as hj (hj.ID)}
     <div class="page grid" orientation="landscape" size="A3" style="font-size: 1.1rem">
       <div class="header">
-        <Seitenlogo logo="{privat.traegerLogo}"/>
-        <Pageheader art="daten/asz.svg" logo="{privat.logo}" untertitel="{privat.untertitel}"/>
+        <Pageheader art="daten/asz.svg" logo="{privat.logo}" untertitel="{privat.untertitel}" traeger="{privat.traeger}"/>
       </div>
       <div class="main-grid">
         <div class="main-left">
