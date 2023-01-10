@@ -2,8 +2,7 @@
   {#each aktHalbjahrFuer(s) as hj (hj.ID)}
     <div class="page grid" orientation="portrait" size="A4" style="font-size: 0.8rem">
       <div class="header">
-        <Seitenlogo logo="{privat.traegerLogo}"/>
-        <Pageheader art="daten/agz.svg" logo="{privat.logo}" untertitel="{privat.untertitel}"/>
+        <Pageheader art="daten/agz.svg" logo="{privat.logo}" untertitel="{privat.untertitel}" traeger="{privat.traeger}"/>
       </div>
       <div class="main">
           <div style="font-size: 12pt; line-height: 1.5em">Abgangszeugnis gemäß §13 APO-BK, Anlage D</div>

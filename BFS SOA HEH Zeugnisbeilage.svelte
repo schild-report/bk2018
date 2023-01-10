@@ -1,7 +1,6 @@
 {#each schueler as s}
   <div class="page grid" orientation="portrait" size="A4">
-    <Seitenlogo logo="{privat.traegerLogo}"/>
-    <Pageheader art="daten/zeugnis.svg" logo="{privat.logo}" untertitel="{privat.untertitel}"/>
+    <Pageheader art="daten/zeugnis.svg" logo="{privat.logo}" untertitel="{privat.untertitel}" traeger="{privat.traeger}"/>
     <div class="main">
       Seite 3/3 des Abschlusszeugnisses für {s.anrede} {s.Vorname} {s.Zusatz || ''} {s.Name}
       <Voffset v="2"/>

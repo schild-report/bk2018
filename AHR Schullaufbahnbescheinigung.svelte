@@ -2,8 +2,7 @@
   {#each s.abschnitte.filter(aktHalbjahr) as hj (hj.ID)}
     <div class="page grid" orientation="portrait" size="A4" style="font-size: .9rem">
       <div class="header">
-        <Seitenlogo logo="{privat.traegerLogo}"/>
-        <Pageheader logo="{privat.logo}" untertitel="{privat.untertitel}"/>
+        <Pageheader logo="{privat.logo}" untertitel="{privat.untertitel}" traeger="{privat.traeger}"/>
       </div>
       <div class="main">
         <div style="font-size: 12pt; line-height: 1.5em">Bescheinigung über die Schullaufbahn gemäß §13 APO-BK, Anlage D</div>

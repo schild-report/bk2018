@@ -1,8 +1,7 @@
 {#each schueler as s (s.ID)}
   {#each s.abschnitte.filter(aktHalbjahr) as hj (hj.ID)}
     <div class="page grid" orientation="portrait" size="A4">
-      <Seitenlogo logo="{privat.traegerLogo}"/>
-      <Pageheader art="daten/agz.svg" logo="{privat.logo}" untertitel="{privat.untertitel}"/>
+      <Pageheader art="daten/agz.svg" logo="{privat.logo}" untertitel="{privat.untertitel}" traeger="{privat.traeger}"/>
       <div class="main">
         <span style="font-size: 15pt; line-height: 1.5em">
           {bg(s, 'Schulform')} |

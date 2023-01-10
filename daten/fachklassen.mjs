@@ -25,6 +25,18 @@ const fkl = {
       '114': '(B2/C1)'
     }
   },
+  '93-102-00': {
+    Schulform: 'Berufsfachschule',
+    Bereich: 'Fachbereich Gesundheit/Erziehung und Soziales',
+    Abschluss: true,
+    Examen: 'Berufsabschlussprüfung',
+    Zeugniskopf: 'Berufsfachschule für Gesundheit/Erziehung und Soziales',
+    Berufsbezeichnung_m: 'Staatlich geprüfter Kinderpfleger',
+    Berufsbezeichnung_w: 'Staatlich geprüfte Kinderpflegerin',
+    Fremdsprache: {
+      '114': '(B1)'
+    }
+  },
   '93-103-01': {
     Schulform: 'Berufsfachschule',
     Bereich: 'Fachbereich Gesundheit/Erziehung und Soziales',
