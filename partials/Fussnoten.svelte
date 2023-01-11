@@ -68,7 +68,7 @@ notenstufen={false} -->
 </div>
 
 <script>
-  export let schule, notenstufen, verordnung, fs, fsasz
+  export let schule, notenstufen = undefined, verordnung = undefined, fs = undefined, fsasz = undefined
   export let rechtsbehelfsbelehrung = true
   export let ger = false
   export let bfs = false

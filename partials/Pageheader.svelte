@@ -5,7 +5,7 @@ logo: z.B Schullogo. Wird oben recht splatziert
 untertitel: Wird unterhalb des Logos platziert.
 hr:   Wenn eine rote Linie unter das Logo soll. Standard an -->
 <div class="header">
-    {#if traeger && art && untertitel}
+    {#if traeger && untertitel}
       <div style="height: 157px">
         <div class="traeger">
           <img class="" style="margin-bottom: 7mm; display: block;" src="{traeger}" alt="logo"/>
@@ -38,7 +38,7 @@ hr:   Wenn eine rote Linie unter das Logo soll. Standard an -->
     {/if}
 </div>
 <script>
-  export let art
+  export let art = undefined
   export let logo
   export let untertitel
   export let traeger
