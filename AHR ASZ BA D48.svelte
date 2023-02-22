@@ -1,6 +1,6 @@
 {#each schueler as s (s.ID)}
   {#each aktHalbjahrFuer(s) as hj (hj.ID)}
-    <div class="page grid" orientation="landscape" size="A3" style="font-size: 1.0rem">
+    <div class="page grid" orientation="landscape" size="A3">
       <div class="header">
         <Pageheader art="daten/asz.svg" logo="{privat.logo}" untertitel="{privat.untertitel}" traeger="{privat.traeger}"/>
       </div>
@@ -9,18 +9,20 @@
           <Voffset v="2"/>
           <b>{s.anrede} {s.Vorname} {s.Zusatz || ''} {s.Name},</b>
           <br />geboren am {datum(s.Geburtsdatum)} in {s.Geburtsort},
-          <br />war vom {datum(s.Aufnahmedatum)} bis zur Aushändigung des Zeugnisses {s.studierende_r} des Bildungsgangs
-          <br /><b>{@html bg(s, 'Zeugniskopf')}</b>
-          <br>in Kooperation mit dem Deutschen Kuratorium für Therapeutisches Reiten e.V. (DKThR).
+          <br />war vom {datum(s.Aufnahmedatum)} bis zur Aushändigung des
+          Zeugnisses {s.schueler_in} des Bildungsgangs <br>
+          <b>Erzieherin/Erzieher mit Allgemeiner Hochschulreife</b> im
+          Fachbereich Gesundheit und Soziales mit dem fachlichen Schwerpunkt
+          Pädagogik.
           <Voffset v="1"/>
-          Der allgemeine Prüfungsausschuss stellte in seiner Abschlusskonferenz am {datum(hj.Konferenzdatum)} fest:
+          In der Konferenz am {datum(hj.Konferenzdatum)} sind folgende Leistungen festgestellt worden:
           <Voffset v=".5"/>
-          <b>Leistungen</b>
           <Noten
             noten={hj.noten}
-            faechergruppenIds={[10, 20, 30]}
+            faechergruppenIds={[10, 20, 30, 1600]}
             fachGliederungen={s.fachklasse.fach_gliederungen}
             fachklasse={s.fachklasse.Kennung}
+            gruppenbezeichnungNeu={gruppenbezeichnungNeu}
           ></Noten>
           <hr />
           <b>Bemerkungen</b>
@@ -28,30 +30,21 @@
         </div>
         <div class="main-right">
           <Voffset v="2"/>
-          {s.anrede} {s.Vorname} {s.Zusatz || ''} {s.Name} erbrachte in der Abschlussprüfung folgende Leistung:
-          <Voffset v="2"/>
-          <table class="table-noten" width="100%">
-            {#each hj.noten.filter(f => f.fach.FachKrz === "PROJ-PF") as f}
-              <tr>
-                <td width="22%">{f.fach.Zeugnisbez}</td>
-                <td class="td-padding-extra">{f.Lernentw}</td>
-                <td class="td-fach-note"><span>{note(f.NotenKrz)}</span></td>
-              </tr>
-            {/each}
-          </table>
+          {s.anrede} {s.Vorname} {s.Zusatz || ''} {s.Name} hat die staatliche
+          Berufsabschlussprüfung für Erzieherinnen und Erzieher<br>
+          am {hj.noten.find(f => f.fach.FachKrz === 'KO')?.Lernentw}
+          bestanden und ist berechtigt, die Berufsbezeichnung
           <Voffset v="1"/>
-          <Voffset v="4"/>
-          {s.anrede} {s.Vorname} {s.Zusatz || ''} {s.Name} ist berechtigt, die Berufsbezeichnung
-          <h5 class="text-center">{@html s.berufsbezeichnung_mw}</h5>
+          <h6 class="text-center">{s.Geschlecht === 3 ? 'Staatlich anerkannter Erzieher' : 'Staatlich anerkannte Erzieherin'}</h6>
           zu führen.
           <Voffset v="1"/>
           Der Abschluss ist im Deutschen und Europäischen Qualifikationsrahmen dem Niveau {s.fachklasse.DQR_Niveau} zugeordnet.
           <Voffset v="9"/>
           <div class="flex-grid">
-            <Voffset v="6"/>
             <div class="col">
+              <Voffset v="-1"/>
               {schule.Ort}, den {datum(hj.ZeugnisDatum)}
-              <Voffset v="6"/>
+              <Voffset v="7"/>
               <div class="text-center klein">Siegel</div>
             </div>
             <div class="col">
@@ -63,14 +56,11 @@
               <Voffset v="6"/>
               <hr />
               <div class="text-center klein">
-                {schule.SchulleiterVorname} {schule.SchulleiterName} <br />{schule.schulleiter_in}
-              </div>
-              <Voffset v="6"/>
-              <hr />
-              <div class="text-center klein">
-                Weiterbildung DKThR
+                {schule.SchulleiterVorname} {schule.SchulleiterName}
+                <br />{schule.schulleiter_in}
               </div>
             </div>
+            <div class="col"></div>
           </div>
         </div>
       </div>
@@ -78,10 +68,20 @@
         <div class="header">
           Schulnummer: {schule.SchulNr}
           <hr />
+          <Voffset v="1"/>
         </div>
         <div class="footer-left">
           Notenstufen gemäß § 48 SchulG: 1 = sehr gut, 2 = gut, 3 = befriedigend, 4 = ausreichend, 5 = mangelhaft, 6 = ungenügend
-          <p></p>
+          <Voffset v=".5"/>
+          <sup>1</sup>Der Unterricht in den modernen Fremdsprachen hat auf der nach dem Fach in
+          Klammern angegebenen Niveaustufe des „Europäischen Referenzrahmens für
+          Sprachen: Lernen, Lehren, Beurteilen“ stattgefunden. Sind zwei
+          Referenzniveaus ausgewiesen, ist das niedrigere in vollem Umfang, das höhere
+          in Anteilen erreicht. Bei mindestens ausreichenden Leistungen wird der
+          sprachliche Kompetenzerwerb auf diesem Niveau bescheinigt.
+        </div>
+        <Voffset v=".5"/>
+        <div class="footer-right">
           Dem Zeugnis liegen zugrunde:
           <ul class="list-unstyled dashes">
             <li>
@@ -94,12 +94,11 @@
               vom 07. November 2002 in der jeweils geltenden Fassung).
             </li>
           </ul>
-        </div>
-        <div class="footer-right">
-          Rechtsbehelfsbelehrung:<br>
-          Gegen dieses Zeugnis kann innerhalb eines Monats
+          <Voffset v=".5"/>
+          Rechtsbehelfsbelehrung:
+          <br>Gegen dieses Zeugnis kann innerhalb eines Monats
           nach Bekanntgabe des Zeugnisses Widerspruch eingelegt werden. Der Widerspruch
-          ist beim {schule.Bezeichnung1}, {schule.Strasse}, {schule.PLZ} {schule.Ort},
+          ist beim {schule.Bezeichnung2}, {schule.Strasse}, {schule.PLZ} {schule.Ort},
           schriftlich oder zur Niederschrift zu erheben. <br />Falls die Frist durch
           das Verschulden einer/eines Bevollmächtigten versäumt wird, wird dies
           Verschulden der Widerspruchsführerin/dem Widerspruchsführer zugerechnet.
@@ -110,39 +109,19 @@
 {/each}
 
 <script>
-export const kommentar = `
-[E5 PDF](https://bass.schul-welt.de/anlagen/3129-60.pdf)
-[E5 html]()
-`
-  import { datum, bemerkungen, bg, note }  from './helfer'
-
+  export const kommentar = `
+[Anlage D 48](https://bass.schul-welt.de/anlagen/3129-50.pdf)
+Die *Fächer* BL und BP Gesamt sind in einer anderen Fächergruppe als das Kolloqium und werden auf dem Zeugnis ignoriert.
+  `
+  import { datum, bemerkungen }  from './helfer'
   import Pageheader from './partials/Pageheader.svelte'
   import Voffset from './partials/Voffset.svelte'
   import Noten from './partials/Noten.svelte'
-
   export let schueler, schule, privat, jahr, abschnitt
-
-  const aktHalbjahrFuer = (s) => s.abschnitte.filter(a => a.Jahr === jahr && a.Abschnitt === abschnitt)
+  let gruppenbezeichnungNeu = {1600: 'Fachpraktische Prüfung'}
+  const aktHalbjahrFuer = s => s.abschnitte.filter(a => a.Jahr === jahr && a.Abschnitt === abschnitt)
 </script>
 
 <style>
   @import 'css/main.css';
-  .table-noten {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 1rem;
-  }
-  .td-fach-note {
-    padding-bottom: .2rem;
-    padding-top: .2rem;
-    width: 12rem;
-  }
-  .td-fach-note span {
-    background-color: #dcdcdc;
-    text-align: center;
-    width: 10rem;
-    display: block;
-    margin: 0 auto;
-  }
 </style>
-

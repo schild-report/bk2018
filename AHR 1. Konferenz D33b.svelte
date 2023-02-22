@@ -2,8 +2,7 @@
   {#each s.abschnitte.filter(aktHalbjahr) as hj (hj.ID)}
     <div class="page grid" orientation="portrait" size="A4">
       <div class="header">
-        <Seitenlogo logo="{privat.traegerLogo}"/>
-        <Pageheader logo="{privat.logo}" untertitel="{privat.untertitel}"/>
+        <Pageheader logo="{privat.logo}" untertitel="{privat.untertitel}" traeger="{privat.traeger}"/>
       </div>
       <div class="main">
         <b>Abiturprüfung {hj.Jahr+1}</b><br />Ergebnis der 1. Konferenz des allgemeinen Prüfungsausschusses
@@ -119,7 +118,6 @@
   `
   import { datum }  from './helfer.mjs'
 
-  import Seitenlogo from './partials/Seitenlogo.svelte'
   import Pageheader from './partials/Pageheader.svelte'
   import Voffset from './partials/Voffset.svelte'
 

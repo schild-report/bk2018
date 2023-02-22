@@ -1,8 +1,7 @@
 {#each schueler as s (s.ID)}
   {#each aktHalbjahrFuer(s) as hj (hj.ID)}
     <div class="page grid" orientation="landscape" size="A3">
-      <Seitenlogo logo="{privat.traegerLogo}"/>
-      <Pageheader art="daten/asz.svg" logo="{privat.logo}" untertitel="{privat.untertitel}"/>
+      <Pageheader art="daten/asz.svg" logo="{privat.logo}" untertitel="{privat.untertitel}" traeger="{privat.traeger}"/>
       <div class="main">
         <div class="main-grid">
           <Voffset v="1"/>
@@ -137,8 +136,7 @@
     </div>
     {#if note(s.bk_abschluss_faecher.find(f => f.fach.FachKrz === 'MFHR'))}
     <div class="page grid" orientation="portrait" size="A4">
-      <Seitenlogo logo="{privat.traegerLogo}"/>
-      <Pageheader logo="{privat.logo}" untertitel="{privat.untertitel}"/>
+      <Pageheader logo="{privat.logo}" untertitel="{privat.untertitel}" traeger="{privat.traeger}"/>
       <div class="main">
         <h5>Zeugnis der Fachhochschulreife</h5>
         Der allgemeine Prüfungsausschuss stellte in seiner Abschlusskonferenz am {datum(hj.Konferenzdatum)} folgende Leistungen fest<sup>1</sup>:
@@ -228,7 +226,6 @@ export const kommentar = `
 `
   import { datum, bemerkungen, bg, note, noteInWorten }  from './helfer'
 
-  import Seitenlogo from './partials/Seitenlogo.svelte'
   import Pageheader from './partials/Pageheader.svelte'
   import Voffset from './partials/Voffset.svelte'
   import Noten from './partials/Noten.svelte'

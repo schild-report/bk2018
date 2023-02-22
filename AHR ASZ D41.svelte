@@ -7,7 +7,6 @@ Fachklasse Ebene2 eingegeben.
 `;
   import { datum, bemerkungen, bg, noteInWorten } from "./helfer";
 
-  import Seitenlogo from "./partials/Seitenlogo.svelte";
   import Pageheader from "./partials/Pageheader.svelte";
   import Voffset from "./partials/Voffset.svelte";
 
@@ -107,11 +106,7 @@ Fachklasse Ebene2 eingegeben.
         </div>
         <div class="main-right grid">
           <div class="header">
-            <Pageheader
-              hr={false}
-              logo={privat.logo}
-              untertitel={privat.untertitel}
-            />
+            <Pageheader logo="{privat.logo}" untertitel="{privat.untertitel}" traeger="{privat.traeger}"/>
           </div>
           <div class="main">
             <Voffset v="3" />
@@ -134,7 +129,6 @@ Fachklasse Ebene2 eingegeben.
             </div>
           </div>
           <div class="footer klein eng">
-            <div class="sl"><Seitenlogo logo={privat.traegerLogo} /></div>
             Dem Zeugnis liegen zugrunde:
             <ul class="list-unstyled dashes">
               <li>

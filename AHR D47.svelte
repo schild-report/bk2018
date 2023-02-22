@@ -3,7 +3,6 @@
 [Anlage D 46](https://bass.schul-welt.de/anlagen/3129-51.pdf)
   `;
   import { datum } from "./helfer";
-  import Seitenlogo from "./partials/Seitenlogo.svelte";
   import Pageheader from "./partials/Pageheader.svelte";
   import Voffset from "./partials/Voffset.svelte";
 
@@ -23,8 +22,7 @@
       style="font-size: 1.0rem"
     >
       <div class="header">
-        <Seitenlogo logo={privat.traegerLogo} />
-        <Pageheader logo={privat.logo} untertitel={privat.untertitel} />
+        <Pageheader logo={privat.logo} untertitel={privat.untertitel} traeger="{privat.traeger}" />
       </div>
       <div class="main">
         <div style="font-size: 12pt; line-height: 1.5em">

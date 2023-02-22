@@ -2,8 +2,7 @@
   {#each aktHalbjahrFuer(s) as hj (hj.ID)}
     <div class="page grid" orientation="landscape" size="A3">
       <div class="header">
-        <Seitenlogo logo="{privat.traegerLogo}"/>
-        <Pageheader art="daten/asz.svg" logo="{privat.logo}" untertitel="{privat.untertitel}"/>
+        <Pageheader art="daten/agz.svg" logo="{privat.logo}" untertitel="{privat.untertitel}" traeger="{privat.traeger}"/>
       </div>
       <div class="main-grid">
         <div class="main-left">
@@ -19,27 +18,20 @@
           In der Konferenz am {datum(hj.Konferenzdatum)} sind folgende Leistungen festgestellt worden:
           <Voffset v=".5"/>
           <Noten
-            noten={hj.noten}
-            faechergruppenIds={[10, 20, 30, 1600]}
+            ger
+            noten={s.bk_abschluss_faecher}
+            faechergruppenIds={[10, 20, 30, 40]}
             fachGliederungen={s.fachklasse.fach_gliederungen}
             fachklasse={s.fachklasse.Kennung}
             gruppenbezeichnungNeu={gruppenbezeichnungNeu}
           ></Noten>
-          <hr />
-          <b>Bemerkungen</b>
-          <br />{@html bemerkungen(hj)}
         </div>
         <div class="main-right">
           <Voffset v="2"/>
-          {s.anrede} {s.Vorname} {s.Zusatz || ''} {s.Name} hat die staatliche
-          Berufsabschlussprüfung für Erzieherinnen und Erzieher<br>
-          am {hj.noten.find(f => f.fach.FachKrz === 'KO')?.Lernentw}
-          bestanden und ist berechtigt, die Berufsbezeichnung
-          <Voffset v="1"/>
-          <h6 class="text-center">{s.Geschlecht === 3 ? 'Staatlich anerkannter Erzieher' : 'Staatlich anerkannte Erzieherin'}</h6>
-          zu führen.
-          <Voffset v="1"/>
-          Der Abschluss ist im Deutschen und Europäischen Qualifikationsrahmen dem Niveau {s.fachklasse.DQR_Niveau} zugeordnet.
+          {s.anrede} {s.Vorname} {s.Zusatz || ''} {s.Name} hat hat die staatliche Berufsabschlussprüfung für Erzieherinnen/Erzieher nicht bestanden.
+          <Voffset v="2"/>
+          <b>Bemerkungen</b>
+          <br />{@html bemerkungen(hj)}
           <Voffset v="9"/>
           <div class="flex-grid">
             <div class="col">
@@ -86,6 +78,10 @@
           Dem Zeugnis liegen zugrunde:
           <ul class="list-unstyled dashes">
             <li>
+              Die Vereinbarung zur Gestaltung der gymnasialen Oberstufe und der
+              Abiturprüfung (Beschluss der Kultusministerkonferenz vom 7. Juli 1972 in der jeweils geltenden Fassung).
+            </li>
+            <li>
               Die Verordnung über die Ausbildung und Prüfung in den Bildungsgängen
               des Berufskollegs (Ausbildungs- und Prüfungsordnung Berufskolleg,
               APO-BK) vom 26. Mai 1999 (SGV. NRW. 223/BASS 13 – 33 Nr. 1.1).
@@ -99,9 +95,9 @@
           Rechtsbehelfsbelehrung:
           <br>Gegen dieses Zeugnis kann innerhalb eines Monats
           nach Bekanntgabe des Zeugnisses Widerspruch eingelegt werden. Der Widerspruch
-          ist beim {schule.Bezeichnung2}, {schule.Strasse}, {schule.PLZ} {schule.Ort},
+          ist beim {schule.Bezeichnung1}, {schule.Strasse}, {schule.PLZ} {schule.Ort},
           schriftlich oder zur Niederschrift zu erheben. <br />Falls die Frist durch
-          das Verschulden einer/eines Bevollmächtigten versäumt wird, wird dies
+          das Verschulden einer/eines Bevollmächtigten versäumt wird, wird dieses
           Verschulden der Widerspruchsführerin/dem Widerspruchsführer zugerechnet.
         </div>
       </div>
@@ -111,11 +107,9 @@
 
 <script>
   export const kommentar = `
-[Anlage D 48](https://bass.schul-welt.de/anlagen/3129-50.pdf)
-Die *Fächer* BL und BP Gesamt sind in einer anderen Fächergruppe als das Kolloqium und werden auf dem Zeugnis ignoriert.
-  `
+[Anlage D 53](https://bass.schul-welt.de/3129.htm#13-33nr11A_D53)
+`
   import { datum, bemerkungen }  from './helfer'
-  import Seitenlogo from './partials/Seitenlogo.svelte'
   import Pageheader from './partials/Pageheader.svelte'
   import Voffset from './partials/Voffset.svelte'
   import Noten from './partials/Noten.svelte'
@@ -126,4 +120,8 @@ Die *Fächer* BL und BP Gesamt sind in einer anderen Fächergruppe als das Kollo
 
 <style>
   @import 'css/main.css';
+  @page {
+    margin: 0;
+    size: A3 landscape;
+  }
 </style>

@@ -220,7 +220,6 @@
   `
   import { datum, bemerkungen, bg, punkte2note, noteInWorten, fremdsprache }  from './helfer'
 
-  import Seitenlogo from './partials/Seitenlogo.svelte'
   import Pageheader from './partials/Pageheader.svelte'
   import Voffset from './partials/Voffset.svelte'
 

@@ -1,8 +1,7 @@
 {#each schueler as s (s.ID)}
   {#each s.abschnitte.filter(aktHalbjahr) as hj (hj.ID)}
     <div class="page grid" orientation="portrait" size="A4">
-      <Seitenlogo logo="{privat.traegerLogo}"/>
-      <Pageheader art="daten/agz.svg" logo="{privat.logo}" untertitel="{privat.untertitel}"/>
+      <Pageheader art="daten/agz.svg" logo="{privat.logo}" untertitel="{privat.untertitel}" traeger="{privat.traeger}"/>
       <div class="main">
         <div style="font-size: 13.5pt; line-height: 1.5em">
           {bg(s, 'Schulform')}
@@ -105,7 +104,6 @@
 <script>
   import { datum, bemerkungen, bg }  from './helfer'
 
-  import Seitenlogo from './partials/Seitenlogo.svelte'
   import Pageheader from './partials/Pageheader.svelte'
   import Voffset from './partials/Voffset.svelte'
   import SoaTabelle from './partials/SOA-Tabelle.svelte'

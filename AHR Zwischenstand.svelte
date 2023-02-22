@@ -3,8 +3,6 @@
 [Anlage D § 21](https://bass.schul-welt.de/3129.htm#13-33nr1.1p21_AnlageD)
   `;
   import { datum } from "./helfer";
-
-  import Seitenlogo from "./partials/Seitenlogo.svelte";
   import Pageheader from "./partials/Pageheader.svelte";
   import Voffset from "./partials/Voffset.svelte";
 
@@ -51,8 +49,7 @@ hr {
   {#each s.abschnitte.filter(aktHalbjahr) as hj (hj.ID)}
     <div class="page grid" orientation="portrait" size="A4">
       <div class="header">
-        <Seitenlogo logo={privat.traegerLogo} />
-        <Pageheader logo={privat.logo} untertitel={privat.untertitel} />
+        <Pageheader logo={privat.logo} untertitel={privat.untertitel} traeger="{privat.traeger}" />
       </div>
       <div class="main">
         <b>

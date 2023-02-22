@@ -54,7 +54,6 @@
 [Lehrplan, S. 24](https://www.berufsbildung.nrw.de/cms/upload/_lehrplaene/b/gesundheit_erziehung_soziales/bfsb_ges-erz-soz_heilerziehung.pdf)
   `
   export let schueler, schule, privat
-  import Seitenlogo from './partials/Seitenlogo.svelte'
   import Pageheader from './partials/Pageheader.svelte'
   import Voffset from './partials/Voffset.svelte'
 </script>

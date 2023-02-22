@@ -1,8 +1,7 @@
 {#each schueler as s (s.ID)}
   {#each aktHalbjahrFuer(s) as hj (hj.ID)}
     <div class="page grid" orientation="landscape" size="A3">
-      <Seitenlogo logo="{privat.traegerLogo}"/>
-      <Pageheader art="daten/asz.svg" logo="{privat.logo}" untertitel="{privat.untertitel}"/>
+      <Pageheader art="daten/asz.svg" logo="{privat.logo}" untertitel="{privat.untertitel}" traeger="{privat.traeger}"/>
       <div class="main">
         <div class="main-grid">
           <Voffset v="1"/>
@@ -147,7 +146,6 @@ __Achtung, das Ändern der Praxisnachweise gilt für alle Schüler im Dokument._
 `
   import { datum, bemerkungen, bg, noteInWorten }  from './helfer'
 
-  import Seitenlogo from './partials/Seitenlogo.svelte'
   import Pageheader from './partials/Pageheader.svelte'
   import Voffset from './partials/Voffset.svelte'
   import Noten from './partials/Noten.svelte'

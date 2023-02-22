@@ -1,8 +1,7 @@
 {#each schueler as s}
   {#each s.abschnitte.filter(aktHalbjahr) as hj (hj.ID)}
   <div class="page grid" orientation="portrait" size="A4">
-    <Seitenlogo logo="{privat.traegerLogo}"/>
-    <Pageheader logo="{privat.logo}" untertitel="{privat.untertitel}"/>
+    <Pageheader logo="{privat.logo}" untertitel="{privat.untertitel}" traeger="{privat.traeger}"/>
     <div class="main">
       <h5>Anlage zum Jahreszeugnis</h5>
       <Voffset v="-1.5"/>
@@ -60,7 +59,6 @@
 <script>
   export let schueler, schule, privat, jahr, abschnitt
   import { datum, bg, note } from './helfer'
-  import Seitenlogo from './partials/Seitenlogo.svelte'
   import Pageheader from './partials/Pageheader.svelte'
   import Voffset from './partials/Voffset.svelte'
   const aktHalbjahr = (a) => a.Jahr === jahr && a.Abschnitt === abschnitt
