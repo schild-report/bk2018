@@ -1,10 +1,10 @@
 {#each schueler as s (s.ID)}
   {#each aktHalbjahrFuer(s) as hj (hj.ID)}
-    <div class="page grid" orientation="landscape" size="A3">
+    <div class="page grid" orientation="landscape" size="A3" style="font-size: 95%;">
       <Pageheader art="daten/asz.svg" logo="{privat.logo}" untertitel="{privat.untertitel}" traeger="{privat.traeger}"/>
       <div class="main">
         <div class="main-grid">
-          <Voffset v="1"/>
+          <Voffset v="2"/>
           <div class="main-left">
             <b>{s.anrede} {s.Vorname} {s.Zusatz || ''} {s.Name},</b>
             <br />geboren am {datum(s.Geburtsdatum)} in {s.Geburtsort},
@@ -16,7 +16,7 @@
             <b>Leistungen</b>
             <div style="font-size: 90%">
               <Noten
-                noten={s.abschnitte[3].noten}
+                noten={hj.noten}
                 faechergruppenIds={[10, 20, 30]}
                 fachGliederungen={s.fachklasse.fach_gliederungen}
                 ger
@@ -36,11 +36,11 @@
             am {hj.noten.map(n => n.fach.FachKrz === 'KO' ? n.Lernentw : null).join('')} bestanden.
             <Voffset v="2"/>
             <table class="table-noten">
-              {#each s.abschnitte[5].noten.filter(f => f.fach.FachKrz.startsWith('AS')).sort((a,b) => a.fach.Zeugnisbez > b.fach.Zeugnisbez ? 1:-1) as as}
+              {#each s.bk_abschluss_faecher.filter(f => f.fach.FachKrz.startsWith('AS')).sort((a,b) => a.FSortierung > b.FSortierung ? 1:-1) as as}
                 <tr>
                   <td width="22%">{as.fach.Zeugnisbez}</td>
-                  <td class="td-padding-extra">{findeFach(s.abschnitte[3], as).Lernentw}</td>
-                  <td class="td-fach-note"><span>{note(as.NotenKrz)}</span></td>
+                  <td class="td-padding-extra">{findeFach(hj, as).Lernentw}</td>
+                  <td class="td-fach-note"><span>{note(as.NoteAbschluss)}</span></td>
                 </tr>
               {/each}
             </table>
@@ -53,7 +53,7 @@
                 </tr>
               {/each}
             </table>
-            <Voffset v="3"/>
+            <Voffset v="4"/>
             {s.anrede} {s.Vorname} {s.Zusatz || ''} {s.Name} ist berechtigt, die Berufsbezeichnung
             <h5 class="text-center">{bg(s, (s.Geschlecht === 3 ? 'Berufsbezeichnung_m' : 'Berufsbezeichnung_w'))}
             <br><div style="font-size: 80%">(Bachelor Professional im Sozialwesen)</div></h5>
@@ -61,9 +61,9 @@
             zu führen.
             <Voffset v="1"/>
             Der Abschluss ist im Deutschen und Europäischen Qualifikationsrahmen dem Niveau {s.fachklasse.DQR_Niveau} zugeordnet.
-            <Voffset v="4"/>
+            <Voffset v="5"/>
             {schule.Ort}, den {datum(hj.ZeugnisDatum)}
-            <Voffset v="4"/>
+            <Voffset v="5"/>
             <div class="flex-grid">
               <div class="col">
                 <hr />
@@ -89,11 +89,9 @@
         </div>
       </div>
       <div class="footer klein grau">
-        {#if s.DurchschnittsnoteFHR}
-          <span style="float: left; margin-right: 3em;">Seite 1/3</span>  
-          <span style="float: right">Seite 2/3</span>
-        {/if}
-        <span style='float left'>Schulnummer: {schule.SchulNr}</span>
+        <div class="schulnummer">
+          Schulnummer: {schule.SchulNr}
+        </div>
         <hr class="hr-grau" />
         <div class="footer-grid">
           <div class="footer-left">
@@ -134,88 +132,6 @@
         </div>
       </div>
     </div>
-    {#if note(s.bk_abschluss_faecher.find(f => f.fach.FachKrz === 'MFHR'))}
-    <div class="page grid" orientation="portrait" size="A4">
-      <Pageheader logo="{privat.logo}" untertitel="{privat.untertitel}" traeger="{privat.traeger}"/>
-      <div class="main">
-        <h5>Zeugnis der Fachhochschulreife</h5>
-        Der allgemeine Prüfungsausschuss stellte in seiner Abschlusskonferenz am {datum(hj.Konferenzdatum)} folgende Leistungen fest<sup>1</sup>:
-        <Voffset v="1"/>
-        Mathematisch-naturwissenschaftlicher-technischer Bereich: {note(s.bk_abschluss_faecher.find(f => f.fach.FachKrz === 'MFHR').NoteAbschluss)}
-        <Voffset v="1"/>
-        <b>{s.anrede} {s.Vorname} {s.Zusatz || ''} {s.Name}</b> hat die Fachhochschulreifeprüfung im Bildungsgang
-          {bg(s, 'Zeugniskopf')} am {datum(hj.Konferenzdatum)} bestanden.
-          {s.anrede}{s.Geschlecht === 3 ? 'n':''} {s.Vorname} {s.Zusatz || ''} {s.Name} wird die
-        <Voffset v="1"/>
-          <div class="text-center">
-            <h5>Fachhochschulreife</h5>
-          </div>
-        <Voffset v="-1.5"/>
-          zuerkannt.
-          <Voffset v="1"/>
-          Entsprechend der Vereinbarung über den Erwerb einer Fachhochschulreife
-          in beruflichen Bildungsgängen – Beschluss der Kultusministerkonferenz vom
-          5. Juni 1998 in der jeweils geltenden Fassung – berechtigt dieses Zeugnis in allen
-          Ländern der Bundesrepublik Deutschland zum Studium an Fachhochschulen und
-          entsprechender Studiengänge an Universitäten.
-          <Voffset v="1"/>
-        <table class="table-noten">
-          <tr>
-                <td>Durchschnittsnote:</td><td class="td-fach-note"><span>{s.DurchschnittsnoteFHR}</span></td>
-                <td>in&nbsp;Worten:</td><td class="td-fach-note"><span>{@html noteInWorten(s.DurchschnittsnoteFHR)}</span></td>
-          </tr>
-        </table>
-        <Voffset v="5"/>
-        {schule.Ort}, den {datum(hj.ZeugnisDatum)}
-        <Voffset v="4"/>
-        <div class="flex-grid">
-          <div class="col">
-            <hr />
-            <div class="text-center klein">
-              {schule.SchulleiterVorname} {schule.SchulleiterName}
-              <br>Vorsitzende{schule.SchulleiterGeschlecht === 3 ? 'r':''} des allgemeinen Prüfungsausschusses
-            </div>
-          </div>
-          <div class="col klein">
-            <div class="text-center klein">
-              Siegel
-            </div>
-          </div>
-          <div class="col klein">
-            <hr />
-            <div class="text-center">
-              {schule.SchulleiterVorname} {schule.SchulleiterName} <br />{schule.schulleiter_in}
-            </div>
-          </div>
-        </div>
-        <Voffset v="2"/>
-      </div>
-      <div class="footer klein">
-        <div class="klein eng">
-          <Voffset v="2"/>
-          <span style="float: right">Seite 3/3</span>
-          <span style='float left'>Schulnummer: {schule.SchulNr}</span>
-          <hr class="hr-grau" />
-          <div class="grau">
-            <sup>1</sup>Die Fächer
-            {s.bk_abschluss_faecher.filter(f => f.fach.GewichtungFHR > 0)
-              .sort((a,b) => a.FSortierung > b.FSortierung ? 1 : -1)
-              .map(f => f.fach.Zeugnisbez)
-              .join(', ')
-              .replace(/, \ sowie/g, ' sowie')}
-            gehen in die Berechnung der Durchnittsnote für die Fachhochschulreife ein.
-            <Voffset v=".5"/>
-            Rechtsbehelfsbelehrung: Gegen dieses Zeugnis kann innerhalb eines Monats
-            nach Bekanntgabe des Zeugnisses Widerspruch eingelegt werden. Der Widerspruch
-            ist beim {schule.Bezeichnung2}, {schule.Strasse}, {schule.PLZ} {schule.Ort},
-            schriftlich oder zur Niederschrift zu erheben. <br />Falls die Frist durch
-            das Verschulden einer/eines Bevollmächtigten versäumt wird, wird dieses
-            Verschulden der Widerspruchsführerin/dem Widerspruchsführer zugerechnet.
-          </div>
-        </div>
-      </div>
-    </div>
-    {/if}
   {/each}
 {/each}
 
@@ -224,7 +140,7 @@ export const kommentar = `
 [E5 PDF](https://bass.schul-welt.de/anlagen/3129-60.pdf)
 [E5 html]()
 `
-  import { datum, bemerkungen, bg, note, noteInWorten }  from './helfer'
+  import { datum, bemerkungen, bg, note }  from './helfer'
 
   import Pageheader from './partials/Pageheader.svelte'
   import Voffset from './partials/Voffset.svelte'
@@ -237,6 +153,7 @@ export const kommentar = `
 
 <style>
   @import 'css/main.css';
+  @import 'css/a3-landscape.css';
   .td-padding-extra {
     padding: 2mm 0 2mm 0;
   }
