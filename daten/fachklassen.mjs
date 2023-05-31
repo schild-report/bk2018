@@ -14,7 +14,7 @@ const fkl = {
     Berufsbezeichnung_m: 'Staatlich anerkannter Erzieher',
     Berufsbezeichnung_w: 'Staatlich anerkannte Erzieherin',
     Fremdsprache: {
-      '114': '(B2/C1)'
+      '172': '(B2/C1)'
     }
   },
   '170-120-00': {
@@ -22,7 +22,7 @@ const fkl = {
     Bereich: 'Allgemeine Hochschulreife (Gesundheit)',
     Zeugniskopf: 'Allgemeine Hochschulreife (Gesundheit)',
     Fremdsprache: {
-      '114': '(B2/C1)'
+      '172': '(B2/C1)'
     }
   },
   '93-102-00': {
@@ -34,7 +34,7 @@ const fkl = {
     Berufsbezeichnung_m: 'Staatlich geprüfter Kinderpfleger',
     Berufsbezeichnung_w: 'Staatlich geprüfte Kinderpflegerin',
     Fremdsprache: {
-      '114': '(B1)'
+      '172': '(B1)'
     }
   },
   '93-103-01': {
@@ -46,7 +46,7 @@ const fkl = {
     Berufsbezeichnung_m: 'Staatlich geprüfter Sozialassistent, <br>Schwerpunkt Heilerziehung',
     Berufsbezeichnung_w: 'Staatlich geprüfte Sozialassistentin, <br>Schwerpunkt Heilerziehung',
     Fremdsprache: {
-      '114': '(B1)'
+      '172': '(B1)'
     }
   },
   '93-103-00': {
@@ -58,7 +58,7 @@ const fkl = {
     Examen: 'Berufsabschlussprüfung',
     Zeugniskopf: 'Berufsfachschule für Sozial- und Gesundheitswesen',
     Fremdsprache: {
-      '114': '(B1)'
+      '172': '(B1)'
     }
   },
   '10-109-00': {
@@ -66,7 +66,7 @@ const fkl = {
     Bereich: 'Fachrichtung Gesundheit und Soziales',
     Zeugniskopf: 'Fachoberschule mit dem fachlichen Schwerpunkt Gesundheit und Soziales',
     Fremdsprache: {
-      '114': '(B2)'
+      '172': '(B2)'
     }
   },
   '100-102-01': {
@@ -81,7 +81,7 @@ const fkl = {
     Berufsbezeichnung_m: 'Staatlich anerkannter Erzieher',
     Berufsbezeichnung_w: 'Staatlich anerkannte Erzieherin',
     Fremdsprache: {
-      '19': '(B2)'
+      '17': '(B2)'
     }
   },
   '100-102-02': {
@@ -96,7 +96,7 @@ const fkl = {
     Berufsbezeichnung_m: 'Staatlich anerkannter Erzieher',
     Berufsbezeichnung_w: 'Staatlich anerkannte Erzieherin',
     Fremdsprache: {
-      '19': '(B2)'
+      '17': '(B2)'
     }
   },
   '40-102-05': {
@@ -111,7 +111,7 @@ const fkl = {
     Berufsbezeichnung_m: 'Staatlich anerkannter Erzieher',
     Berufsbezeichnung_w: 'Staatlich anerkannte Erzieherin',
     Fremdsprache: {
-      '19': '(B2)'
+      '17': '(B2)'
     }
   },
   '10-101-01': {
@@ -124,7 +124,7 @@ const fkl = {
     Fehlstunden: false,
     Examen: 'Fachschulexamen',
     Fremdsprache: {
-      '19': '(B2)'
+      '17': '(B2)'
     }
   },
   '10-101-02': {
@@ -137,7 +137,7 @@ const fkl = {
     Berufsbezeichnung_m: 'Staatlich anerkannter Heilerziehungspfleger',
     Berufsbezeichnung_w: 'Staatlich anerkannte Heilerziehungspflegerin',
     Fremdsprache: {
-      '19': '(B2)'
+      '17': '(B2)'
     }
   },
   '40-101-05': {
@@ -150,7 +150,7 @@ const fkl = {
     Berufsbezeichnung_m: 'Staatlich anerkannter Heilerziehungspfleger',
     Berufsbezeichnung_w: 'Staatlich anerkannte Heilerziehungspflegerin',
     Fremdsprache: {
-      '19': '(B2)'
+      '17': '(B2)'
     }
   },
   '210-111-02': {

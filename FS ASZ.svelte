@@ -4,7 +4,7 @@
       <Pageheader art="daten/asz.svg" logo="{privat.logo}" untertitel="{privat.untertitel}" traeger="{privat.traeger}"/>
       <div class="main">
         <div class="main-grid">
-          <Voffset v="1"/>
+          <Voffset v="2"/>
           <div class="main-left">
             <b>{s.anrede} {s.Vorname} {s.Zusatz || ''} {s.Name},</b>
             <br />geboren am {datum(s.Geburtsdatum)} in {s.Geburtsort},
@@ -153,6 +153,7 @@ export const kommentar = `
 
 <style>
   @import 'css/main.css';
+  @import 'css/a3-landscape.css';
   .td-padding-extra {
     padding: 2mm 0 2mm 0;
   }

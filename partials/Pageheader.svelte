@@ -48,7 +48,7 @@ hr:   Wenn eine rote Linie unter das Logo soll. Standard an -->
 <style>
   .header {
     position: relative;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
   }
   .art {
     position: absolute;
