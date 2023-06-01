@@ -16,10 +16,10 @@
       1. Vier Wochen Praktikum in einer Tageseinrichtung für Kinder
       <br>Beurteilung des Praktikums: {hj.noten.find(f => f.fach.FachKrz === "PRXSOA 1").NotenKrz}
       <Voffset v="2"/>
-      1. Sechs Wochen Praktikum in der ambulanten oder stationären Altenhilfe
+      2. Sechs Wochen Praktikum in der ambulanten oder stationären Altenhilfe
       <br>Beurteilung des Praktikums: {hj.noten.find(f => f.fach.FachKrz ===  "PRX SOA 2").NotenKrz}
       <Voffset v="2"/>
-      1.  Sechs Wochen Praktikum in der Eingliederungshilfe
+      3.  Sechs Wochen Praktikum in der Eingliederungshilfe
       <br>Beurteilung des Praktikums: {hj.noten.find(f => f.fach.FachKrz === "PRXSOA 3").NotenKrz}
       <Voffset v="7"/>
       <div class="flex-grid">
