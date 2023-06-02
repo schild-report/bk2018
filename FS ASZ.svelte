@@ -39,7 +39,7 @@
               {#each hj.noten.filter(f => f.fach.FachKrz.startsWith('AS')).sort((a,b) => a.FSortierung > b.FSortierung ? 1:-1) as as}
                 <tr>
                   <td width="22%">{as.fach.Zeugnisbez}</td>
-                  <td class="td-padding-extra">{findeFach(hj, as).Lernentw}</td>
+                  <td class="td-padding-extra">{as.Lernentw}</td>
                   <td class="td-fach-note"><span>{note(as.NotenKrz)}</span></td>
                 </tr>
               {/each}

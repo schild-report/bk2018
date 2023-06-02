@@ -11,7 +11,7 @@
       <b>{s.anrede} {s.Vorname} {s.Zusatz || ''} {s.Name},</b>
       <br />geboren am {datum(s.Geburtsdatum)} in {s.Geburtsort},
       <Voffset v="2"/>
-      hat im Ausbildungszeitraum vom {datum(s.BeginnBildungsgang)} bis {datum(s.Entlassdatum)} im Rahmen der Ausbildung {bg(s, `Berufsbezeichnung_${s.Geschlecht===3?'m':'w'}`).replace('<br>','')} folgende Praktika absolviert:
+      hat im Ausbildungszeitraum vom {datum(s.BeginnBildungsgang)} bis {datum(s.ZeugnisDatum)} im Rahmen der Ausbildung {bg(s, `Berufsbezeichnung_${s.Geschlecht===3?'m':'w'}`).replace('<br>','')} folgende Praktika absolviert:
       <Voffset v="2"/>
       1. Vier Wochen Praktikum in einer Tageseinrichtung für Kinder
       <br>Beurteilung des Praktikums: {hj.noten.find(f => f.fach.FachKrz === "PRXSOA 1").NotenKrz}
