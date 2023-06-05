@@ -1,6 +1,6 @@
 {#each schueler as s (s.ID)}
   {#each s.abschnitte.filter(aktHalbjahr) as hj (hj.ID)}
-    <div class="page grid" orientation="portrait" size="A4" style="font-size: 1.0rem">
+    <div class="page grid" orientation="portrait" size="A4" style="font-size: .75rem">
       <Pageheader art="daten/zeugnis.svg" logo="{privat.logo}" untertitel="{privat.untertitel}" traeger="{privat.traeger}"/>
       <div class="main">
         <span style="font-size: 15pt; line-height: 1.5em">
@@ -9,10 +9,10 @@
         <span style="font-size: 12pt; line-height: 1.2em">
           {bg(s, 'Bereich')}
         </span>
-        <Voffset v="1"/>
+        <Voffset v=".5"/>
         <b>{s.anrede} {s.Vorname} {s.Zusatz || ''} {s.Name},</b>
         <br />geboren am {datum(s.Geburtsdatum)} in {s.Geburtsort}, besuchte im Schuljahr {hj.schuljahr} die Klasse {hj.Klasse}
-        <Voffset v="2"/>
+        <Voffset v="1"/>
         Leistungen laut Konferenzbeschluss vom {datum(hj.Konferenzdatum)}:
         <div class="lf-noten" style="font-size: 0.9rem">
           <Noten
@@ -24,12 +24,12 @@
           ></Noten>
         </div>
         <hr />
-        <Voffset v="1"/>
+        <Voffset v=".5"/>
         <div class="text-center">
           <b>{s.Geschlecht === 3 ? "Der Studierende":"Die Studierende"} hat laut Konferenzbeschluss vom {datum(hj.Konferenzdatum)}
           <br>die Berechtigung zum Übergang in das Berufspraktikum erworben.</b>
         </div>
-        <Voffset v="1"/>
+        <Voffset v=".5"/>
         <b>Bemerkungen</b><br />{@html bemerkungen(hj)}
       </div>
       <div class="footer">
@@ -38,17 +38,17 @@
             {schule.Ort}, den {datum(hj.ZeugnisDatum)}
           </div>
           <div class="col text-center klein">
-          <Voffset v="3"/>
+          <Voffset v="1"/>
             <hr />
             {schule.SchulleiterVorname} {schule.SchulleiterName}
             <br />{schule.schulleiter_in}
           </div>
           <div class="col text-center klein">
-          <Voffset v="3"/>
+          <Voffset v="1"/>
             Siegel
           </div>
           <div class="col text-center klein">
-          <Voffset v="3"/>
+          <Voffset v="1"/>
             <hr />
             {hj.lehrer?.Titel ? hj.lehrer.Titel+" " : ''}{hj.lehrer?.Vorname} {hj.lehrer?.Nachname}<br />{hj.klassenlehrer_in}
           </div>
