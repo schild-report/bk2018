@@ -1,6 +1,6 @@
 {#each schueler as s (s.ID)}
   {#each s.abschnitte.filter(aktHalbjahr) as hj (hj.ID)}
-    <div class="page grid" orientation="portrait" size="A4">
+    <div class="page grid" orientation="portrait" size="A4" style="font-size: .85rem">
       <Pageheader art="daten/zeugnis.svg" logo="{privat.logo}" untertitel="{privat.untertitel}" traeger="{privat.traeger}"/>
       <div class="main">
         <div style="font-size: 13.5pt; line-height: 1.5em">
@@ -19,7 +19,7 @@
         {/if}
         <Voffset v="2"/>
         Leistungen laut Konferenzbeschluss vom {datum(hj.Konferenzdatum)}:
-        <div class="lf-noten">
+        <div style="font-size: 0.9rem;">
           <Noten lernfeld noten={hj.noten} fachGliederungen={s.fachklasse.fach_gliederungen}></Noten>
         </div>
         <hr />
@@ -71,7 +71,5 @@
 
 <style>
   @import 'css/main.css';
-  .lf-noten {
-    font-size: 0.9rem;
-  }
+  @import 'css/a4-portrait.css'
 </style>
