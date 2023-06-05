@@ -1,6 +1,6 @@
 {#each schueler as s (s.ID)}
   {#each s.abschnitte.filter(aktHalbjahr) as hj (hj.ID)}
-    <div class="page grid" orientation="portrait" size="A4">
+    <div class="page grid" orientation="portrait" size="A4" style="font-size: 85%;">
       <Pageheader art="daten/agz.svg" logo="{privat.logo}" untertitel="{privat.untertitel}" traeger="{privat.traeger}"/>
       <div class="main">
         <span style="font-size: 15pt; line-height: 1.5em">
@@ -17,7 +17,7 @@
         <br>{s.Geschlecht === 3 ? 'Er':'Sie'} war zuletzt {s.studierende_r} in der Klasse {s.Klasse}.
         <Voffset v="2"/>
         Leistungen laut Konferenzbeschluss vom {datum(hj.Konferenzdatum)}:
-        <div class="lf-noten">
+        <div class="lf-noten" style="font-size: 90%;">
           <Noten
             noten={hj.noten}
             fachGliederungen={s.fachklasse.fach_gliederungen}
