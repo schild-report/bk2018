@@ -58,7 +58,7 @@
           <br></b> {@html bemerkungen(hj)}
         </div>
         <div class="main-right">
-          <Voffset v="4"/>
+          <Voffset v="2"/>
           Die Kurse des letzten Halbjahres gelten als {zeige_Kurse_abgeschlossen ? '':'nicht'} abgeschlossen.
           <button class="vbutton no-print" on:click="{() => zeige_Kurse_abgeschlossen = !zeige_Kurse_abgeschlossen}">
             Kurse abgeschlossen: {zeige_Kurse_abgeschlossen ? 'Ja' : 'Nein'}
@@ -95,22 +95,22 @@
               {schule.Ort}, den {datum(hj.ZeugnisDatum)}
             </div>
             <div class="col text-center klein">
-              <Voffset v="3"/>
+              <Voffset v="2"/>
               <hr />
               {schule.SchulleiterVorname} {schule.SchulleiterName}
               <br />{schule.schulleiter_in}
             </div>
             <div class="col text-center klein">
-              <Voffset v="3"/>
+              <Voffset v="2"/>
               Siegel
             </div>
             <div class="col text-center klein">
-              <Voffset v="3"/>
+              <Voffset v="2"/>
               <hr />
               {hj.lehrer?.Titel ? hj.lehrer.Titel+" " : ''}{hj.lehrer?.Vorname} {hj.lehrer?.Nachname}<br />{hj.klassenlehrer_in}
             </div>
           </div>
-          <Voffset v="3"/>
+          <Voffset v="0"/>
         </div>
       </div>
       <div class="footer-grid klein eng">

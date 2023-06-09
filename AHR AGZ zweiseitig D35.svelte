@@ -61,7 +61,7 @@
             Kurse abgeschlossen: {zeige_Kurse_abgeschlossen ? 'Ja' : 'Nein'}
           </button>
           {#if zeige_FHR}
-            <Voffset v="2"/>
+            <Voffset v="1"/>
             Dieses Zeugnis gilt in Verbindung mit dem Nachweis über eine
             abgeschlossene Berufsausbildung oder ein einjähriges gelenktes
             Praktikum gemäß der Praktikum - Ausbildungsordnung vom 11.12.2006
@@ -76,7 +76,7 @@
           <button class="vbutton no-print" on:click="{() => zeige_FHR = !zeige_FHR}">
             FHR abgeschlossen: {zeige_FHR ? 'Ja' : 'Nein'}
           </button>
-          <Voffset v="2"/>
+          <Voffset v="1"/>
           <table class="table-noten">
             <tr>
               <td>Durchschnittsnote:</td>
@@ -92,22 +92,22 @@
               {schule.Ort}, den {datum(hj.ZeugnisDatum)}
             </div>
             <div class="col text-center klein">
-              <Voffset v="3"/>
+              <Voffset v="2"/>
               <hr />
               {schule.SchulleiterVorname} {schule.SchulleiterName}
               <br />{schule.schulleiter_in}
             </div>
             <div class="col text-center klein">
-              <Voffset v="3"/>
+              <Voffset v="2"/>
               Siegel
             </div>
             <div class="col text-center klein">
-              <Voffset v="3"/>
+              <Voffset v="2"/>
               <hr />
               {hj.lehrer?.Titel ? hj.lehrer.Titel+" " : ''}{hj.lehrer?.Vorname} {hj.lehrer?.Nachname}<br />{hj.klassenlehrer_in}
             </div>
           </div>
-          <Voffset v="2"/>
+          <Voffset v="1"/>
           Schulnummer: {schule.SchulNr}
           <div class="klein">
             <hr />
