@@ -1,6 +1,6 @@
 {#each schueler as s (s.ID)}
   {#each s.abschnitte.filter(aktHalbjahr) as hj (hj.ID)}
-    <div class="page grid" orientation="portrait" size="A4" style="font-size: .8rem">
+    <div class="page grid" orientation="portrait" size="A4" style="font-size: .84rem">
       <Pageheader art="daten/zeugnis.svg" logo="{privat.logo}" untertitel="{privat.untertitel}" traeger="{privat.traeger}"/>
       <div class="main">
         <span style="font-size: 15pt; line-height: 1.5em">
@@ -14,7 +14,7 @@
         <br />geboren am {datum(s.Geburtsdatum)} in {s.Geburtsort}, besuchte im Schuljahr {hj.schuljahr} die Klasse {hj.Klasse}
         <Voffset v="1"/>
         Leistungen laut Konferenzbeschluss vom {datum(hj.Konferenzdatum)}:
-        <div class="lf-noten" style="font-size: 0.8rem">
+        <div class="lf-noten" style="font-size: 0.84rem">
           <Noten
             noten={hj.noten}
             fachGliederungen={s.fachklasse.fach_gliederungen}
@@ -54,7 +54,7 @@
           </div>
         </div>
         <div class="klein eng">
-          <Voffset v="2"/>
+          <Voffset v="1"/>
           <div class="schulnummer text-center">
             Schulnummer: {schule.SchulNr}
           </div>
