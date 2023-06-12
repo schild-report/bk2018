@@ -42,7 +42,7 @@
           <Voffset v="1"/>
         {/if}
         {#if s.ASDSchulform.startsWith('B')}
-          {s.Geschlecht === 3 ? "Der Schüler":"Die Schülerin"} hat ein bildungsgangbegleitendes Praktikum im Umfang von 10 Wochen absolviert. Dieses wurde mit der Note {hj.noten.find(f=>f.fach.FachKrz==="PRXSOA".NotenKrz)} bewertet.
+          {s.Geschlecht === 3 ? "Der Schüler":"Die Schülerin"} hat ein bildungsgangbegleitendes Praktikum im Umfang von 10 Wochen absolviert. Dieses wurde mit der Note {hj.noten.find(f=>f.fach.FachKrz==="PRXSOA").NotenKrz} bewertet.
           <Voffset v="1"/>
         {/if}
         <b>Bemerkungen</b><br />{@html bemerkungen(hj)}
