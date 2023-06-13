@@ -10,14 +10,14 @@
         {s.studierende_r} im Bildungsgang
           <Voffset v="1"/>
           <b>{bg(s, 'Zeugniskopf')}</b>
-        <Voffset v="1.5"/>
+        <Voffset v="1"/>
         Der allgemeine Prüfungsausschuss stellte in seiner Abschlusskonferenz am {datum(hj.Konferenzdatum)} fest:
         <Voffset v="1"/>
         {s.anrede} {s.Vorname} {s.Zusatz || ''} {s.Name} hat das staatliche
         <h5 class="text-center">{bg(s, 'Examen')}</h5>
         <Voffset v="-2"/>
         am {hj.noten.map(n => n.fach.FachKrz === 'KO' ? n.Lernentw : null).join('')} bestanden.<sup>1</sup>
-        <Voffset v="2"/>
+        <Voffset v="1"/>
         <table class="table-noten" width="100%">
           {#each s.bk_abschluss_faecher.filter(f => ['BLgesamt', 'KO', 'BPgesamt'].some(n => n === f.fach.FachKrz)) as f}
           <tr>
@@ -34,9 +34,9 @@
         zu führen.
         <Voffset v="1"/>
         Der Abschluss ist im Deutschen und Europäischen Qualifikationsrahmen dem Niveau {s.fachklasse.DQR_Niveau} zugeordnet.
-        <Voffset v="5"/>
+        <Voffset v="2"/>
         {schule.Ort}, den {datum(hj.ZeugnisDatum)}
-        <Voffset v="4"/>
+        <Voffset v="3"/>
         <div class="flex-grid">
           <div class="col">
             <hr />
@@ -73,8 +73,8 @@
             <sup>1</sup>Gilt nur in Verbindung mit der Bescheinigung über die
             erfolgreich abgelegte fachtheoretischen Prüfung (Teil I) und dem
             Versetzungszeugnis, welches die Berechtigung zum Übergang in das
-            Berufspraktikum ausweist, ausgestellt am {s.vermerke.find(v => v.Vermerkart_ID === 8).Bemerkung}
-            vom {s.vermerke.find(v => v.Vermerkart_ID === 9).Bemerkung}
+            Berufspraktikum ausweist, ausgestellt am {s.vermerke.find(v => v.Vermerkart_ID === 9)?.Bemerkung || 'Vermerk `BPEX-SCHULNAME-Zeugnis-extern` fehlt - undefined'}
+            vom {s.vermerke.find(v => v.Vermerkart_ID === 10)?.Bemerkung || 'Vermerk `BPEX-ZEUGNISDATUM-Übergang BP` fehlt - undefined'}
             <Voffset v=".5"/>
             Dem Zeugnis liegen zugrunde: Die Verordnung über die Ausbildung und Prüfung
             in den Bildungsgängen des Berufskollegs (Ausbildungs- und Prüfungsordnung

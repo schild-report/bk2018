@@ -16,7 +16,7 @@
             <b>Leistungen</b>
             <div >
               <Noten
-                noten={hj.noten}
+                noten={s.abschnitte.at(-3).noten}
                 faechergruppenIds={[10, 20, 30]}
                 fachGliederungen={s.fachklasse.fach_gliederungen}
                 ger
@@ -36,11 +36,11 @@
             am {hj.noten.map(n => n.fach.FachKrz === 'KO' ? n.Lernentw : null).join('')} bestanden.
             <Voffset v="2"/>
             <table class="table-noten">
-              {#each s.bk_abschluss_faecher.filter(f => f.fach.FachKrz.startsWith('AS')).sort((a,b) => a.FSortierung > b.FSortierung ? 1:-1) as as}
+              {#each s.abschnitte.at(-3).noten.filter(f => f.fach.FachKrz.startsWith('AS')).sort((a,b) => a.FSortierung > b.FSortierung ? 1:-1) as as}
                 <tr>
                   <td width="22%">{as.fach.Zeugnisbez}</td>
-                  <td class="td-padding-extra">{findeFach(hj, as).Lernentw}</td>
-                  <td class="td-fach-note"><span>{note(as.NoteAbschluss)}</span></td>
+                  <td class="td-padding-extra">{as.Lernentw}</td>
+                  <td class="td-fach-note"><span>{note(as.NotenKrz)}</span></td>
                 </tr>
               {/each}
             </table>
@@ -63,7 +63,7 @@
             Der Abschluss ist im Deutschen und Europäischen Qualifikationsrahmen dem Niveau {s.fachklasse.DQR_Niveau} zugeordnet.
             <Voffset v="5"/>
             {schule.Ort}, den {datum(hj.ZeugnisDatum)}
-            <Voffset v="5"/>
+            <Voffset v="3"/>
             <div class="flex-grid">
               <div class="col">
                 <hr />
