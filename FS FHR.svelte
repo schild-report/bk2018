@@ -10,7 +10,7 @@
         <Voffset v="1"/>
         <b>{s.anrede} {s.Vorname} {s.Zusatz || ''} {s.Name}</b> hat die Fachhochschulreifeprüfung im Bildungsgang
           {bg(s, 'Zeugniskopf')} am {datum(hj.Konferenzdatum)} bestanden.
-          {s.anrede}{s.Geschlecht === 3 ? 'n':''} {s.Vorname} {s.Zusatz || ''} {s.Name} wird die
+          <br>{s.anrede}{s.Geschlecht === 3 ? 'n':''} {s.Vorname} {s.Zusatz || ''} {s.Name} wird die
         <Voffset v="1"/>
           <div class="text-center">
             <h5>Fachhochschulreife</h5>
