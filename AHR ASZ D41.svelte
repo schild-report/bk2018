@@ -92,7 +92,7 @@ Fachklasse Ebene2 eingegeben.
               in der Abiturprüfung sowie die Berechnung der Gesamtqualifikation einschließlich
               der Durchschnittsnote kann innerhalb eines Monats nach Bekanntgabe
               des Zeugnisses Widerspruch erhoben werden. Der Widerspruch ist beim
-              {schule.Bezeichnung2}, {schule.Strasse}, {schule.PLZ}
+              {schule.Bezeichnung1}, {schule.Strasse}, {schule.PLZ}
               {schule.Ort}, schriftlich oder zur Niederschrift zu erheben. Falls
               die Frist durch das Verschulden einer/eines Bevollmächtigten
               versäumt wird, wird dieses Verschulden der
