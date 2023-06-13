@@ -41,8 +41,11 @@
           Nr. 1) vorgelegt wird.
           <Voffset v="1"/>
         {/if}
-        {#if s.ASDSchulform.startsWith('B')}
+        {#if s.fachklasse.Kennung === '93-103-00'}
           {s.Geschlecht === 3 ? "Der Schüler":"Die Schülerin"} hat ein bildungsgangbegleitendes Praktikum im Umfang von 10 Wochen absolviert. Dieses wurde mit der Note {hj.noten.find(f=>f.fach.FachKrz==="PRXSOA").NotenKrz} bewertet.
+          <Voffset v="1"/>
+         {:else if s.fachklasse.Kennung === '93-102-00'}
+          {s.Geschlecht === 3 ? "Der Schüler":"Die Schülerin"} hat einen fachpraktischen Einsatz in einer Kindertagesstätte im Umfang von mindestens 12 Wochenstunden absolviert. Diese wurden mit der Note  {hj.noten.find(f=>f.fach.FachKrz==="PRXSOA").NotenKrz} bewertet.
           <Voffset v="1"/>
         {/if}
         <b>Bemerkungen</b><br />{@html bemerkungen(hj)}
