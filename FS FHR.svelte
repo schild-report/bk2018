@@ -72,7 +72,7 @@
             <Voffset v=".5"/>
             Rechtsbehelfsbelehrung: Gegen dieses Zeugnis kann innerhalb eines Monats
             nach Bekanntgabe des Zeugnisses Widerspruch eingelegt werden. Der Widerspruch
-            ist beim {schule.Bezeichnung2}, {schule.Strasse}, {schule.PLZ} {schule.Ort},
+            ist beim {schule.Bezeichnung1}, {schule.Strasse}, {schule.PLZ} {schule.Ort},
             schriftlich oder zur Niederschrift zu erheben. <br />Falls die Frist durch
             das Verschulden einer/eines Bevollmächtigten versäumt wird, wird dieses
             Verschulden der Widerspruchsführerin/dem Widerspruchsführer zugerechnet.
