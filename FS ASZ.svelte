@@ -16,7 +16,7 @@
             <b>Leistungen</b>
             <div style="font-size: 90%">
               <Noten
-                noten={hj.noten}
+                noten={s.abschnitte.at(-3).noten}
                 faechergruppenIds={[10, 20, 30]}
                 fachGliederungen={s.fachklasse.fach_gliederungen}
                 ger
@@ -36,7 +36,7 @@
             am {hj.noten.map(n => n.fach.FachKrz === 'KO' ? n.Lernentw : null).join('')} bestanden.
             <Voffset v="2"/>
             <table class="table-noten">
-              {#each hj.noten.filter(f => f.fach.FachKrz.startsWith('AS')).sort((a,b) => a.FSortierung > b.FSortierung ? 1:-1) as as}
+              {#each s.abschnitte.at(-3).noten.filter(f => f.fach.FachKrz.startsWith('AS')).sort((a,b) => a.FSortierung > b.FSortierung ? 1:-1) as as}
                 <tr>
                   <td width="22%">{as.fach.Zeugnisbez}</td>
                   <td class="td-padding-extra">{as.Lernentw}</td>
