@@ -22,6 +22,7 @@
             faechergruppenIds={[10, 20, 30, 1600]}
             fachGliederungen={s.fachklasse.fach_gliederungen}
             fachklasse={s.fachklasse.Kennung}
+            ger
             gruppenbezeichnungNeu={gruppenbezeichnungNeu}
           ></Noten>
           <hr />
@@ -84,6 +85,10 @@
         <div class="footer-right">
           Dem Zeugnis liegen zugrunde:
           <ul class="list-unstyled dashes">
+            <li>
+              Die Vereinbarung zur Gestaltung der gymnasialen Oberstufe und der
+              Abiturprüfung (Beschluss der Kultusministerkonferenz vom 7. Juli 1972 in der jeweils geltenden Fassung).
+            </li>
             <li>
               Die Verordnung über die Ausbildung und Prüfung in den Bildungsgängen
               des Berufskollegs (Ausbildungs- und Prüfungsordnung Berufskolleg,
