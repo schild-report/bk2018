@@ -38,6 +38,13 @@
         <button class="vbutton no-print" on:click="{() => zeigeVersetzungsvermerk = !zeigeVersetzungsvermerk}">
           Versetzungsvermerk {zeigeVersetzungsvermerk ? 'entfernen' : 'anzeigen'}
         </button>
+        {#if s.fachklasse.Kennung === '93-103-00'}
+          <Voffset v="1"/>
+          {s.Geschlecht === 3 ? "Der Schüler":"Die Schülerin"} hat ein bildungsgangbegleitendes Praktikum im Umfang von 10 Wochen absolviert. Dieses wurde mit der Note {hj.noten.find(f=>f.fach.FachKrz==="PRXSOA").NotenKrz} bewertet.
+         {:else if s.fachklasse.Kennung === '93-102-00'}
+          <Voffset v="1"/>
+          {s.Geschlecht === 3 ? "Der Schüler":"Die Schülerin"} hat einen fachpraktischen Einsatz in einer Kindertagesstätte im Umfang von mindestens 12 Wochenstunden absolviert. Diese wurden mit der Note  {hj.noten.find(f=>f.fach.FachKrz==="PRXSOA").NotenKrz} bewertet.
+        {/if}
         <Voffset v="1"/>
         <b>Bemerkungen</b><br />{@html bemerkungen(hj)}
           {#if zeige_FHR}
