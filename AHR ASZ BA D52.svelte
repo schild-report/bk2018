@@ -19,7 +19,6 @@
           <Voffset v=".5"/>
           <Noten
             noten={hj.noten}
-            faechergruppenIds={[10, 20, 30, 1600]}
             fachGliederungen={s.fachklasse.fach_gliederungen}
             fachklasse={s.fachklasse.Kennung}
             ger

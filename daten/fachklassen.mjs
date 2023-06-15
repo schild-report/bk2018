@@ -27,10 +27,10 @@ const fkl = {
   },
   '93-102-00': {
     Schulform: 'Berufsfachschule',
-    Bereich: 'Fachbereich Gesundheit/Erziehung und Soziales',
+    Bereich: 'Fachbereich Gesundheit/Erziehung und Soziales – praxisintegrierte Form',
     Abschluss: true,
     Examen: 'Berufsabschlussprüfung',
-    Zeugniskopf: 'Berufsfachschule für Gesundheit/Erziehung und Soziales',
+    Zeugniskopf: 'Berufsfachschule für Gesundheit/Erziehung und Soziales – praxisintegrierte Form',
     Berufsbezeichnung_m: 'Staatlich geprüfter Kinderpfleger',
     Berufsbezeichnung_w: 'Staatlich geprüfte Kinderpflegerin',
     Fremdsprache: {
