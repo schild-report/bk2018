@@ -36,7 +36,7 @@
             am {hj.noten.map(n => n.fach.FachKrz === 'KO' ? n.Lernentw : null).join('')} bestanden.
             <Voffset v="2"/>
             <table class="table-noten">
-              {#each s.abschnitte.at(-3).noten.filter(f => f.fach.FachKrz.startsWith('AS')).sort((a,b) => a.FSortierung > b.FSortierung ? 1:-1) as as}
+              {#each s.abschnitte.at(-3).noten.filter(f => f.fach.FachKrz.startsWith('AS')).sort((a,b) => a.fach.SortierungS2 > b.fach.SortierungS2 ? 1:-1) as as}
                 <tr>
                   <td width="22%">{as.fach.Zeugnisbez}</td>
                   <td class="td-padding-extra">{as.Lernentw}</td>
@@ -46,14 +46,14 @@
             </table>
             <Voffset v="1"/>
             <table class="table-noten" width="100%">
-              {#each hj.noten.filter(f => ['BLgesamt', 'KO', 'BPgesamt'].some(n => n === f.fach.FachKrz)).sort((a, b) => a.FSortierung < b.FSortierung ? -1 : 1) as f}
+              {#each hj.noten.filter(f => ['BLgesamt', 'KO', 'BPgesamt'].some(n => n === f.fach.FachKrz)).sort((a, b) => a.fach.SortierungS2 < b.fach.SortierungS2 ? -1 : 1) as f}
                 <tr>
                   <td class="{f.fach.FachKrz === 'BPgesamt' ? 'fett' : ''}">{f.fach.Zeugnisbez}</td>
                   <td class="td-fach-note"><span>{note(f.NotenKrz)}</span></td>
                 </tr>
               {/each}
             </table>
-            <Voffset v="4"/>
+            <Voffset v="3"/>
             {s.anrede} {s.Vorname} {s.Zusatz || ''} {s.Name} ist berechtigt, die Berufsbezeichnung
             <h5 class="text-center">{bg(s, (s.Geschlecht === 3 ? 'Berufsbezeichnung_m' : 'Berufsbezeichnung_w'))}
             <br><div style="font-size: 80%">(Bachelor Professional im Sozialwesen)</div></h5>
@@ -61,9 +61,9 @@
             zu führen.
             <Voffset v="1"/>
             Der Abschluss ist im Deutschen und Europäischen Qualifikationsrahmen dem Niveau {s.fachklasse.DQR_Niveau} zugeordnet.
-            <Voffset v="5"/>
+            <Voffset v="3"/>
             {schule.Ort}, den {datum(hj.ZeugnisDatum)}
-            <Voffset v="5"/>
+            <Voffset v="3"/>
             <div class="flex-grid">
               <div class="col">
                 <hr />
@@ -88,7 +88,7 @@
           </div>
         </div>
       </div>
-      <div class="footer klein grau">
+      <div class="footer klein grau" style="font-size: 60%;">
         <div class="schulnummer">
           Schulnummer: {schule.SchulNr}
         </div>

@@ -1,12 +1,12 @@
 {#each schueler as s (s.ID)}
   {#each aktHalbjahrFuer(s) as hj (hj.ID)}
-    <div class="page grid" orientation="landscape" size="A3">
+    <div class="page grid" orientation="landscape" size="A3" style="font-size: 93%;">
       <div class="header">
         <Pageheader art="daten/asz.svg" logo="{privat.logo}" untertitel="{privat.untertitel}" traeger="{privat.traeger}"/>
       </div>
       <div class="main-grid">
         <div class="main-left">
-          <Voffset v="2"/>
+          <Voffset v="0"/>
           <b>{s.anrede} {s.Vorname} {s.Zusatz || ''} {s.Name},</b>
           <br />geboren am {datum(s.Geburtsdatum)} in {s.Geburtsort},
           <br />war vom {datum(s.Aufnahmedatum)} bis zur Aushändigung des
@@ -21,15 +21,14 @@
             noten={hj.noten}
             fachGliederungen={s.fachklasse.fach_gliederungen}
             fachklasse={s.fachklasse.Kennung}
-            ger
-            gruppenbezeichnungNeu={gruppenbezeichnungNeu}
+            ger lernfeld
           ></Noten>
           <hr />
           <b>Bemerkungen</b>
           <br />{@html bemerkungen(hj)}
         </div>
         <div class="main-right">
-          <Voffset v="2"/>
+          <Voffset v="0"/>
           {s.anrede} {s.Vorname} {s.Zusatz || ''} {s.Name} hat die staatliche
           Berufsabschlussprüfung für Erzieherinnen und Erzieher<br>
           am {hj.noten.find(f => f.fach.FachKrz === 'KO')?.Lernentw}
@@ -39,7 +38,7 @@
           zu führen.
           <Voffset v="1"/>
           Der Abschluss ist im Deutschen und Europäischen Qualifikationsrahmen dem Niveau {s.fachklasse.DQR_Niveau} zugeordnet.
-          <Voffset v="9"/>
+          <Voffset v="7"/>
           <div class="flex-grid">
             <div class="col">
               <Voffset v="-1"/>
@@ -122,10 +121,10 @@ Die *Fächer* BL und BP Gesamt sind in einer anderen Fächergruppe als das Kollo
   import Voffset from './partials/Voffset.svelte'
   import Noten from './partials/Noten.svelte'
   export let schueler, schule, privat, jahr, abschnitt
-  let gruppenbezeichnungNeu = {1600: 'Fachpraktische Prüfung'}
   const aktHalbjahrFuer = s => s.abschnitte.filter(a => a.Jahr === jahr && a.Abschnitt === abschnitt)
 </script>
 
 <style>
   @import 'css/main.css';
+  @import 'css/a3-landscape.css'
 </style>

@@ -14,7 +14,8 @@ const fkl = {
     Berufsbezeichnung_m: 'Staatlich anerkannter Erzieher',
     Berufsbezeichnung_w: 'Staatlich anerkannte Erzieherin',
     Fremdsprache: {
-      '172': '(B2/C1)'
+      '172': '(B2/C1)',
+      '320': '(B1)'
     }
   },
   '170-120-00': {
@@ -22,7 +23,8 @@ const fkl = {
     Bereich: 'Allgemeine Hochschulreife (Gesundheit)',
     Zeugniskopf: 'Allgemeine Hochschulreife (Gesundheit)',
     Fremdsprache: {
-      '172': '(B2/C1)'
+      '172': '(B2/C1)',
+      '320': '(B1)'
     }
   },
   '93-102-00': {
