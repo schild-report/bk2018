@@ -16,7 +16,7 @@ Beachte, true|false nicht als String setzen, sondern als statement:
 notenstufen={false} -->
 
 <div class="klein eng">
-  <Voffset v="2"/>
+  <Voffset v="1"/>
   <div class="schulnummer">
     Schulnummer: {schule.SchulNr}
   </div>
