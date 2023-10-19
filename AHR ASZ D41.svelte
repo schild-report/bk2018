@@ -436,6 +436,8 @@ Fachklasse Ebene2 eingegeben.
 
 <style>
   @import "css/main.css";
+  @import 'css/a3-landscape.css';
+  
   .sl {
     position: relative;
     bottom: -126px;
