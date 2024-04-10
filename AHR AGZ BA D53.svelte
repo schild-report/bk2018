@@ -1,6 +1,6 @@
 {#each schueler as s (s.ID)}
   {#each aktHalbjahrFuer(s) as hj (hj.ID)}
-    <div class="page grid" orientation="landscape" size="A3">
+    <div class="page grid" orientation="landscape" size="A3" style="font-size: .9rem;">
       <div class="header">
         <Pageheader art="daten/agz.svg" logo="{privat.logo}" untertitel="{privat.untertitel}" traeger="{privat.traeger}"/>
       </div>
@@ -28,7 +28,7 @@
         </div>
         <div class="main-right">
           <Voffset v="2"/>
-          {s.anrede} {s.Vorname} {s.Zusatz || ''} {s.Name} hat hat die staatliche Berufsabschlussprüfung für Erzieherinnen/Erzieher nicht bestanden.
+          {s.anrede} {s.Vorname} {s.Zusatz || ''} {s.Name} hat hat die staatliche Berufsabschlussprüfung für Erzieherinnen/Erzieher bestanden.
           <Voffset v="2"/>
           <b>Bemerkungen</b>
           <br />{@html bemerkungen(hj)}
