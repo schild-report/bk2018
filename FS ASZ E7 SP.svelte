@@ -61,7 +61,7 @@
             zu führen.
             <Voffset v="1"/>
             Der Abschluss ist im Deutschen und Europäischen Qualifikationsrahmen dem Niveau {s.fachklasse.DQR_Niveau} zugeordnet.
-            <Voffset v="5"/>
+            <Voffset v="3"/>
             {schule.Ort}, den {datum(hj.ZeugnisDatum)}
             <Voffset v="3"/>
             <div class="flex-grid">
@@ -85,6 +85,10 @@
                 </div>
               </div>
             </div>
+            <Voffset v="3"/>
+            Der Abschluss der Fachschule entspricht der Rahmenvereinbarung über Fachschulen
+            (Beschluss der Kultusministerkonferenz vom 07.11.2002 in der jeweils geltenden Fassung)
+            und wird von allen Ländern in der Bundesrepublik Deutschland anerkannt.
           </div>
         </div>
       </div>

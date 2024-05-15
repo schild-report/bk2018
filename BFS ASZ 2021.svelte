@@ -119,7 +119,7 @@
                 Die Verordnung über die Ausbildung und Prüfung in den Bildungsgängen des Berufskollegs (Ausbildungs- und Prüfungsordnung Berufskolleg, APO-BK) vom 26. Mai 1999 (SGV. NRW. 223/BASS 13 – 33 Nr. 1.1).
               </li>
               <li>
-                Die Vereinbarung über Fachschulen (Beschluss der Kultusministerkonferenz vom 07. November 2002 in der jeweils geltenden Fassung).
+                Die Rahmenvereinbarung über die Berufsfachschulen (Beschluss der Kultusministerkonferenz vom 17.10.2013) in der jeweils geltenden Fassung.
               </li>
             </ul>
             <br>

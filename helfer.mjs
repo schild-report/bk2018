@@ -60,7 +60,7 @@ export const bg = (s, k) => s.fachklasse && s.fachklasse.Kennung && fkl[s.fachkl
 export const note = (note) => noten[parseInt(note)] || enoten[String(note)?.toUpperCase()]
 export const punkte2note = (p) => punkte[parseInt(p)]
 export const note2punkte = (n) => Object.keys(punkte).find(k=>punkte[k]===n);
-export const noteInWorten = (n) => n && n.split('').map(n => n === ',' ? '/' : zahlwort[parseInt(n)]).join(' ')
+export const noteInWorten = (n) => n && n.split('').map(n => n === ',' ? ',' : zahlwort[parseInt(n)]).join(' ').replace(' ,', ',')
 export const fremdsprache = (fach, fachklasse) => {
   try {
     return fach.Lernentw || fkl[fachklasse]['Fremdsprache'][fach.Fach_ID]

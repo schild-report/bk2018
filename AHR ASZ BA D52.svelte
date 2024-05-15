@@ -1,6 +1,6 @@
 {#each schueler as s (s.ID)}
   {#each aktHalbjahrFuer(s) as hj (hj.ID)}
-    <div class="page grid" orientation="landscape" size="A3" style="font-size: 93%;">
+    <div class="page grid" orientation="landscape" size="A3" style="font-size: 88%;">
       <div class="header">
         <Pageheader art="daten/asz.svg" logo="{privat.logo}" untertitel="{privat.untertitel}" traeger="{privat.traeger}"/>
       </div>
@@ -18,7 +18,7 @@
           In der Konferenz am {datum(hj.Konferenzdatum)} sind folgende Leistungen festgestellt worden:
           <Voffset v=".5"/>
           <Noten
-            noten={hj.noten}
+            noten={s.bk_abschluss_faecher}
             fachGliederungen={s.fachklasse.fach_gliederungen}
             fachklasse={s.fachklasse.Kennung}
             ger lernfeld

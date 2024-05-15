@@ -24,13 +24,14 @@
               ></Noten>
             </div>
             <hr />
-            {#if s.fachklasse.Kennung === '93-103-00'}
-              <Voffset v="1"/>
-              {s.anrede} {s.Vorname} {s.Zusatz || ''} {s.Name} hat ein
-              bildungsgangbegleitendes Praktikum in der Altenhilfe sowie
-              Eingliederungshilfe im Umfang von 16 Wochen absolviert.
-            {/if}
             <Voffset v="1"/>
+            {#if s.fachklasse.Kennung === '93-103-00'}
+              {s.Geschlecht === 3 ? "Der Schüler":"Die Schülerin"} hat ein bildungsgangbegleitendes Praktikum über 2 Tage/Woche absolviert. Dieses wurde mit der Note {hj.noten.find(f=>f.fach.FachKrz==="PRXSOA").NotenKrz} bewertet.
+              <Voffset v="1"/>
+            {:else if s.fachklasse.Kennung === '93-102-00'}
+              {s.Geschlecht === 3 ? "Der Schüler":"Die Schülerin"} hat ein bildungsgangbegleitendes Praktikum über 2 Tage/Woche absolviert. Dieses wurde mit der Note {hj.noten.find(f=>f.fach.FachKrz==="PRXSOA").NotenKrz} bewertet.
+              <Voffset v="1"/>
+            {/if}
             <b>Bemerkungen</b>
             <br />{@html bemerkungen(hj)}
           </div>
@@ -61,9 +62,18 @@
                   <br><b>mit Berechtigung zum Besuch der gymnasialen Oberstufe</b>
                 {/if}
                 <Voffset v="0.5"/>
-                erworben.
+                erworben. Der Abschluss ist im Deutschen und Europäischen Qualifikationsrahmen
+                <br>dem Niveau {s.Entlassart === '5G' ? 3:2} zugeordnet.
               </div>
             {:else}<Voffset v="3"/>
+            {/if}
+            {#if s.fachklasse.Kennung === "93-102-00"}
+            <Voffset v="1"/>
+            Mit dem Berufsabschluss hat {s.anrede} {s.Vorname} {s.Zusatz || ''} {s.Name}
+            gleichzeitig die erste Stufe der Qualifizierung nach QHB („Qualifizierung in der
+            Kindertagespflege - Qualifizierungshandbuch für die Bildung, Erziehung und
+            Betreuung von Kindern unter drei“) des Deutschen Jugendinstituts im
+            Umfang von 160 Unterrichtseinheiten (tätigkeitsvorbereitende Grundqualifizierung) erworben.
             {/if}
             <Voffset v="6"/>
             {schule.Ort}, den {datum(hj.ZeugnisDatum)}
@@ -116,7 +126,7 @@
                 Die Verordnung über die Ausbildung und Prüfung in den Bildungsgängen des Berufskollegs (Ausbildungs- und Prüfungsordnung Berufskolleg, APO-BK) vom 26. Mai 1999 (SGV. NRW. 223/BASS 13 – 33 Nr. 1.1).
               </li>
               <li>
-                Die Vereinbarung über Fachschulen (Beschluss der Kultusministerkonferenz vom 07. November 2002 in der jeweils geltenden Fassung).
+                Die Rahmenvereinbarung über die Berufsfachschulen (Beschluss der Kultusministerkonferenz vom 17.10.2013) in der jeweils geltenden Fassung.
               </li>
             </ul>
             <br>

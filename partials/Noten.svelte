@@ -162,6 +162,6 @@ berufsbezogenZuerst: Diese Einstellung legt fest, dass die gen. Fächer zuerst a
 }
 .lernfeld-lernbereich {
   padding-left: 2rem;
-  padding-bottom: 0;
+  padding-bottom: .5rem;
 }
 </style>

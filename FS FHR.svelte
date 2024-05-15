@@ -6,7 +6,8 @@
         <h5>Zeugnis der Fachhochschulreife</h5>
         Der allgemeine Prüfungsausschuss stellte in seiner Abschlusskonferenz am {datum(hj.Konferenzdatum)} folgende Leistungen fest<sup>1</sup>:
         <Voffset v="1"/>
-        Mathematisch-naturwissenschaftlicher-technischer Bereich: {note(s.bk_abschluss_faecher.find(f => f.fach.FachKrz === 'MFHR').NoteAbschluss)}
+        Muttersprachliche Kommunikation/Deutsch: {note(s.bk_abschluss_faecher.find(f => f.fach.FachKrz === 'DFHR')?.NoteAbschluss)}
+        <!-- Mathematisch-naturwissenschaftlicher-technischer Bereich: {note(s.bk_abschluss_faecher.find(f => f.fach.FachKrz === 'MFHR').NoteAbschluss)} -->
         <Voffset v="1"/>
         <b>{s.anrede} {s.Vorname} {s.Zusatz || ''} {s.Name}</b> hat die Fachhochschulreifeprüfung im Bildungsgang
           {bg(s, 'Zeugniskopf')} am {datum(hj.Konferenzdatum)} bestanden.
