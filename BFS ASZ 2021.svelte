@@ -38,7 +38,7 @@
           <div class="main-right">
             <Voffset v="2"/>
             <table class="table-noten">
-              {#each s.bk_abschluss_faecher.filter(f => f.fach.FachKrz.startsWith('AS')) as as}
+              {#each s.bk_abschluss_faecher.filter(f => f.fach.FachKrz.startsWith('AS')).sort((a,b) => a.FSortierung - b.FSortierung) as as}
                 <tr>
                   <td width="22%">{as.fach.Zeugnisbez}</td>
                   <td class="td-padding-extra">{findeFach(hj, as).Lernentw}</td>

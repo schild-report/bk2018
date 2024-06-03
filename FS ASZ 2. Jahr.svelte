@@ -36,7 +36,7 @@
             am {hj.noten.map(n => n.fach.FachKrz === 'KO' ? n.Lernentw : null).join('')} bestanden.
             <Voffset v="2"/>
             <table class="table-noten">
-              {#each hj.noten.filter(f => f.fach.FachKrz.startsWith('AS')).sort((a,b) => a.FSortierung > b.FSortierung ? 1:-1) as as}
+              {#each hj.noten.filter(f => f.fach.FachKrz.startsWith('AS')).sort((a,b) => a.FSortierung - b.FSortierung) as as}
                 <tr>
                   <td width="22%">{as.fach.Zeugnisbez}</td>
                   <td class="td-padding-extra">{as.Lernentw}</td>
