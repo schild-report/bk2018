@@ -116,11 +116,11 @@ hr {
         Reihenfolge dieser Prüfungen festlegen.
         <Voffset v="1" />
         Abgabe der Meldung zu mündlichen Prüfungen bis zum
-        <b>04.06.2023, 12:00 Uhr</b>
+        <b>12.06.2023, 12:00 Uhr</b>
         im Sekretariat (APO BK, Anlage D, VV zu §21.4).
         <Voffset v="1" />
         <div class="flex-grid">
-          <div class="col">{schule.Ort}, den {"02.06.2023"||datum(hj.Konferenzdatum)}</div>
+          <div class="col">{schule.Ort}, den 11.06.2024</div>
           <div class="col text-center klein">
             <Voffset v="3" />
             <hr />
