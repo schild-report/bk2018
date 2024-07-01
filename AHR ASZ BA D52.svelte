@@ -15,7 +15,7 @@
           Fachbereich Gesundheit und Soziales mit dem fachlichen Schwerpunkt
           Pädagogik.
           <Voffset v="1"/>
-          In der Konferenz am {datum(hj.Konferenzdatum)} sind folgende Leistungen festgestellt worden:
+          In der Konferenz am {hj.noten.find(f => f.fach.FachKrz === 'KO')?.Lernentw} sind folgende Leistungen festgestellt worden:
           <Voffset v=".5"/>
           <Noten
             noten={s.bk_abschluss_faecher}
@@ -121,7 +121,14 @@ Die *Fächer* BL und BP Gesamt sind in einer anderen Fächergruppe als das Kollo
   import Voffset from './partials/Voffset.svelte'
   import Noten from './partials/Noten.svelte'
   export let schueler, schule, privat, jahr, abschnitt
-  const aktHalbjahrFuer = s => s.abschnitte.filter(a => a.Jahr === jahr && a.Abschnitt === abschnitt)
+  const aktHalbjahrFuer = s => {
+    const hj = s.abschnitte.filter(a => a.Jahr === jahr && a.Abschnitt === abschnitt);
+    const memo = hj[0].noten?.find(n=>n.fach.Zeugnisbez.startsWith("Projekt"))?.Lernentw;
+    if (memo !== undefined && s.bk_abschluss_faecher.find(f=>f.fach.FachKrz?.startsWith("Projekt")))
+      s.bk_abschluss_faecher.find(f=>f.fach.FachKrz.startsWith("Projekt")).Lernentw = memo;
+    return hj;
+  }
+
 </script>
 
 <style>
