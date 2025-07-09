@@ -52,7 +52,17 @@
             zu führen.
             <Voffset v="1"/>
             Der Abschluss ist im Deutschen und Europäischen Qualifikationsrahmen dem Niveau {s.fachklasse.DQR_Niveau} zugeordnet.
-            {#if s.Entlassart!=='5A'}
+            {#if s.Entlassart==='3D' || s.Entlassart==='5D'}
+              <div class="text-center">
+                <Voffset v="2"/>
+                {s.anrede} {s.Vorname} {s.Zusatz || ''} {s.Name} hat den
+                <Voffset v="0.5"/>
+                <b>Erweiterten Ersten Schulabschluss erworben</b>
+                <Voffset v="0.5"/>
+                Der Abschluss ist im Deutschen und Europäischen Qualifikationsrahmen
+                <br>dem Niveau 2 zugeordnet.
+              </div>
+            {:else if s.Entlassart!=='5A'}
               <div class="text-center">
                 <Voffset v="2"/>
                 {s.anrede} {s.Vorname} {s.Zusatz || ''} {s.Name} hat den
@@ -63,7 +73,7 @@
                 {/if}
                 <Voffset v="0.5"/>
                 erworben. Der Abschluss ist im Deutschen und Europäischen Qualifikationsrahmen
-                <br>dem Niveau {s.Entlassart === '5G' ? 3:2} zugeordnet.
+                <br>dem Niveau {s.Entlassart === '5G' ? 3:3} zugeordnet.
               </div>
             {:else}<Voffset v="3"/>
             {/if}
@@ -75,9 +85,9 @@
             Betreuung von Kindern unter drei“) des Deutschen Jugendinstituts im
             Umfang von 160 Unterrichtseinheiten (tätigkeitsvorbereitende Grundqualifizierung) erworben.
             {/if}
-            <Voffset v="6"/>
+            <Voffset v="5"/>
             {schule.Ort}, den {datum(hj.ZeugnisDatum)}
-            <Voffset v="6"/>
+            <Voffset v="5"/>
             <div class="flex-grid">
               <div class="col">
                 <hr />
@@ -163,6 +173,8 @@
 
 <style>
   @import 'css/main.css';
+  @import 'css/a3-landscape.css';
+
   .td-padding-extra {
     padding: 2mm 0 2mm 0;
   }

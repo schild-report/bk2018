@@ -133,5 +133,5 @@ Die *Fächer* BL und BP Gesamt sind in einer anderen Fächergruppe als das Kollo
 
 <style>
   @import 'css/main.css';
-  @import 'css/a3-landscape.css'
+  @import 'css/a3-landscape.css';
 </style>
