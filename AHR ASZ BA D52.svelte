@@ -1,6 +1,6 @@
 {#each schueler as s (s.ID)}
   {#each aktHalbjahrFuer(s) as hj (hj.ID)}
-    <div class="page grid" orientation="landscape" size="A3" style="font-size: 88%;">
+    <div class="page grid" orientation="landscape" size="A3" style="font-size: 85%;">
       <div class="header">
         <Pageheader art="daten/asz.svg" logo="{privat.logo}" untertitel="{privat.untertitel}" traeger="{privat.traeger}"/>
       </div>
@@ -63,8 +63,9 @@
           </div>
         </div>
       </div>
+      <Voffset v="1" />
       <div class="footer-grid klein eng">
-        <div class="header">
+        <div class="header" style="text-align: right;">
           Schulnummer: {schule.SchulNr}
           <hr />
           <Voffset v="1"/>

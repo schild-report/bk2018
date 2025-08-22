@@ -35,14 +35,14 @@ berufsbezogenZuerst: Diese Einstellung legt fest, dass die gen. Fächer zuerst a
       </td>
     </tr>
     {#each lernbereicheUndFaecher(gruppenFaecher) as [lernbereich, faecher]}
-      {#if lernbereich != faecher[0].fach.Zeugnisbez}
+      {#if lernbereich != faecher[0].fach.Zeugnisbez && lernbereich !== 'Projektarbeit:'}
         <tr><td colspan="2" class="{lernfeld ? '' : 'fach-bezeichnung'}">{lernbereich}</td></tr>
       {/if}
       {#each faecher as f (f.ID)}
         {#if f.fach.AufZeugnis === '+'}
           <tr>
-            <td class="{lernfeld ? '' : 'fach-bezeichnung'} {lernbereich != faecher[0].fach.Zeugnisbez ? 'lernfeld-lernbereich' : ''}" style="display: inline-flex">
-              {#if f.fach.Zeugnisbez.startsWith("Projekt")}
+            <td class="{lernfeld ? '' : 'fach-bezeichnung'} {lernbereich != faecher[0].fach.Zeugnisbez && lernbereich !== 'Projektarbeit:' ? 'lernfeld-lernbereich' : ''}" style="display: inline-flex">
+              {#if f.fach.Zeugnisbez.startsWith("XProjekt")}
                 <!-- Funktioniert nicht mit Abschlussnoten, da diese keine Spalte `Lernentw` haben -->
                 {f.Lernentw}
               {:else}
